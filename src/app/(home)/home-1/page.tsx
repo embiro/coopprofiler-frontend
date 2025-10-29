@@ -1,31 +1,32 @@
 import React from 'react';
 import Hero from './component/Hero';
-import Features from './component/Features';
+import SocialProof from './component/SocialProof';
+import AudienceRouting from './component/AudienceRouting';
 import Step from './component/Step';
-import Pricing from './component/Pricing';
-import Counter from './component/Counter';
+import Features from './component/Features';
+import MobileAppShowcase from './component/MobileAppShowcase';
 import Testimonial from './component/Testimonial';
-
 import CTA from './component/CTA';
 
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Index | Landinger - Multipurpose Tailwind CSS Landing Page Template',
+  title: 'Home | CoopProfiler - Powering Cooperative Member Value, Legacy and Sustainability',
+  description:
+    'A comprehensive platform designed to empower cooperatives with data-driven insights, streamlined operations, and sustainable growth strategies.',
 };
 
 const Page = () => {
   return (
     <>
-      
       <Hero />
-      <Features />
+      <SocialProof />
+      <AudienceRouting />
       <Step />
-      <Pricing />
-      <Counter />
+      <Features />
+      <MobileAppShowcase />
       <Testimonial />
       <CTA />
-      
     </>
   );
 };

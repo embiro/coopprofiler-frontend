@@ -1,201 +1,180 @@
-
-
 import Link from 'next/link';
 import React from 'react';
-import Logo from '@/assets/images/logo/landinger-light.svg';
+import Image from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import { currentYear } from '@/component/CurrentYear';
-import Image from 'next/image';
 
 const Footer = () => {
   return (
     <>
       <footer className="bg-dark pt-15 pb-10 md:pt-17.5 md:pb-10 lg:pt-25 lg:pb-10 overflow-hidden">
         <div className="container">
-          <div className="grid md:grid-cols-2 md:gap-12.5 lg:grid-cols-8 lg:gap-5 gap-10">
-            <div className="lg:col-span-3">
-              <Link href="/home-1">
-                <Image src={Logo} alt="" className="h-11" />
+          <div className="grid md:grid-cols-2 md:gap-12.5 lg:grid-cols-5 lg:gap-10 gap-10">
+            {/* Company Column */}
+            <div className="lg:col-span-1">
+              <Link href="/" className="inline-block mb-4">
+                <Image
+                  src="/images/logo-white.png"
+                  alt="CoopProfiler"
+                  width={150}
+                  height={40}
+                  className="h-10 w-auto"
+                />
               </Link>
-              <p className="mt-2.5 text-white">Trusted solutions for your growing business</p>
-              <div className="mt-10 flex items-center gap-3.5 md:mt-15">
-                <h2 className="md:text-5.5xl text-4xl text-white">4.8</h2>
-                <div>
-                  <div className="mb-1 flex gap-1.5">
-                    <IconifyIconClient icon="tabler:star-filled" className="text-xl text-orange-300" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-xl text-orange-300" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-xl text-orange-300" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-xl text-orange-300" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-xl text-orange-300" />
-                  </div>
-                  <div className="text-white">Best rated company</div>
-                </div>
-              </div>
+              <p className="mt-2.5 text-white text-sm">
+                Powering Cooperative Member Value, Legacy and Sustainability.
+              </p>
             </div>
-            <div className="lg:col-span-3">
-              <h4 className="text-1.5xl mb-5 text-white">Pages</h4>
-              <div className="grid grid-cols-2 md:gap-12.5 lg:gap-5 gap-2.5">
-                <div>
-                  <ul className="flex flex-col justify-start gap-2.5 leading-normal">
-                    <li>
-                      <Link href="/home-1" className="text-primary">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/home-2"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Home 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/home-3"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Home 3
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/product-1"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Product
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/product-2"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Product 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/product-3"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Product 3
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul className="flex flex-col justify-start gap-2.5 leading-normal">
-                    <li>
-                      <Link
-                        href="/about"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/request-a-demo"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Request a Demo
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/blog"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/contact"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Contact
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/faqs"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        FAQs
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/privacy-policy"
-                        className="hover:text-primary text-white transition-all duration-300"
-                      >
-                        Privacy
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+
+            {/* Solutions Column */}
+            <div className="lg:col-span-1">
+              <h4 className="text-1.5xl mb-5 text-white font-semibold">Solutions</h4>
+              <ul className="flex flex-col justify-start gap-2.5 leading-normal">
+                <li>
+                  <Link
+                    href="/solutions/primary-cooperatives"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    For Primary Cooperatives
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solutions/apex-bodies"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    For Apex Bodies (STAs)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solutions/partners"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    For Partners
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <div className="lg:col-span-2">
-              <h4 className="text-1.5xl mb-5 text-white">Contact us</h4>
-              <div>
-                <p className="mb-3.75 text-sm text-white md:text-base">
-                  1234 Innovation drive, suite 100, tech city, CA 94043
-                </p>
-                <p className="hover:text-primary mb-3.75 text-sm text-white transition-all duration-300 md:text-base">
-                  <Link href="">(123) 456-7890</Link>
-                </p>
-                <p className="hover:text-primary mb-3.75 text-sm text-white underline transition-all duration-300 md:text-base">
-                  <Link href="">example@gmail.com</Link>
-                </p>
-                <div className="mt-7.5 flex items-center gap-2.5 md:mt-12.5">
-                  <div className="flex items-center">
-                    <p className="text-lg text-white">👋 Follow Us:</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <Link href="" className="flex">
-                      <IconifyIconClient
-                        icon="tabler:brand-meta"
-                        className="size-5 text-white transform transition duration-300 hover:scale-110"
-                      />
-                    </Link>
-                    <Link href="" className="flex">
-                      <IconifyIconClient
-                        icon="tabler:brand-dribbble"
-                        className="size-5 text-white transform transition duration-300 hover:scale-110"
-                      />
-                    </Link>
-                    <Link href="" className="flex">
-                      <IconifyIconClient
-                        icon="tabler:brand-linkedin"
-                        className="size-5 text-white transform transition duration-300 hover:scale-110"
-                      />
-                    </Link>
-                    <Link href="" className="flex">
-                      <IconifyIconClient
-                        icon="tabler:brand-x"
-                        className="size-5 text-white transform transition duration-300 hover:scale-110"
-                      />
-                    </Link>
-                  </div>
+
+            {/* Resources Column */}
+            <div className="lg:col-span-1">
+              <h4 className="text-1.5xl mb-5 text-white font-semibold">Resources</h4>
+              <ul className="flex flex-col justify-start gap-2.5 leading-normal">
+                <li>
+                  <Link
+                    href="/faqs"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    Help Center / FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    About Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal Column */}
+            <div className="lg:col-span-1">
+              <h4 className="text-1.5xl mb-5 text-white font-semibold">Legal</h4>
+              <ul className="flex flex-col justify-start gap-2.5 leading-normal">
+                <li>
+                  <Link
+                    href="/terms-and-conditions"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    Terms and Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/privacy-policy"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Company + Social Links Column */}
+            <div className="lg:col-span-1">
+              <h4 className="text-1.5xl mb-5 text-white font-semibold">Company</h4>
+              <ul className="flex flex-col justify-start gap-2.5 leading-normal mb-7.5">
+                <li>
+                  <Link
+                    href="https://www.tui.ug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary text-white transition-all duration-300 text-sm"
+                  >
+                    Visit TUI Website
+                  </Link>
+                </li>
+              </ul>
+
+              {/* Social Links */}
+              <div className="mt-7.5">
+                <p className="text-white text-sm mb-4">Follow Us:</p>
+                <div className="flex gap-4">
+                  <Link href="" className="flex" aria-label="Facebook">
+                    <IconifyIconClient
+                      icon="tabler:brand-meta"
+                      className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
+                    />
+                  </Link>
+                  <Link href="" className="flex" aria-label="LinkedIn">
+                    <IconifyIconClient
+                      icon="tabler:brand-linkedin"
+                      className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
+                    />
+                  </Link>
+                  <Link href="" className="flex" aria-label="Twitter/X">
+                    <IconifyIconClient
+                      icon="tabler:brand-x"
+                      className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
+                    />
+                  </Link>
+                  <Link href="" className="flex" aria-label="Instagram">
+                    <IconifyIconClient
+                      icon="tabler:brand-instagram"
+                      className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
+
           <hr className="border-top mt-7.5 border-neutral-700 md:mt-15" />
-          <div className="flex justify-between pt-7.5 md:pt-10">
-            <div className="text-sm text-white">
-              © {currentYear}{' '}
-              <Link href="" className="underline">
-                Landinger.
-              </Link>
+
+          <div className="flex flex-col md:flex-row justify-between items-center pt-7.5 md:pt-10 gap-4">
+            <div className="text-sm text-white text-center md:text-left">
+              © {currentYear} CoopProfiler. All rights reserved.
             </div>
-            <div className="text-sm text-white">
-              Crafted with ❤️ By{' '}
-              <Link href="" className="underline">
-                Coderthemes
+            <div className="text-sm text-white text-center md:text-right">
+              Powered by{' '}
+              <Link
+                href="https://www.uhuruinstitute.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary"
+              >
+                TUI
               </Link>
             </div>
           </div>

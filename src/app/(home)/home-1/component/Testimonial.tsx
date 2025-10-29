@@ -1,16 +1,45 @@
-import Image from 'next/image';
 import React from 'react';
-import review1 from '@/assets/images/review/1.png';
-import review2 from '@/assets/images/review/2.png';
-import client1 from '@/assets/images/client/1.svg';
-import client2 from '@/assets/images/client/2.svg';
-import client4 from '@/assets/images/client/4.svg';
 import IconifyIconClient from '@/component/IconifyIconClient';
+
+type TestimonialType = {
+  quote: string;
+  author: string;
+  role: string;
+  organization: string;
+  rating: number;
+};
+
+const testimonialsData: TestimonialType[] = [
+  {
+    quote:
+      'CoopProfiler has transformed how we manage member data and compliance. The centralized database has saved us countless hours and reduced errors significantly.',
+    author: 'Sarah Mukasa',
+    role: 'Operations Manager',
+    organization: 'Kampala Primary Cooperative',
+    rating: 5,
+  },
+  {
+    quote:
+      'The offline data collection feature is a game-changer for our field teams. We can now collect member information even in remote areas with poor connectivity.',
+    author: 'David Okello',
+    role: 'Data Collection Lead',
+    organization: 'Northern Region Apex Body',
+    rating: 5,
+  },
+  {
+    quote:
+      'Resilience profiling has helped us make better strategic decisions. The insights we get from CoopProfiler enable us to proactively address member needs and ensure sustainable growth.',
+    author: 'Amina Namukasa',
+    role: 'Executive Director',
+    organization: 'Eastern Cooperative Union',
+    rating: 5,
+  },
+];
 
 const Testimonial = () => {
   return (
     <>
-      <section className="lg:py-25 md:py-22.5 py-17.5">
+      <section className="bg-white lg:py-25 md:py-22.5 py-17.5">
         <div className="container">
           <div
             className="text-center mb-10"
@@ -27,73 +56,39 @@ const Testimonial = () => {
           </div>
 
           <div className="grid md:grid-cols-3 md:gap-7.5 gap-5">
-            <div
-              className="relative flex md:h-125 h-80 overflow-hidden rounded-2xl"
-              data-aos="fade-up"
-              data-aos-duration="600"
-              data-aos-easing="ease-in-out"
-            >
-              <Image src={review1} alt="Client Img 1" className="size-full object-cover" />
+            {testimonialsData.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white border border-neutral-200 rounded-2xl lg:p-10 p-7.5 flex flex-col hover:border-primary hover:shadow-lg transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+                data-aos-duration="600"
+                data-aos-easing="ease-in-out"
+              >
+                {/* Rating Stars */}
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <IconifyIconClient
+                      key={i}
+                      icon="tabler:star-filled"
+                      className="text-yellow-400 text-xl"
+                    />
+                  ))}
+                </div>
 
-              <div className="absolute inse-0 w-full h-full opacity-80 z-20 bg-linear-180  from-transparent to-black"></div>
+                {/* Quote */}
+                <p className="text-base lg:text-lg mb-6 text-neutral-700 flex-grow">
+                  "{testimonial.quote}"
+                </p>
 
-              <div className="absolute lg:p-7.5 p-5 h-full flex flex-col items-start justify-between z-20">
-                <Image src={client1} alt="" className="h-7.5" />
-                <h3 className="text-white text-xl">
-                  "Efficiency redefined, productivity amplified."
-                </h3>
-              </div>
-            </div>
-
-            <div
-              className="relative flex md:h-125 h-80 overflow-hidden rounded-2xl"
-              data-aos="fade-up"
-              data-aos-delay="150"
-              data-aos-duration="600"
-              data-aos-easing="ease-in-out"
-            >
-              <div className="bg-primary absolute lg:p-7.5 p-5 size-full flex flex-col items-start justify-between ">
-                <Image src={client4} alt="" className="h-7.5" />
-                <div>
-                  <div className="flex gap-1.5">
-                    <IconifyIconClient icon="tabler:star-filled" className="text-yellow-400 text-xl" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-yellow-400 text-xl" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-yellow-400 text-xl" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-yellow-400 text-xl" />
-                    <IconifyIconClient icon="tabler:star-filled" className="text-yellow-400 text-xl" />
-                  </div>
-
-                  <p className="lg:text-xl text-lg my-3.5">
-                    Landinger has revolutionized the way we operate. The automated reporting feature
-                    alone has saved us countless hours each month.
-                  </p>
-
-                  <div className="review-meta-wrap">
-                    <h5 className="text-1.5xl text-neutral-700">John Doe</h5>
-                    <p className="text-sm">SEO expert at Coderthemes</p>
-                  </div>
+                {/* Author Info */}
+                <div className="border-t border-neutral-200 pt-5">
+                  <h5 className="text-1.5xl font-semibold text-dark mb-1">{testimonial.author}</h5>
+                  <p className="text-sm text-neutral-600">{testimonial.role}</p>
+                  <p className="text-sm text-primary font-medium">{testimonial.organization}</p>
                 </div>
               </div>
-            </div>
-
-            <div
-              className="relative flex md:h-125 h-80 overflow-hidden rounded-2xl"
-              data-aos="fade-up"
-              data-aos-delay="200"
-              data-aos-duration="600"
-              data-aos-easing="ease-in-out"
-            >
-              <Image src={review2} alt="Client Img 1" className="size-full object-cover" />
-
-              <div className="absolute inse-0 w-full h-full opacity-80 z-20 bg-linear-180  from-transparent to-black"></div>
-
-              <div className="absolute lg:p-7.5 p-5 h-full flex flex-col items-start justify-between z-20">
-                <Image src={client2} alt="" className="h-7.5" />
-                <h3 className="text-white text-xl">
-                  "Person she control of to beginnings view looked eyes Than continues."{' '}
-                </h3>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

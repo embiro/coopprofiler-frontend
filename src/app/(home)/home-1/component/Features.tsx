@@ -1,156 +1,100 @@
-import Image from 'next/image';
 import React from 'react';
-import about1 from '@/assets/images/about/1.png';
-import about2 from '@/assets/images/element/2.svg';
-import Link from 'next/link';
 import IconifyIconClient from '@/component/IconifyIconClient';
+
+type BenefitType = {
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+};
+
+const benefitsData: BenefitType[] = [
+  {
+    title: 'Cooperative Statistics and Compliance',
+    description:
+      'Automate compliance tracking and regulatory reporting to stay ahead of requirements and reduce administrative burden.',
+    icon: 'solar:shield-check-bold',
+    features: [
+      'Automated compliance tracking',
+      'Regulatory report generation',
+      'Audit trail management',
+      'Real-time compliance monitoring',
+    ],
+  },
+  {
+    title: 'Unify Your Data, Unlock Your Insights',
+    description:
+      'A centralized cloud-based database that serves as a single source of truth for all member data, operational metrics, and organizational information across your cooperative network.',
+    icon: 'solar:database-bold',
+    features: [
+      'Unified member profiles',
+      'Cross-cooperative data sharing',
+      'Secure cloud storage',
+      'Real-time data synchronization',
+    ],
+  },
+  {
+    title: 'Resilience Profiling',
+    description:
+      'Build stronger, more sustainable cooperatives through comprehensive member profiling and analytics that inform strategic decision-making and growth planning.',
+    icon: 'solar:users-group-two-rounded-bold',
+    features: [
+      'Detailed member analytics',
+      'Engagement tracking',
+      'Demographic insights',
+      'Custom reporting tools',
+    ],
+  },
+];
 
 const Features = () => {
   return (
     <>
-      <section className="lg:py-25 md:py-22.5 py-17.5">
+      <section className="lg:py-25 md:py-22.5 py-17.5 bg-white">
         <div className="container">
           <div className="lg:mb-12.5 text-center mb-7.5">
+            <div className="bg-primary py-0.5 px-3.75 rounded-full font-medium text-sm inline-flex mb-2.5 text-dark">
+              Key Benefits{' '}
+            </div>
             <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              Key features that save time
+              Everything you need to succeed
             </h2>
-            <p className="text-base mb-2.5">
-              Discover our powerful tools designed to streamline your workflow and boost
-              productivity.
+            <p className="text-base mb-2.5 max-w-2xl mx-auto">
+              Powerful tools designed specifically for cooperative management and growth
             </p>
           </div>
 
-          <div className="grid md:grid-cols-8 lg:gap-12.5 gap-5 items-center">
-            <div
-              className="md:col-span-5"
-              data-aos="fade-up"
-              data-aos-easing="linear"
-              data-aos-duration="300"
-            >
-              <div className="bg-white rounded-2xl lg:p-12.5 h-full pe-0 p-4">
-                <div className="grid md:grid-cols-2 lg:flex-row lg:gap-15 flex-col gap-7.5">
-                  <div>
-                    <div className="md:size-15 size-12.5 mb-5 bg-primary rounded-full flex items-center justify-center">
+          <div className="grid md:grid-cols-3 lg:gap-10 gap-7.5">
+            {benefitsData.map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl lg:p-10 p-7.5 border border-neutral-200 hover:border-primary hover:shadow-lg transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+                data-aos-duration="600"
+                data-aos-easing="ease-in-out"
+              >
+                <div className="md:size-15 size-12.5 mb-5 bg-primary/10 rounded-full flex items-center justify-center">
+                  <IconifyIconClient
+                    icon={benefit.icon}
+                    className="lg:size-7.5 size-6.5 text-dark"
+                  />
+                </div>
+                <h3 className="lg:text-2.5xl text-1.5xl mb-2.5">{benefit.title}</h3>
+                <p className="text-base mb-5 text-neutral-600">{benefit.description}</p>
+                <div className="gap-3.5 flex flex-col">
+                  {benefit.features.map((feature, idx) => (
+                    <div key={idx} className="flex gap-2.5">
                       <IconifyIconClient
-                        icon="solar:chart-square-linear"
-                        className="lg:size-7.5 size-6.5 text-dark"
+                        icon="tabler:circle-check"
+                        className="size-6 text-primary flex-shrink-0"
                       />
+                      <div className="text-base">{feature}</div>
                     </div>
-                    <h3 className="lg:text-2.5xl md:text-2.5xl text-1.5xl mb-2.5">
-                      Generate detailed reports with just a few clicks.
-                    </h3>
-                    <p className="text-base lg:mt-35 md:mt-25 mt-5">
-                      Discover our powerful tools designed to streamline your workflow and boost
-                      productivity.
-                    </p>
-                  </div>
-
-                  <div className="flex items-end relative">
-                    <Image src={about1} alt="" className="rounded-2xl flex" />
-                    <Image
-                      src={about2}
-                      alt=""
-                      className="absolute md:block md:-start-7.5 bottom-auto lg:top-22.5 hidden "
-                    />
-                  </div>
+                  ))}
                 </div>
               </div>
-            </div>
-
-            <div
-              className="md:col-span-3"
-              data-aos="fade-up"
-              data-aos-easing="linear"
-              data-aos-duration="300"
-            >
-              <div className="flex lg:p-12.5 p-5 bg-dark rounded-2xl lg:gap-24 gap-15 flex-col">
-                <div>
-                  <div className="md:size-15 size-12.5 mb-5 bg-primary rounded-full flex items-center justify-center">
-                    <IconifyIconClient icon="solar:bolt-linear" className="lg:size-7.5 size-6.5 text-dark" />
-                  </div>
-                  <h4 className="text-white lg:text-2.5xl md:text-2.5xl text-1.5xl mb-2.5">
-                    Work seamlessly with your team, no matter where they are
-                  </h4>
-                </div>
-                <div>
-                  <div className="gap-3.5 flex flex-col">
-                    <div className="flex gap-2.5">
-                      <IconifyIconClient icon="tabler:circle-check" className="size-6 text-primary" />
-                      <div className="text-white text-base">Live editing</div>
-                    </div>
-                    <div className="flex gap-2.5">
-                      <IconifyIconClient icon="tabler:circle-check" className="size-6 text-primary" />
-                      <div className="text-white text-base">Instant feedback </div>
-                    </div>
-                    <div className="flex gap-2.5">
-                      <IconifyIconClient icon="tabler:circle-check" className="size-6 text-primary" />
-                      <div className="text-white text-base">Task assignments </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="mt-10 bg-primary rounded-2xl lg:p-10 p-5"
-            data-aos="fade-up"
-            data-aos-duration="500"
-            data-aos-easing="ease-in-out"
-          >
-            <div className="grid md:grid-cols-3 lg:gap-10  gap-5">
-              <div>
-                <h5 className="md:text-2.5xl text-1.5xl">
-                  Generate detailed reports with just a few clicks.
-                </h5>
-              </div>
-
-              <div>
-                <div className="lg:flex items-center gap-5">
-                  <h6 className="lg:text-5.5xl md:text-4.6xl text-3.4xl">99%</h6>
-                  <div className="fs-base">Track and analyze business reports</div>
-                </div>
-              </div>
-
-              <div>
-                <div className="lg:flex items-center gap-5">
-                  <h6 className="lg:text-5.5xl md:text-4.6xl text-3.4xl">4.8</h6>
-                  <div className="gap-1 flex-col flex">
-                    <div className="flex gap-1.5">
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
-
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
-
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
-
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
-
-                      <IconifyIconClient
-                        icon="tabler:star-half-filled"
-                        className="lg:size-6 size-5.5 text-dark"
-                      />
-                    </div>
-                    <div className="fs-base">Best rated company</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="flex md:justify-center gap-2.5 mt-10 flex-wrap justify-start"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"
-          >
-            <IconifyIconClient icon="solar:dialog-2-bold" className="size-5.5" />
-
-            <div className="text-dark fs-base">Contact our team for more information.</div>
-
-            <Link href="/contact" className="flex items-center gap-1 text-dark font-medium">
-              <div className="underline gap-1">Let's chat</div>
-              <IconifyIconClient icon="tabler:arrow-right" className="size-6" />
-            </Link>
+            ))}
           </div>
         </div>
       </section>

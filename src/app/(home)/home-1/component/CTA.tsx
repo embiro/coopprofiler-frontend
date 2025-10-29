@@ -1,49 +1,45 @@
 import React from 'react';
-import Image from 'next/image';
-import about from '@/assets/images/about/5.png';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CTA = () => {
   return (
     <>
-      <section className="lg:py-25 md:py-22.5 pb-17.5">
+      <section className="bg-white lg:py-25 md:py-22.5 py-17.5">
         <div className="container">
-          <div className="relative">
-            <Image
-              src={about}
-              alt=""
-              className="rounded-2xl lg:h-full w-full h-81.5  object-cover"
-            />
-            <div className="absolute top-0">
-              <div
-                className="grid lg:grid-cols-2 lg:gap-40 gap-5 lg:p-12.5 lg:pb-75 p-5 pb-12.5"
-                data-aos="fade-up"
-                data-aos-duration="600"
-                data-aos-easing="ease-in-out"
-              >
-                <div>
-                  <h2 className="text-white lg:text-2.5xl md:text-2.5xl text-2xl mb-2.5">
-                    Be the first to know about new features,improvements, and special promotions.
-                  </h2>
-                </div>
+          <div className="relative rounded-2xl overflow-hidden">
+            {/* Background Image - Placeholder: Replace with your chosen image */}
+            <div className="absolute inset-0">
+              <Image
+                src="/images/people_using_tech.jpg"
+                alt="CTA Background"
+                fill
+                className="object-cover"
+              />
+              {/* Dark overlay for text readability */}
+              <div className="absolute inset-0 bg-dark/70" />
+            </div>
 
-                <div>
-                  <form className="flex md:gap-5 md:flex-row gap-2.5 flex-col justify-between">
-                    <input
-                      className="py-2.5 px-5 rounded-2xl w-full bg-white border-neutral-200 h-14"
-                      placeholder="info@example.com"
-                    />
-                    <div className="text-center">
-                      <Link
-                        href=""
-                        className="md:h-14 py-3.5 px-7.5 inline-flex items-center text-center bg-dark font-medium rounded-2xl text-white transition-all duration-300 hover:text-primary"
-                      >
-                        Submit
-                      </Link>
-                    </div>
-                  </form>
-                </div>
-              </div>
+            {/* Content */}
+            <div
+              className="relative z-10 text-center max-w-3xl mx-auto lg:p-20 md:p-15 p-10"
+              data-aos="fade-up"
+              data-aos-duration="600"
+              data-aos-easing="ease-in-out"
+            >
+              <h2 className="text-white lg:text-5.5xl md:text-4.6xl text-3.4xl mb-5">
+                Ready to Build a More Resilient Cooperative?
+              </h2>
+              <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+                Join cooperatives across the region using CoopProfiler to drive sustainable growth
+                and informed decision-making.
+              </p>
+              <Link
+                href="/pricing-1"
+                className="inline-flex items-center gap-2 py-4 md:px-10 px-8 bg-primary text-dark font-semibold rounded-2xl text-lg transition-all duration-300 hover:bg-primary/90 hover:scale-105 shadow-lg"
+              >
+                Get Started
+              </Link>
             </div>
           </div>
         </div>

@@ -7,31 +7,40 @@ import 'aos/dist/aos.css';
 import './style.css';
 
 const inter = Inter({
-    variable: '--font-inter',
-    subsets: ['latin'],
+  variable: '--font-inter',
+  subsets: ['latin'],
 });
 
-
 export const metadata: Metadata = {
-    title: 'Landinger - Multipurpose Tailwind CSS Landing Page Template',
-    description: 'Landinger - Full-featured, professional-looking software, saas and startup website template. Multipurpose Tailwind CSS Landing Page Template',
-    keywords: 'saas, saas template, site template, software, startup, digital product, html5, tailwindcss landing, marketing, tailwindcss, agency, digital agency, it solutions, vitejs'
+  title: 'CoopProfiler - Powering Cooperative Member Value, Legacy and Sustainability',
+  description:
+    'The all-in-one platform for cooperatives to collect, analyze, and report on member and business data for informed decision-making and sustainable growth.',
+  keywords:
+    'cooperative, cooperative management, member data, compliance, data analytics, cooperative software, apex bodies, primary cooperatives, resilience profiling, cooperative platform',
+  icons: {
+    icon: '/images/logo-white.png',
+    shortcut: '/images/logo-white.png',
+    apple: '/images/logo-white.png',
+  },
 };
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en">
-            <head>
-                <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&display=swap" rel="stylesheet" />
-            </head>
-            <body className={inter.variable}>
-                {children}
-                <AppProvidersWrapper />
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en">
+      <head>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={inter.variable}>
+        {children}
+        <AppProvidersWrapper />
+      </body>
+    </html>
+  );
 }
