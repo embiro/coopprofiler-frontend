@@ -1,94 +1,171 @@
 import React from 'react';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import Link from 'next/link';
-import CountUpClient from '@/component/CountUpClient';
 
 const Value = () => {
   return (
     <>
-      <section className="bg-body-bg lg:py-25 md:py-22.5 py-17.5">
+      {/* The Problem Section */}
+      <section className="bg-white lg:py-25 md:py-22.5 py-17.5">
         <div className="container">
-          <div className="grid lg:grid-cols-2 lg:gap-12.5 gap-5">
+          <div
+            className="text-center mb-12.5"
+            data-aos="fade-up"
+            data-aos-duration={600}
+            data-aos-easing="ease-in-out"
+          >
+            <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
+              For Decades, The Cooperative Sector Has Faced Critical Challenges
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12.5">
             <div
-              className="bg-dark lg:p-12.5 p-5 rounded-2xl"
+              className="bg-body-bg p-7.5 rounded-2xl"
               data-aos="fade-up"
-              data-aos-duration={600}
+              data-aos-delay={50}
+              data-aos-duration={500}
               data-aos-easing="ease-in-out"
             >
-              <div>
-                <h2 className="mb-2.5 md:text-4xl text-2.6xl text-white">Our core values</h2>
-                <p className="mb-2.5 text-white">
-                  Welcome to Landinger, where innovation meets efficiency. Our cloud-based software
-                  solutions.
-                </p>
+              <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
+                <IconifyIconClient icon="tabler:files-off" className="size-7 text-primary" />
               </div>
-              <div className="grid md:grid-cols-2 md:gap-5 gap-7.5 md:mt-20 md:mb-12.5 my-7.5">
-                <div>
-                  <div className="size-12.5 md:mb-5 mb-2.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:chart-square-linear" className="size-6 text-black" />
-                  </div>
-                  <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Innovation </h3>
-                  <p className="mb-2.5 text-white">
-                    We embrace innovation as the cornerstone of our success.{' '}
-                  </p>
-                </div>
-                <div>
-                  <div className="size-12.5 md:mb-5 mb-2.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:sale-linear" className="size-6 text-black" />
-                  </div>
-                  <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">
-                    Continuous Improvement{' '}
-                  </h3>
-                  <p className="mb-2.5 text-white">
-                    Which is the same as saying through shrinking from.{' '}
-                  </p>
-                </div>
-              </div>
-              <div className="text-white">
-                Empowerment &nbsp; · &nbsp; Impact &nbsp; · &nbsp; Customer-Centricity
-              </div>
+              <h3 className="text-1.5xl mb-2.5">Data Silos</h3>
+              <p>
+                Duplicated efforts in data collection lead to fragmented, unreliable information and prevent uniformity.
+              </p>
             </div>
-            <div>
-              <div
-                className="bg-primary lg:p-12.5 p-5 rounded-2xl"
-                data-aos="fade-up"
-                data-aos-delay={150}
-                data-aos-duration={600}
-                data-aos-easing="ease-in-out"
-              >
-                <div className="mb-7">
-                  <h2 className="mb-2.5 md:text-4xl text-2.6xl">
-                    Ready to revolutionize your business?{' '}
-                  </h2>
-                  <p className="mb-2.5">
-                    Take the first step towards unlocking your full potential with Landinger.{' '}
-                  </p>
-                </div>
-                <Link
-                  href="/sign-up"
-                  className="py-3.5 md:px-7.5 px-6 inline-flex text-white font-medium rounded-2xl bg-dark transition-all duration-300 hover:text-primary"
-                >
-                  Sign in
-                </Link>
+
+            <div
+              className="bg-body-bg p-7.5 rounded-2xl"
+              data-aos="fade-up"
+              data-aos-delay={100}
+              data-aos-duration={500}
+              data-aos-easing="ease-in-out"
+            >
+              <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
+                <IconifyIconClient icon="tabler:tool-off" className="size-7 text-primary" />
               </div>
-              <div
-                className="grid md:grid-cols-2 lg:gap-12.5 md:gap-5 gap-5 lg:mt-12.5 mt-5"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={600}
-                data-aos-easing="ease-in-out"
-              >
-                <div className="bg-white rounded-2xl lg:p-7.5 p-5">
-                  <h2 className="lg:text-4.4xl md:text-4xl text-3xl">
-                    <CountUpClient end={35} suffix="+" duration={5} />
-                  </h2>
-                  <p className="md:mt-5 mt-2.5">Awards and counting</p>
+              <h3 className="text-1.5xl mb-2.5">Generic Tools</h3>
+              <p>
+                Most software only measures financial performance, completely ignoring the core cooperative principles and values.
+              </p>
+            </div>
+
+            <div
+              className="bg-body-bg p-7.5 rounded-2xl"
+              data-aos="fade-up"
+              data-aos-delay={150}
+              data-aos-duration={500}
+              data-aos-easing="ease-in-out"
+            >
+              <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
+                <IconifyIconClient icon="tabler:chart-bar-off" className="size-7 text-primary" />
+              </div>
+              <h3 className="text-1.5xl mb-2.5">Data for Nothing</h3>
+              <p>
+                Data is often collected for a single purpose but never used to understand if your services meet member needs.
+              </p>
+            </div>
+
+            <div
+              className="bg-body-bg p-7.5 rounded-2xl"
+              data-aos="fade-up"
+              data-aos-delay={200}
+              data-aos-duration={500}
+              data-aos-easing="ease-in-out"
+            >
+              <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
+                <IconifyIconClient icon="tabler:lock-off" className="size-7 text-primary" />
+              </div>
+              <h3 className="text-1.5xl mb-2.5">Loss of Power</h3>
+              <p>
+                Many platforms redirect power away from data owners—the members and the cooperative itself.
+              </p>
+            </div>
+          </div>
+
+          {/* The Solution Section */}
+          <div
+            className="bg-dark rounded-2xl p-12.5"
+            data-aos="fade-up"
+            data-aos-delay={250}
+            data-aos-duration={600}
+            data-aos-easing="ease-in-out"
+          >
+            <div className="grid lg:grid-cols-2 gap-12.5">
+              <div>
+                <h2 className="mb-2.5 md:text-4xl text-2.6xl text-white">The Solution</h2>
+                <p className="mb-7.5 text-white text-lg">
+                  CoopProfiler was born from these exact challenges. We understand because we lived them.
+                </p>
+                <div className="space-y-7.5">
+                  <div className="flex gap-5">
+                    <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center flex-shrink-0">
+                      <IconifyIconClient icon="solar:users-group-rounded-outline" className="size-6 text-black" />
+                    </div>
+                    <div>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Member Empowerment</h3>
+                      <p className="text-white">
+                        Give members control over their own data, building trust and transparency.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5">
+                    <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center flex-shrink-0">
+                      <IconifyIconClient icon="solar:chart-square-linear" className="size-6 text-black" />
+                    </div>
+                    <div>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Holistic Insights</h3>
+                      <p className="text-white">
+                        Go beyond financial metrics to measure true cooperative resilience and member well-being.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5">
+                    <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center flex-shrink-0">
+                      <IconifyIconClient icon="solar:shield-check-linear" className="size-6 text-black" />
+                    </div>
+                    <div>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Data Ownership</h3>
+                      <p className="text-white">
+                        Your data stays yours. No redirecting power away from cooperatives and their members.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5">
+                    <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center flex-shrink-0">
+                      <IconifyIconClient icon="solar:history-outline" className="size-6 text-black" />
+                    </div>
+                    <div>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Reusable Data</h3>
+                      <p className="text-white">
+                        Collect once, use forever. Transform single-purpose data into strategic intelligence.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-white rounded-2xl lg:p-7.5 p-5">
-                  <h2 className="lg:text-4.4xl md:text-4xl text-3xl">
-                    <CountUpClient end={10} suffix="K" duration={5} />{' '}
-                  </h2>
-                  <p className="md:mt-5 mt-2.5">Satisfied users </p>
+              </div>
+
+              <div>
+                <div className="bg-primary rounded-2xl p-10 h-full flex flex-col justify-center">
+                  <div>
+                    <h2 className="mb-2.5 md:text-4xl text-2.6xl">
+                      Ready to transform your cooperative?
+                    </h2>
+                    <p className="mb-7.5">
+                      Take the first step towards data-driven decisions and member empowerment.
+                    </p>
+                    <Link
+                      href="/sign-up"
+                      className="py-3.5 md:px-7.5 px-6 inline-flex text-black font-medium rounded-2xl bg-dark transition-all duration-300 hover:text-primary hover:bg-black"
+                    >
+                      Start Free Trial
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

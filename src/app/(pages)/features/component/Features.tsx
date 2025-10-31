@@ -24,11 +24,9 @@ const Features = () => {
             </div>
             <div data-aos="fade-left" data-aos-duration={500} data-aos-easing="ease-in-out">
               <div className="md:mb-12.5 mb-7.5">
-                <h1 className="lg:text-6xl md:text-5.5xl text-4xl mb-2.5">Robust analytics</h1>
+                <h1 className="lg:text-6xl md:text-5.5xl text-4xl mb-2.5">Data Analytics & Insights</h1>
                 <p className="mb-2.5">
-                  Gain valuable insights with our powerful analytics tools.Track key
-                  metrics,generate detailed reports, and make data-driven decisions to drive your
-                  business forward.
+                  Transform raw numbers into strategic intelligence. Our intuitive dashboards and reporting tools reveal the critical insights you need to make confident, data-backed decisions for sustainable growth.
                 </p>
               </div>
               <Link

@@ -11,7 +11,8 @@ import Highlight from './component/Highlight';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Features | Landinger - Multipurpose Tailwind CSS Landing Page Template',
+  title: 'Features | CoopProfiler',
+  description: 'Explore the complete arsenal of tools designed to drive cooperative resilience and growth. Discover the full spectrum of platform capabilities.',
 };
 
 const Page = () => {

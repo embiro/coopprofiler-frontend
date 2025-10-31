@@ -1,53 +1,68 @@
-
-
 import React from 'react';
-import about from '@/assets/images/about/12.png';
+import about12 from '@/assets/images/about/12.png';
+import about13 from '@/assets/images/about/13.png';
 import Image from 'next/image';
 
 const Vision = () => {
   return (
     <>
-      <section className="bg-white lg:py-25 md:py-22.5 py-17.5">
+      <section className="bg-body-bg lg:py-25 md:py-22.5 py-17.5">
         <div className="container">
           <h2
-            className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl"
+            className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl text-center"
             data-aos="fade-up"
             data-aos-delay={150}
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            Discover Landinger
+            The Universal Path to Resilience
           </h2>
-          <div
-            className="grid md:grid-cols-2 lg:gap-25 gap-5 mt-5 mb-10"
+          <p
+            className="text-center mb-12.5 max-w-3xl mx-auto text-lg"
             data-aos="fade-up"
             data-aos-delay={150}
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            <div>
-              <h3 className="md:text-1.5xl text-xl mb-2.5">Mission</h3>
-              <p className="mb-2.5">
-                At Landinger, our mission is to empower businesses of all sizes to thrive in the
-                digital age by providing innovative, user-friendly software solutions.{' '}
-              </p>
-            </div>
-            <div>
-              <h3 className="md:text-1.5xl text-xl mb-2.5">Vision</h3>
-              <p className="mb-2.5">
-                Our vision is to revolutionize the way businesses operate by harnessing the power of
-                technology to drive efficiency, collaboration, and growth. We envision a future
-                where every organization, regardless of size or industry.{' '}
-              </p>
-            </div>
-          </div>
+            CoopProfiler is helping cooperatives across diverse sectors transform their data into strategic advantage. See how real cooperatives are using our platform to make better decisions.
+          </p>
+
           <div
+            className="grid md:grid-cols-2 gap-7.5 mb-12.5"
             data-aos="fade-up"
             data-aos-delay={150}
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            <Image src={about} alt="" className="rounded-2xl" />
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="p-5 bg-dark text-white text-center">
+                <h3 className="text-xl font-bold">Agricultural Cooperative Dashboard</h3>
+                <p className="text-sm opacity-90">Real-time member insights and impact metrics</p>
+              </div>
+              <div className="p-5">
+                <Image src={about12} alt="Agricultural Cooperative Dashboard" className="rounded-2xl w-full" />
+              </div>
+              <div className="px-5 pb-5">
+                <p className="text-sm text-dark">
+                  See how agricultural cooperatives track member engagement, crop yields, and financial health in one unified view.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="p-5 bg-dark text-white text-center">
+                <h3 className="text-xl font-bold">Analytics & Impact Reports</h3>
+                <p className="text-sm opacity-90">Comprehensive data insights for stakeholders</p>
+              </div>
+              <div className="p-5">
+                <Image src={about13} alt="Analytics Dashboard" className="rounded-2xl w-full" />
+              </div>
+              <div className="px-5 pb-5">
+                <p className="text-sm text-dark">
+                  Generate professional reports that demonstrate your cooperative's impact to funders, members, and partners.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

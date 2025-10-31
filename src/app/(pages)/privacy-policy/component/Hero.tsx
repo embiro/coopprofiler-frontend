@@ -14,8 +14,8 @@ const Hero = () => {
             data-aos-duration={500}
             data-aos-easing="ease-in-out"
           >
-            <h1 className="lg:text-6xl md:text-5.5xl text-4xl mb-2.5">Privacy policy </h1>
-            <p className="mb-2.5">Last updated: September 9, 2024</p>
+            <h1 className="lg:text-6xl md:text-5.5xl text-4xl mb-2.5">Privacy Policy</h1>
+            <p className="mb-2.5">Your privacy and data protection are our top priorities</p>
           </div>
         </div>
       </section>

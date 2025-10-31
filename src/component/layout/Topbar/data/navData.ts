@@ -37,11 +37,11 @@ export const navMenuData: NavItem[] = [
   },
   {
     title: 'Pricing',
-    href: '/pricing-1',
+    href: '/pricing',
   },
   {
-    title: 'About Us',
-    href: '/about',
+    title: 'Why Coop Profiler',
+    href: '/why-coop-profiler',
   },
   {
     title: 'Contact',

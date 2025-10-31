@@ -16,9 +16,9 @@ const Contact = () => {
             data-aos-easing="ease-in-out"
           >
             <h2 className="mb-2.5 lg:text-6xl md:text-4.6xl text-4xl">
-              We're ready to assist you{' '}
+              Get in Touch
             </h2>
-            <p>Have questions? We’re ready to help! </p>
+            <p>Have questions about CoopProfiler? We're here to help! </p>
           </div>
           <div
             className="grid lg:grid-cols-2 lg:gap-12.5 md:gap-5 gap-7.5"
@@ -30,22 +30,26 @@ const Contact = () => {
             <div className="bg-primary lg:p-10 p-5 rounded-2xl h-full flex justify-between gap-12.5 flex-col">
               <div>
                 <h2 className="text-2.5xl">
-                  For any inquiries or feedback, our team is here to assist you.{' '}
+                  Ready to transform your cooperative's data management?
                 </h2>
               </div>
               <div className="flex gap-2.5 flex-col">
-                <Link href="" className="underline text-dark">
-                  hello@example.com
+                <Link href="mailto:business@coopprofiler.com" className="underline text-dark">
+                  business@coopprofiler.com
                 </Link>
-                <Link href="" className="underline text-dark">
-                  +0 12 457 4578
+                <Link href="tel:+256414581453" className="underline text-dark">
+                  +256 414 581453
                 </Link>
-                <p>Chicago HQ Estica Cop. Macomb, MI 48042</p>
+                <Link href="tel:+256200917823" className="underline text-dark">
+                  +256 200 917823
+                </Link>
+                <p>Plot 1, Katalima Crescent, Naguru, Kampala</p>
+                <p>P.O.Box 130337, Kampala (U)</p>
               </div>
             </div>
             <form>
               <div className="mb-5">
-                <label htmlFor="name" className="mb-1.25 block font-normal">
+                <label htmlFor="contactName" className="mb-1.25 block font-normal">
                   Name
                 </label>
                 <input
@@ -53,64 +57,67 @@ const Contact = () => {
                   maxLength={256}
                   name="name"
                   data-name="Name"
-                  placeholder="John Deo"
+                  placeholder="John Doe"
                   type="text"
-                  id="name"
+                  id="contactName"
+                  required
                 />
               </div>
               <div className="mb-5">
-                <label htmlFor="name" className="mb-1.25 block font-normal">
+                <label htmlFor="contactEmail" className="mb-1.25 block font-normal">
                   Email address{' '}
                 </label>
                 <input
                   className="bg-white rounded-2xl py-2.5 px-5 border border-neutral-200 w-full h-14"
                   maxLength={256}
-                  name="name"
-                  data-name="Name"
+                  name="email"
+                  data-name="Email"
                   placeholder="hello@example.com"
-                  type="text"
-                  id="name"
+                  type="email"
+                  id="contactEmail"
+                  required
                 />
               </div>
               <div className="mb-5 flex gap-5 lg:flex-row flex-col">
-                <div>
-                  <label htmlFor="name" className="mb-1.25 block font-normal">
+                <div className="flex-1">
+                  <label htmlFor="contactPhone" className="mb-1.25 block font-normal">
                     Phone{' '}
                   </label>
                   <input
-                    className="bg-white rounded-2xl py-2.5 px-5 border border-neutral-200 w-full h-14"
-                    name="name"
-                    data-name="Name"
-                    placeholder="+2 123 456 66"
-                    type="text"
-                    id="name"
+                  className="bg-white rounded-2xl py-2.5 px-5 border border-neutral-200 w-full h-14"
+                  name="phone"
+                  data-name="Phone"
+                  placeholder="+256 414 581453"
+                  type="tel"
+                  id="contactPhone"
                   />
                 </div>
-                <div>
-                  <label htmlFor="name" className="mb-1.25 block font-normal">
+                <div className="flex-1">
+                  <label htmlFor="contactSubject" className="mb-1.25 block font-normal">
                     Subject{' '}
                   </label>
                   <input
                     className="bg-white rounded-2xl py-2.5 px-5 border border-neutral-200 w-full h-14"
-                    name="name"
-                    data-name="Name"
+                    name="subject"
+                    data-name="Subject"
                     placeholder="Subject"
                     type="text"
-                    id="name"
+                    id="contactSubject"
                   />
                 </div>
               </div>
               <div className="mb-5">
-                <label htmlFor="name" className="mb-1.25 block font-normal">
+                <label htmlFor="contactMessage" className="mb-1.25 block font-normal">
                   Message
                 </label>
                 <textarea
                   className="bg-white rounded-2xl py-2.5 px-5 border border-neutral-200 w-full h-50"
-                  name="Message"
+                  name="message"
                   maxLength={5000}
                   data-name="Message"
-                  placeholder="Comment"
-                  defaultValue={''}
+                  placeholder="Your message..."
+                  id="contactMessage"
+                  required
                 />
               </div>
               <div>
@@ -118,7 +125,7 @@ const Contact = () => {
                   type="submit"
                   className="md:h-14 w-full py-3.5 lg:px-7.5 px-6.5 text-center bg-dark font-medium rounded-2xl text-white transition-all duration-300 hover:text-primary"
                 >
-                  Submit
+                  Send Message
                 </button>
               </div>
             </form>

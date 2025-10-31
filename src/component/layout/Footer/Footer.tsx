@@ -79,10 +79,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href="/why-coop-profiler"
                     className="hover:text-primary text-white transition-all duration-300 text-sm"
                   >
-                    About Us
+                    Why Coop Profiler
                   </Link>
                 </li>
               </ul>

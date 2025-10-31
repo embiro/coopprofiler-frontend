@@ -1,5 +1,9 @@
 import React from 'react';
+import Image, { StaticImageData } from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
+import Team1 from '@/assets/images/team/1.png';
+import Team2 from '@/assets/images/team/2.png';
+import Team3 from '@/assets/images/team/3.png';
 
 type TestimonialType = {
   quote: string;
@@ -7,6 +11,7 @@ type TestimonialType = {
   role: string;
   organization: string;
   rating: number;
+  image: StaticImageData;
 };
 
 const testimonialsData: TestimonialType[] = [
@@ -17,6 +22,7 @@ const testimonialsData: TestimonialType[] = [
     role: 'Operations Manager',
     organization: 'Kampala Primary Cooperative',
     rating: 5,
+    image: Team1,
   },
   {
     quote:
@@ -25,6 +31,7 @@ const testimonialsData: TestimonialType[] = [
     role: 'Data Collection Lead',
     organization: 'Northern Region Apex Body',
     rating: 5,
+    image: Team2,
   },
   {
     quote:
@@ -33,6 +40,7 @@ const testimonialsData: TestimonialType[] = [
     role: 'Executive Director',
     organization: 'Eastern Cooperative Union',
     rating: 5,
+    image: Team3,
   },
 ];
 
@@ -83,8 +91,17 @@ const Testimonial = () => {
 
                 {/* Author Info */}
                 <div className="border-t border-neutral-200 pt-5">
-                  <h5 className="text-1.5xl font-semibold text-dark mb-1">{testimonial.author}</h5>
-                  <p className="text-sm text-neutral-600">{testimonial.role}</p>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      className="size-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h5 className="text-1.5xl font-semibold text-dark">{testimonial.author}</h5>
+                      <p className="text-sm text-neutral-600">{testimonial.role}</p>
+                    </div>
+                  </div>
                   <p className="text-sm text-primary font-medium">{testimonial.organization}</p>
                 </div>
               </div>

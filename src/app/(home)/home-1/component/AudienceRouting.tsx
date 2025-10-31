@@ -1,6 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import Image, { type StaticImageData } from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
+import primaryCooperatives from '@/assets/images/landing_page/primary_coperatives.png';
+import apexBodies from '@/assets/images/landing_page/apex_bodies.png';
+import partners from '@/assets/images/landing_page/partners.png';
 
 type AudienceBlock = {
   title: string;
@@ -8,6 +12,7 @@ type AudienceBlock = {
   href: string;
   icon: string;
   gradient: string;
+  image: StaticImageData;
 };
 
 const audienceData: AudienceBlock[] = [
@@ -18,6 +23,7 @@ const audienceData: AudienceBlock[] = [
     href: '/solutions/primary-cooperatives',
     icon: 'solar:users-group-two-rounded-bold',
     gradient: 'from-primary/20 to-primary/5',
+    image: primaryCooperatives,
   },
   {
     title: 'Apex Bodies (STAs)',
@@ -26,6 +32,7 @@ const audienceData: AudienceBlock[] = [
     href: '/solutions/apex-bodies',
     icon: 'solar:chart-square-bold',
     gradient: 'from-blue-500/20 to-blue-500/5',
+    image: apexBodies,
   },
   {
     title: 'Partners',
@@ -33,6 +40,7 @@ const audienceData: AudienceBlock[] = [
     href: '/solutions/partners',
     icon: 'solar:handshake-bold',
     gradient: 'from-green-500/20 to-green-500/5',
+    image: partners,
   },
 ];
 
@@ -55,22 +63,24 @@ const AudienceRouting = () => {
               <Link
                 key={index}
                 href={audience.href}
-                className="group bg-white rounded-2xl lg:p-10 p-7.5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                className="group bg-white rounded-2xl lg:p-10 p-7.5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden flex flex-col max-h-[400px]"
                 data-aos="fade-up"
                 data-aos-delay={index * 150}
                 data-aos-duration="600"
                 data-aos-easing="ease-in-out"
               >
-                <div
-                  className={`bg-gradient-to-br ${audience.gradient} rounded-2xl p-5 mb-5 inline-block`}
-                >
-                  <IconifyIconClient icon={audience.icon} className="size-10 text-dark" />
+                <div className="lg:-mx-10 -mx-7.5 -mt-7.5 lg:-mt-10 mb-5 flex-[0_0_40%] min-h-[150px] overflow-hidden">
+                  <Image
+                    src={audience.image}
+                    alt={audience.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="lg:text-2.5xl text-1.5xl mb-2.5 group-hover:text-primary transition-colors">
                   {audience.title}
                 </h3>
-                <p className="text-base mb-5 text-neutral-600">{audience.description}</p>
-                <div className="flex items-center gap-2 text-dark font-medium group-hover:gap-3 transition-all">
+                <p className="text-base mb-3 text-neutral-600">{audience.description}</p>
+                <div className="flex items-center gap-2 text-dark font-medium group-hover:gap-3 transition-all mt-auto">
                   <span>Learn more</span>
                   <IconifyIconClient
                     icon="tabler:arrow-right"

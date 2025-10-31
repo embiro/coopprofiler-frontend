@@ -20,19 +20,19 @@ type TabsType = {
 const tabsData: TabsType[] = [
   {
     id: 'segment-1',
-    label: 'Dashboard & analytics',
+    label: 'Analytics & Reports',
     image: about13,
     element: element3,
   },
   {
     id: 'segment-2',
-    label: 'Advanced security',
+    label: 'Security & Compliance',
     image: about4,
     element: element6,
   },
   {
     id: 'segment-3',
-    label: 'Integrations',
+    label: 'Network Dashboard',
     image: about6,
     element: element7,
   },
@@ -54,10 +54,10 @@ const KeyFeatures = () => {
           data-aos-easing="ease-in-out"
         >
           <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-            Key features that save time
+            Powerful Tools for Cooperative Management
           </h2>
           <p className="text-base mb-2.5">
-            Discover our powerful tools designed to streamline your workflow and boost productivity.
+            Explore our comprehensive features designed to drive cooperative resilience and growth.
           </p>
         </div>
 
@@ -117,19 +117,18 @@ const KeyFeatures = () => {
           data-aos-easing="ease-in-out"
         >
           <div>
-            <h3 className="text-2.5xl">Integrations </h3>
+            <h3 className="text-2.5xl">Network Management</h3>
           </div>
 
           <div>
             <p>
-              But I must explain to you how all this mistaken idea of denouncing pleasure and
-              praising.
+              Monitor and manage your entire network of cooperatives from a single dashboard, gaining real-time insights into performance, trends, and opportunities.
             </p>
             <Link
-              href="/integrations"
+              href="/contact"
               className="py-3.5 md:px-7.5 px-6 inline-flex bg-dark mt-10 font-medium rounded-2xl text-white transition-all duration-300 hover:bg-black hover:text-primary"
             >
-              View integrations
+              Get started
             </Link>
           </div>
         </div>

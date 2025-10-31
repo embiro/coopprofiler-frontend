@@ -15,11 +15,10 @@ const Templates = () => {
               <div className="bg-body-bg lg:p-10 p-5 rounded-2xl flex gap-7.5 flex-col">
                 <div>
                   <h2 className="mb-2.5 lg:text-4xl md:text-3.4xl text-2.6xl ">
-                    Scalable infrastructure for growing businesses{' '}
+                    Scalable infrastructure for growing cooperatives{' '}
                   </h2>
                   <p className="text-base mb-2.5 ">
-                    Seamlessly expand your operations without compromising performance or
-                    reliability, ensuring.{' '}
+                    Seamlessly expand your operations without compromising performance or reliability, ensuring your platform grows with your network.{' '}
                   </p>
                 </div>
                 <Image src={Element10} alt="" className="rounded-2xl" />
@@ -34,11 +33,10 @@ const Templates = () => {
               <div className="bg-primary lg:p-10 p-5 rounded-2xl flex gap-7.5 flex-col">
                 <div>
                   <h2 className="mb-2.5 lg:text-4xl md:text-3.4xl text-2.6xl ">
-                    Customizable email templates and notifications{' '}
+                    Customizable forms and data collection{' '}
                   </h2>
                   <p className="text-base mb-2.5 ">
-                    Elevate your communication with customizable email templates and
-                    notifications.{' '}
+                    Collect the exact data you need with customizable forms tailored to your unique requirements and workflows.{' '}
                   </p>
                 </div>
                 <Image src={Element11} alt="" className="rounded-2xl" />

@@ -14,11 +14,10 @@ const Features2 = () => {
         <div className="container">
           <div className="lg:mb-12.5 text-center mb-7.5">
             <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              Key features that save time
+              Collaborate with Confidence
             </h2>
             <p className="text-base mb-2.5">
-              Discover our powerful tools designed to streamline your workflow and boost
-              productivity.
+              Work seamlessly across teams and organizations to achieve your cooperative goals.
             </p>
           </div>
 
@@ -39,11 +38,10 @@ const Features2 = () => {
                       />
                     </div>
                     <h3 className="lg:text-2.5xl md:text-2.5xl text-1.5xl mb-2.5">
-                      Generate detailed reports with just a few clicks.
+                      Professional reports that demonstrate impact.
                     </h3>
                     <p className="text-base lg:mt-35 md:mt-25 mt-5">
-                      Discover our powerful tools designed to streamline your workflow and boost
-                      productivity.
+                      Create compelling, data-rich reports in minutes to share with funders, stakeholders, and partners.
                     </p>
                   </div>
 
@@ -71,22 +69,22 @@ const Features2 = () => {
                     <IconifyIconClient icon="solar:bolt-linear" className="lg:size-7.5 size-6.5 text-dark" />
                   </div>
                   <h4 className="text-white lg:text-2.5xl md:text-2.5xl text-1.5xl mb-2.5">
-                    Work seamlessly with your team, no matter where they are
+                    Work seamlessly with partners and stakeholders
                   </h4>
                 </div>
                 <div>
                   <div className="gap-3.5 flex flex-col">
                     <div className="flex gap-2.5">
                       <IconifyIconClient icon="tabler:circle-check" className="size-6 text-primary" />
-                      <div className="text-white text-base">Live editing</div>
+                      <div className="text-white text-base">Share with partners</div>
                     </div>
                     <div className="flex gap-2.5">
                       <IconifyIconClient icon="tabler:circle-check" className="size-6 text-primary" />
-                      <div className="text-white text-base">Instant feedback </div>
+                      <div className="text-white text-base">Real-time collaboration</div>
                     </div>
                     <div className="flex gap-2.5">
                       <IconifyIconClient icon="tabler:circle-check" className="size-6 text-primary" />
-                      <div className="text-white text-base">Task assignments </div>
+                      <div className="text-white text-base">Role-based access</div>
                     </div>
                   </div>
                 </div>
@@ -103,36 +101,36 @@ const Features2 = () => {
             <div className="grid md:grid-cols-3 lg:gap-10  gap-5">
               <div>
                 <h5 className="md:text-2.5xl text-1.5xl">
-                  Generate detailed reports with just a few clicks.
+                  Real-time insights across your network.
                 </h5>
               </div>
 
               <div>
                 <div className="lg:flex items-center gap-5">
-                  <h6 className="lg:text-5.5xl md:text-4.6xl text-3.4xl">99%</h6>
-                  <div className="fs-base">Track and analyze business reports</div>
+                  <h6 className="lg:text-5.5xl md:text-4.6xl text-3.4xl">100%</h6>
+                  <div className="fs-base">Data accuracy and security</div>
                 </div>
               </div>
 
               <div>
                 <div className="lg:flex items-center gap-5">
-                  <h6 className="lg:text-5.5xl md:text-4.6xl text-3.4xl">4.8</h6>
+                  <h6 className="lg:text-5.5xl md:text-4.6xl text-3.4xl">24/7</h6>
                   <div className="gap-1 flex-col flex">
                     <div className="flex gap-1.5">
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
+                      <IconifyIconClient icon="tabler:shield-check-filled" className="lg:size-6 size-5.5 text-dark" />
 
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
+                      <IconifyIconClient icon="tabler:shield-check-filled" className="lg:size-6 size-5.5 text-dark" />
 
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
+                      <IconifyIconClient icon="tabler:shield-check-filled" className="lg:size-6 size-5.5 text-dark" />
 
-                      <IconifyIconClient icon="tabler:star-filled" className="lg:size-6 size-5.5 text-dark" />
+                      <IconifyIconClient icon="tabler:shield-check-filled" className="lg:size-6 size-5.5 text-dark" />
 
                       <IconifyIconClient
-                        icon="tabler:star-half-filled"
+                        icon="tabler:shield-check-filled"
                         className="lg:size-6 size-5.5 text-dark"
                       />
                     </div>
-                    <div className="fs-base">Best rated company</div>
+                    <div className="fs-base">Always available</div>
                   </div>
                 </div>
               </div>

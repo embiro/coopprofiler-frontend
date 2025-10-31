@@ -1,18 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 
-// Placeholder for partner logos - you'll need to replace these with actual partner logo images
-// For now, using existing client logos as placeholders
-import client1 from '@/assets/images/client/1.svg';
-import client2 from '@/assets/images/client/2.svg';
-import client3 from '@/assets/images/client/3.svg';
-import client4 from '@/assets/images/client/4.svg';
+// @ts-ignore - .jfif files are not in TypeScript's default image types
+import uncst from '@/assets/images/partners/UNCST.jpg';
+import PDPO from '@/assets/images/partners/PDPO.png';
+import nita from '@/assets/images/partners/nita.jpg';
+import ACISA from '@/assets/images/partners/ACISA.jpg';
+import burasa from '@/assets/images/partners/burasa.png';
+import SNV from '@/assets/images/partners/SNV.png';
 
 const partnerLogos = [
-  { src: client1, alt: 'Partner 1' },
-  { src: client2, alt: 'Partner 2' },
-  { src: client3, alt: 'Partner 3' },
-  { src: client4, alt: 'Partner 4' },
+  { src: uncst, alt: 'UNCST' },
+  { src: PDPO, alt: 'PDPO' },
+  { src: nita, alt: 'NITA' },
+  { src: ACISA, alt: 'ACISA' },
+  { src: burasa, alt: 'Burasa' },
+  { src: SNV, alt: 'SNV' },
 ];
 
 const SocialProof = () => {
@@ -21,7 +24,7 @@ const SocialProof = () => {
       <section className="bg-white py-12.5 lg:py-17.5">
         <div className="container">
           <div className="text-center mb-10">
-            <p className="text-base text-neutral-600 mb-5">Trusted by leading cooperatives</p>
+            <p className="text-base text-neutral-600 mb-5">Our trusted partners</p>
             <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-15 opacity-60">
               {partnerLogos.map((logo, index) => (
                 <div
@@ -34,7 +37,7 @@ const SocialProof = () => {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-8 lg:h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    className="h-16 lg:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
               ))}

@@ -11,24 +11,24 @@ type FeatureItem = {
 
 const featuresData: FeatureItem[] = [
   {
-    icon: 'solar:chart-square-linear',
-    title: 'Advance analytics',
-    description: 'Tailor our platform to meet your unique business needs.',
+    icon: 'solar:users-group-rounded-outline',
+    title: 'Member Management',
+    description: 'Go beyond simple lists. Gain a 360-degree view of your membership, track engagement, and manage profiles to build stronger, more connected community ties from one central dashboard.',
   },
   {
-    icon: 'solar:bolt-linear',
-    title: 'Seamless integration',
-    description: 'It is a long established fact that a reader will be distracted by.',
+    icon: 'solar:history-outline',
+    title: 'Historical Data Capture',
+    description: 'Secure your legacy and learn from your past. Digitize and access decades of records to understand long-term trends, preserve institutional memory, and build a resilient future.',
   },
   {
-    icon: 'solar:sale-linear',
-    title: 'Adaptive learning',
-    description: 'There are many variations of passages of Lorem Ipsum available.',
+    icon: 'solar:document-text-outline',
+    title: 'Customizable Forms',
+    description: 'Collect the exact data you need, your way. Build custom questionnaires and reports to capture unique insights for member feedback, compliance, or specific project monitoring.',
   },
   {
-    icon: 'solar:fire-outline',
-    title: '24/7 availability',
-    description: 'Predefined chunks as necessary, making this the first true generator.',
+    icon: 'solar:code-2-outline',
+    title: 'API Access',
+    description: 'Unlock limitless potential. Integrate CoopProfiler with your existing tools and build custom solutions with robust, secure API access, creating a seamless data ecosystem.',
   },
 ];
 
@@ -43,10 +43,9 @@ const Feature3 = () => {
             data-aos-duration={500}
             data-aos-easing="ease-in-out"
           >
-            <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">Why choose Landinger </h2>
+            <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">Core Platform Features </h2>
             <p className="text-base mb-2.5">
-              Discover how Landinger can transform your business operations with our innovative
-              features.{' '}
+              Explore the essential tools that drive cooperative resilience and growth.{' '}
             </p>
           </div>
           <div className="grid md:grid-cols-2 md:gap-7.5 gap-5">

@@ -4,6 +4,7 @@ import SocialProof from './component/SocialProof';
 import AudienceRouting from './component/AudienceRouting';
 import Step from './component/Step';
 import Features from './component/Features';
+import Pricing from './component/Pricing';
 import MobileAppShowcase from './component/MobileAppShowcase';
 import Testimonial from './component/Testimonial';
 import CTA from './component/CTA';
@@ -24,6 +25,7 @@ const Page = () => {
       <AudienceRouting />
       <Step />
       <Features />
+      <Pricing />
       <MobileAppShowcase />
       <Testimonial />
       <CTA />

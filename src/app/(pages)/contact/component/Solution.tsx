@@ -1,57 +1,8 @@
-
-
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
-
-type ContactCard = {
-  icon: string;
-  title: string;
-  description: string;
-  linkLabel: string;
-  linkUrl: string;
-  bgColor: string;
-  iconBg: string;
-  textColor: string;
-  iconColor: string;
-};
-
-const contactData: ContactCard[] = [
-  {
-    icon: 'solar:bolt-linear',
-    title: 'Access our knowledge base',
-    description: 'Access a vast reservoir of knowledge and expertise, conveniently.',
-    linkLabel: 'Explore help center',
-    linkUrl: '#',
-    bgColor: 'bg-primary',
-    iconBg: 'bg-dark',
-    textColor: 'text-dark',
-    iconColor: 'text-primary',
-  },
-  {
-    icon: 'solar:chart-square-linear',
-    title: 'Discover Landinger tutorials',
-    description: 'Watch and learn from market experts how to utilize our product effectively.',
-    linkLabel: 'Watch tutorials',
-    linkUrl: '#',
-    bgColor: 'bg-dark',
-    iconBg: 'bg-primary',
-    textColor: 'text-white',
-    iconColor: 'text-black',
-  },
-  {
-    icon: 'solar:lightbulb-outline',
-    title: 'Join our community',
-    description:
-      'Collaborate, share insights, and cultivate relationships within our community network.',
-    linkLabel: 'Visit Facebook group',
-    linkUrl: '#',
-    bgColor: 'bg-body-bg',
-    iconBg: 'bg-dark',
-    textColor: 'text-dark',
-    iconColor: 'text-primary',
-  },
-];
+import mapScreenshot from '@/assets/images/map_screenshot.png';
 
 const Solution = () => {
   return (
@@ -59,43 +10,97 @@ const Solution = () => {
       <section className="bg-white lg:py-25 md:py-22.5 py-17.5">
         <div className="container">
           <div
-            className="lg:mb-12.5 text-center mb-7.5"
+            className="grid md:grid-cols-3 gap-5"
             data-aos="fade-up"
             data-aos-delay={150}
             data-aos-duration={500}
             data-aos-easing="ease-in-out"
           >
-            <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              Try these helpful solutions{' '}
-            </h2>
-            <p className="text-base mb-2.5">
-              Departure defective arranging rapturous did believe him all had supported.{' '}
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 lg:gap-7.5 gap-5 flex-col">
-            {contactData.map((item, index) => (
-              <div
-                key={index}
-                className={`${item.bgColor} lg:p-7.5 p-5 rounded-2xl`}
-                data-aos="fade-up"
-                data-aos-delay={150 + index * 50}
-                data-aos-duration={500}
-                data-aos-easing="ease-in-out"
-              >
-                <div
-                  className={`md:size-12.5 size-10 ${item.iconBg} rounded-full inline-flex items-center justify-center mb-5`}
-                >
-                  <IconifyIconClient icon={item.icon} className={`size-6 ${item.iconColor}`} />
-                </div>
-                <h3 className={`md:text-2.5xl text-1.5xl mb-2.5 ${item.textColor}`}>
-                  {item.title}
-                </h3>
-                <p className={`md:mt-5 md:mb-10 my-2.5 ${item.textColor}`}>{item.description}</p>
-                <Link href={item.linkUrl} className={`underline ${item.textColor}`}>
-                  {item.linkLabel}
+            <div className="bg-body-bg lg:p-7.5 p-5 rounded-2xl">
+              <div className="size-12.5 bg-dark rounded-full inline-flex items-center justify-center mb-5">
+                <IconifyIconClient icon="solar:letter-linear" className="size-6 text-primary" />
+              </div>
+              <h3 className="text-2xl mb-2.5">Email Us</h3>
+              <p className="mb-2.5">Send us an email anytime!</p>
+              <Link href="mailto:business@coopprofiler.com" className="text-primary underline">
+                business@coopprofiler.com
+              </Link>
+            </div>
+
+            <div className="bg-body-bg lg:p-7.5 p-5 rounded-2xl">
+              <div className="size-12.5 bg-dark rounded-full inline-flex items-center justify-center mb-5">
+                <IconifyIconClient icon="solar:phone-calling-linear" className="size-6 text-primary" />
+              </div>
+              <h3 className="text-2xl mb-2.5">Call Us</h3>
+              <p className="mb-2.5">Give us a call Monday - Friday</p>
+              <div className="flex flex-col gap-1">
+                <Link href="tel:+256414581453" className="text-primary underline text-sm">
+                  +256 414 581453
+                </Link>
+                <Link href="tel:+256200917823" className="text-primary underline text-sm">
+                  +256 200 917823
                 </Link>
               </div>
-            ))}
+            </div>
+
+            <div className="bg-body-bg lg:p-7.5 p-5 rounded-2xl">
+              <div className="size-12.5 bg-dark rounded-full inline-flex items-center justify-center mb-5">
+                <IconifyIconClient icon="solar:map-point-outline" className="size-6 text-primary" />
+              </div>
+              <h3 className="text-2xl mb-2.5">Visit Us</h3>
+              <p className="mb-2.5">Our office location</p>
+              <div className="text-primary text-sm">
+                <p>Plot 1, Katalima Crescent, Naguru</p>
+                <p>P.O.Box 130337, Kampala (U)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Google Map */}
+          <div
+            className="mt-12.5 rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay={200}
+            data-aos-duration={500}
+            data-aos-easing="ease-in-out"
+          >
+            <div className="w-full h-96 bg-body-bg border border-neutral-200 relative overflow-hidden">
+              <Image
+                src={mapScreenshot}
+                alt="Office Location Map - Plot 1, Katalima Crescent, Naguru, Kampala"
+                className="object-cover w-full h-full"
+                fill
+              />
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div
+            className="mt-10 flex justify-center items-center gap-5"
+            data-aos="fade-up"
+            data-aos-delay={200}
+            data-aos-duration={500}
+            data-aos-easing="ease-in-out"
+          >
+            <Link
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="size-12 bg-dark rounded-full inline-flex items-center justify-center hover:bg-primary transition-all duration-300"
+              aria-label="Facebook"
+            >
+              <IconifyIconClient icon="tabler:brand-meta" className="size-6 text-white" />
+            </Link>
+            <Link
+              href="https://www.twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="size-12 bg-dark rounded-full inline-flex items-center justify-center hover:bg-primary transition-all duration-300"
+              aria-label="Twitter/X"
+            >
+              <IconifyIconClient icon="tabler:brand-x" className="size-6 text-white" />
+            </Link>
+            <p className="text-dark ml-5">The Uhuru Institute</p>
           </div>
         </div>
       </section>

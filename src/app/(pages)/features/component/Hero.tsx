@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 
 const Hero = () => {
@@ -14,8 +13,17 @@ const Hero = () => {
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            Product features{' '}
+            Your Complete Platform Arsenal
           </h1>
+          <p
+            className="text-center md:w-3/4 mx-auto text-base"
+            data-aos="fade-up"
+            data-aos-delay={200}
+            data-aos-duration={600}
+            data-aos-easing="ease-in-out"
+          >
+            This is the complete arsenal at your disposal. Explore the full spectrum of tools designed to drive cooperative resilience and growth.
+          </p>
         </div>
       </section>
     </>
