@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 
 const Hero = () => {
@@ -18,8 +16,8 @@ const Hero = () => {
               Frequently asked questions{' '}
             </h1>
             <p className="mb-2.5">
-              Passage its ten led heated removal cordial. Preference any astonished unreserved
-              Mrs.{' '}
+              Find answers to common questions about CoopProfiler. Get the information you need to
+              make the most of our platform.{' '}
             </p>
           </div>
         </div>

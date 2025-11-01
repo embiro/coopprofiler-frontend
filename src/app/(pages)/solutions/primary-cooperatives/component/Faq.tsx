@@ -11,20 +11,20 @@ type FaqItem = {
 
 const faqData: FaqItem[] = [
   {
-    question: 'How secure is my member data?',
-    answer: 'We use bank-level security with encryption, regular backups, and strict access controls to ensure your member data is always protected and safe.',
+    question: 'How does Coop Profiler differ from other member management tools?',
+    answer: 'Coop Profiler is the world\'s first platform specifically designed for cooperatives. We measure adherence to cooperative values and principles through the Cooperative Resilience Measurement Index (CRMI), not just financial metrics.',
   },
   {
-    question: 'Can I access my data offline?',
-    answer: 'Yes! Our mobile app includes offline capabilities so you can work in the field even without an internet connection, with automatic sync when you\'re back online.',
+    question: 'Who owns my cooperative data?',
+    answer: 'You do! Cooperatives maintain complete control over their data. You decide who has access, and data is only shared when you grant permission. We provide secure backups but cannot use your data without consent.',
   },
   {
-    question: 'How do I demonstrate impact to funders?',
-    answer: 'CoopProfiler generates comprehensive, professional reports with key metrics, trends, and insights that clearly show your cooperative\'s impact and value to stakeholders.',
+    question: 'Can I work offline in remote areas?',
+    answer: 'Yes! Coop Profiler has robust offline capabilities. Collect data anywhere, even without internet connection, and automatic synchronization occurs when connectivity is restored.',
   },
   {
-    question: 'What if I need to migrate existing data?',
-    answer: 'Our team will help you migrate all your existing member data from spreadsheets and paper records into the system, ensuring nothing is lost in the process.',
+    question: 'How does the revenue sharing program work?',
+    answer: 'For every 100 members profiled, your cooperative receives back 5% of the user fees paid—putting money back into your cooperative while building your member database.',
   },
 ];
 

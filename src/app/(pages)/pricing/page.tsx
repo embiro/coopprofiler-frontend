@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from './component/Hero';
+import PricingHero from './component/PricingHero';
 import Comparison from './component/Comparison';
 import TrustBadges from './component/TrustBadges';
 import Faq from './component/Faq';
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
-      <Hero />
+      <PricingHero />
       <Comparison />
       <TrustBadges />
       <Faq />

@@ -18,7 +18,7 @@ const Hero = () => {
                   Is Your Co-op Data Working For You, or Against You?
                 </h2>
                 <p className="lg:mb-10 mb-5">
-                  Are you tired of making decisions in the dark? Are you caught off-guard by disruptions because you don't have a holistic view of your members' or your cooperative's health?
+                  Cooperative managers and leaders often lack holistic data on their cooperative's status and that of their members. They make decisions based on guesswork and are frequently caught off-guard by disruptions—both negative and positive.
                 </p>
               </div>
               <div className="lg:pt-10 pt-5 flex gap-5 border-t border-neutral-200">

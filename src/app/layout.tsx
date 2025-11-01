@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import AppProvidersWrapper from '@/component/wrappers/AppProvidersWrapper';
+import { PricingProviderWrapper } from '@/component/providers/PricingProviderWrapper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'aos/dist/aos.css';
@@ -38,8 +39,10 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.variable}>
-        {children}
-        <AppProvidersWrapper />
+        <PricingProviderWrapper>
+          {children}
+          <AppProvidersWrapper />
+        </PricingProviderWrapper>
       </body>
     </html>
   );

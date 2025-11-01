@@ -15,8 +15,11 @@ const Value = () => {
             data-aos-easing="ease-in-out"
           >
             <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              For Decades, The Cooperative Sector Has Faced Critical Challenges
+              The Problem
             </h2>
+            <p className="max-w-4xl mx-auto text-lg mt-5">
+              Globally, there is no standardized tool that enables cooperative data aggregation, performance and resilience measurement based on cooperative fundamentals, values and principles.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12.5">
@@ -28,11 +31,11 @@ const Value = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="tabler:files-off" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:chart-bar-off" className="size-7 text-primary" />
               </div>
-              <h3 className="text-1.5xl mb-2.5">Data Silos</h3>
+              <h3 className="text-1.5xl mb-2.5">Lack of Standardization</h3>
               <p>
-                Duplicated efforts in data collection lead to fragmented, unreliable information and prevent uniformity.
+                No global standard for measuring cooperative resilience based on cooperative fundamentals, values and principles.
               </p>
             </div>
 
@@ -46,9 +49,9 @@ const Value = () => {
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
                 <IconifyIconClient icon="tabler:tool-off" className="size-7 text-primary" />
               </div>
-              <h3 className="text-1.5xl mb-2.5">Generic Tools</h3>
+              <h3 className="text-1.5xl mb-2.5">Limited Scope Tools</h3>
               <p>
-                Most software only measures financial performance, completely ignoring the core cooperative principles and values.
+                A few innovations exist but only for financial performance of SACCOs and agricultural cooperatives—not holistic cooperative resilience.
               </p>
             </div>
 
@@ -62,9 +65,9 @@ const Value = () => {
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
                 <IconifyIconClient icon="tabler:chart-bar-off" className="size-7 text-primary" />
               </div>
-              <h3 className="text-1.5xl mb-2.5">Data for Nothing</h3>
+              <h3 className="text-1.5xl mb-2.5">Missed Opportunities</h3>
               <p>
-                Data is often collected for a single purpose but never used to understand if your services meet member needs.
+                Data collected at loan appraisal is never analyzed to understand if cooperative products meet members' needs.
               </p>
             </div>
 
@@ -76,11 +79,11 @@ const Value = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="tabler:lock-off" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:files-off" className="size-7 text-primary" />
               </div>
-              <h3 className="text-1.5xl mb-2.5">Loss of Power</h3>
+              <h3 className="text-1.5xl mb-2.5">Data Silos</h3>
               <p>
-                Many platforms redirect power away from data owners—the members and the cooperative itself.
+                Duplicated data aggregation efforts lack collaboration, standardization, and comparability.
               </p>
             </div>
           </div>
@@ -95,9 +98,9 @@ const Value = () => {
           >
             <div className="grid lg:grid-cols-2 gap-12.5">
               <div>
-                <h2 className="mb-2.5 md:text-4xl text-2.6xl text-white">The Solution</h2>
+                <h2 className="mb-2.5 md:text-4xl text-2.6xl text-white">Our Solution</h2>
                 <p className="mb-7.5 text-white text-lg">
-                  CoopProfiler was born from these exact challenges. We understand because we lived them.
+                  Coop Profiler is an agile research and decision support tool with inbuilt questionnaires, analytics, reports and the Cooperative Resilience Measurement Index—a multi-dimensional resilience measurement framework built on the backbone of cooperative identity.
                 </p>
                 <div className="space-y-7.5">
                   <div className="flex gap-5">
@@ -105,9 +108,9 @@ const Value = () => {
                       <IconifyIconClient icon="solar:users-group-rounded-outline" className="size-6 text-black" />
                     </div>
                     <div>
-                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Member Empowerment</h3>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">The CRMI Framework</h3>
                       <p className="text-white">
-                        Give members control over their own data, building trust and transparency.
+                        The first-of-its-kind framework tracking adherence to cooperative values, principles, and impact on communities.
                       </p>
                     </div>
                   </div>
@@ -117,9 +120,9 @@ const Value = () => {
                       <IconifyIconClient icon="solar:chart-square-linear" className="size-6 text-black" />
                     </div>
                     <div>
-                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Holistic Insights</h3>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Multi-Type Support</h3>
                       <p className="text-white">
-                        Go beyond financial metrics to measure true cooperative resilience and member well-being.
+                        Tailored for all cooperative types: financial, agricultural, industrial, housing, manufacturing, and more.
                       </p>
                     </div>
                   </div>
@@ -129,9 +132,9 @@ const Value = () => {
                       <IconifyIconClient icon="solar:shield-check-linear" className="size-6 text-black" />
                     </div>
                     <div>
-                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Data Ownership</h3>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Data Ownership & Control</h3>
                       <p className="text-white">
-                        Your data stays yours. No redirecting power away from cooperatives and their members.
+                        Cooperatives maintain complete control over their data and decide who has access.
                       </p>
                     </div>
                   </div>
@@ -141,9 +144,9 @@ const Value = () => {
                       <IconifyIconClient icon="solar:history-outline" className="size-6 text-black" />
                     </div>
                     <div>
-                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Reusable Data</h3>
+                      <h3 className="text-white mb-2.5 md:text-1.5xl text-xl">Offline & Online</h3>
                       <p className="text-white">
-                        Collect once, use forever. Transform single-purpose data into strategic intelligence.
+                        Data collection and synchronization even without internet access, with cloud-powered analysis.
                       </p>
                     </div>
                   </div>

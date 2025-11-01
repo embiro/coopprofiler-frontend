@@ -1,19 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        './app/**/*.{js,ts,jsx,tsx}',
-        './pages/**/*.{js,ts,jsx,tsx}',
-        './components/**/*.{js,ts,jsx,tsx}',
-        "./node_modules/preline/preline.js",
-    ],
-    theme: {
-        extend: {
-            fontFamily: {
-                heading: ['"Cabinet Grotesk"', 'sans-serif'],
-            },
-        },
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './node_modules/preline/preline.js',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        heading: ['"Cabinet Grotesk"', 'sans-serif'],
+      },
+      aspectRatio: {
+        mobile: '9 / 16',
+      },
     },
-    plugins: [
-        require('preline/plugin'),
-    ],
+  },
+  plugins: [require('preline/plugin')],
 };

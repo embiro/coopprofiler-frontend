@@ -9,7 +9,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Solutions for Primary Cooperatives | CoopProfiler',
-  description: 'Streamline your cooperative operations with CoopProfiler. Manage members, track data, and demonstrate impact with confidence.',
+  description: 'Measure your cooperative\'s true resilience with the world\'s first Cooperative Resilience Measurement Index. Built specifically for cooperatives, not generic member management.',
 };
 
 const Page = () => {

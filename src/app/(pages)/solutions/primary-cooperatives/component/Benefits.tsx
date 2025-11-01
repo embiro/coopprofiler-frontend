@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import three from '@/assets/images/element/3.svg';
-import six from '@/assets/images/element/6.svg';
-import one from '@/assets/images/element/1.svg';
+import coopOperationsImage from '@/assets/images/primary_cooperatives/coop_operations.png';
 import IconifyIconClient from '@/component/IconifyIconClient';
 
 const Benefits = () => {
@@ -12,20 +10,16 @@ const Benefits = () => {
         <div className="container">
           <div className="grid lg:grid-cols-2 lg:gap-20 md:gap-20 gap-5">
             <div
-              className="bg-white rounded-2xl p-5"
+              className="bg-white rounded-2xl  flex items-center justify-center"
               data-aos="fade-up"
               data-aos-duration={600}
               data-aos-easing="ease-in-out"
             >
-              <div className="grid grid-cols-2 gap-5 items-center">
-                <div className="flex flex-col gap-5">
-                  <Image src={three} alt="" className="border border-neutral-200 rounded-2xl" />
-                  <Image src={six} alt="" className="border border-neutral-200 rounded-2xl" />
-                </div>
-                <div>
-                  <Image src={one} alt="" className="size-full" />
-                </div>
-              </div>
+              <Image
+                src={coopOperationsImage}
+                alt="Cooperative values and principles illustration showing personalized services, equitable distribution, evidence-based advocacy, and collective bargaining"
+                className="rounded-2xl w-full"
+              />
             </div>
             <div
               className="flex gap-2.5 justify-center flex-col"
@@ -37,43 +31,61 @@ const Benefits = () => {
                 Transform Your Cooperative Operations
               </h3>
               <p className="md:mb-7.5 mb-2.5 text-white">
-                Gain a single source of truth for your entire cooperative. Make confident, data-backed decisions, collaborate with your partners using professional reports, and prove your value to stakeholders.
+                From personalized member services to evidence-based advocacy, Coop Profiler helps
+                your cooperative thrive while upholding cooperative values and principles.
               </p>
               <div className="grid md:grid-cols-2 gap-5 my-2.5">
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="tabler:check" className="size-6 text-black" />
+                    <IconifyIconClient
+                      icon="solar:user-rounded-duotone"
+                      className="size-6 text-black"
+                    />
                   </div>
-                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Single Source of Truth</h3>
+                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Personalized Services</h3>
                   <p className="text-white">
-                    All your member data in one secure, organized system accessible from anywhere.
+                    Gain insights into individual member needs to offer tailored products and
+                    services.
                   </p>
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:chart-square-linear" className="size-6 text-black" />
+                    <IconifyIconClient
+                      icon="solar:scale-broken-duotone"
+                      className="size-6 text-black"
+                    />
                   </div>
-                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Data-Driven Decisions</h3>
+                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">
+                    Equitable Distribution
+                  </h3>
                   <p className="text-white">
-                    Make confident choices backed by real insights and comprehensive analytics.
+                    Allocate resources more fairly and transparently based on member contributions.
                   </p>
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:document-linear" className="size-6 text-black" />
+                    <IconifyIconClient
+                      icon="solar:presentation-graph-duotone"
+                      className="size-6 text-black"
+                    />
                   </div>
-                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Professional Reports</h3>
+                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">
+                    Evidence-Based Advocacy
+                  </h3>
                   <p className="text-white">
-                    Impress funders and stakeholders with comprehensive, professional reports.
+                    Advocate to policy makers using real-time, accurate data from your cooperative.
                   </p>
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:handshake-linear" className="size-6 text-black" />
+                    <IconifyIconClient
+                      icon="solar:users-group-two-rounded-duotone"
+                      className="size-6 text-black"
+                    />
                   </div>
-                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Prove Your Impact</h3>
+                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Collective Bargaining</h3>
                   <p className="text-white">
-                    Demonstrate your cooperative's value and impact with clear, compelling data.
+                    Aggregate data to negotiate better deals and services on behalf of all members.
                   </p>
                 </div>
               </div>
@@ -86,4 +98,3 @@ const Benefits = () => {
 };
 
 export default Benefits;
-

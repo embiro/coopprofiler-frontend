@@ -18,10 +18,12 @@ const Hero = () => {
               data-aos-easing="ease-in-out"
             >
               <h1 className="lg:text-6xl md:text-5.5xl text-4xl mb-2.5">
-                Stop Guessing. Start Growing.
+                Measure Your True Cooperative Resilience
               </h1>
               <p className="mb-2.5 md:w-4/5">
-                Transform how you manage your cooperative. From scattered spreadsheets to a powerful, unified member management system that helps you make data-driven decisions and demonstrate your impact.
+                The world's first platform built specifically for cooperatives. Measure adherence to
+                cooperative values and principles, track member well-being, and make data-driven
+                decisions with the Cooperative Resilience Measurement Index (CRMI).
               </p>
               <div className="flex lg:gap-5 gap-2.5 items-center">
                 <Link
@@ -57,4 +59,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

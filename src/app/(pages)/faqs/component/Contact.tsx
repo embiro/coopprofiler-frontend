@@ -1,5 +1,3 @@
-
-
 import Link from 'next/link';
 import React from 'react';
 import IconifyIconClient from '@/component/IconifyIconClient';
@@ -20,7 +18,7 @@ const contactData: ContactCard[] = [
   {
     icon: 'solar:bolt-linear',
     title: 'Access our knowledge base',
-    description: 'Access a vast reservoir of knowledge and expertise, conveniently.',
+    description: 'Find comprehensive guides, articles, and documentation about CoopProfiler.',
     linkLabel: 'Explore help center',
     linkUrl: '#',
     bgColor: 'bg-primary',
@@ -30,8 +28,8 @@ const contactData: ContactCard[] = [
   },
   {
     icon: 'solar:chart-square-linear',
-    title: 'Discover Landinger tutorials',
-    description: 'Watch and learn from market experts how to utilize our product effectively.',
+    title: 'Discover CoopProfiler tutorials',
+    description: 'Watch and learn from our experts how to utilize CoopProfiler effectively.',
     linkLabel: 'Watch tutorials',
     linkUrl: '#',
     bgColor: 'bg-dark',
@@ -43,8 +41,8 @@ const contactData: ContactCard[] = [
     icon: 'solar:lightbulb-outline',
     title: 'Join our community',
     description:
-      'Collaborate, share insights, and cultivate relationships within our community network.',
-    linkLabel: 'Visit Facebook group',
+      'Connect with other CoopProfiler users, share insights, and get help from the community.',
+    linkLabel: 'Join community',
     linkUrl: '#',
     bgColor: 'bg-body-bg',
     iconBg: 'bg-dark',
@@ -59,44 +57,13 @@ const Contact = () => {
       <section className="bg-white lg:pb-25 md:pb-22.5 pb-17.5">
         <div className="container">
           <div
-            className="lg:mb-12.5 text-center mb-7.5"
+            className="lg:mb-8 text-center mb-7.5"
             data-aos="fade-up"
             data-aos-delay={150}
             data-aos-duration={500}
             data-aos-easing="ease-in-out"
-          >
-            <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              Try these helpful solutions{' '}
-            </h2>
-            <p className="text-base mb-2.5">
-              Departure defective arranging rapturous did believe him all had supported.{' '}
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 lg:gap-7.5 gap-5 flex-col">
-            {contactData.map((item, index) => (
-              <div
-                key={index}
-                className={`${item.bgColor} lg:p-7.5 p-5 rounded-2xl`}
-                data-aos="fade-up"
-                data-aos-delay={150 + index * 50}
-                data-aos-duration={500}
-                data-aos-easing="ease-in-out"
-              >
-                <div
-                  className={`md:size-12.5 size-10 ${item.iconBg} rounded-full inline-flex items-center justify-center mb-5`}
-                >
-                  <IconifyIconClient icon={item.icon} className={`size-6 ${item.iconColor}`} />
-                </div>
-                <h3 className={`md:text-2.5xl text-1.5xl mb-2.5 ${item.textColor}`}>
-                  {item.title}
-                </h3>
-                <p className={`md:mt-5 md:mb-10 my-2.5 ${item.textColor}`}>{item.description}</p>
-                <Link href={item.linkUrl} className={`underline ${item.textColor}`}>
-                  {item.linkLabel}
-                </Link>
-              </div>
-            ))}
-          </div>
+          ></div>
+
           <div
             className="text-center md:mt-12.5 mt-10 flex gap-1.25 flex-col"
             data-aos="fade-up"
@@ -105,7 +72,7 @@ const Contact = () => {
             data-aos-easing="ease-in-out"
           >
             <h3 className="mb-2.5 md:text-1.5xl text-xl">
-              Steel does not get what you are looking for{' '}
+              Still can't find what you're looking for?{' '}
             </h3>
             <div>
               <Link

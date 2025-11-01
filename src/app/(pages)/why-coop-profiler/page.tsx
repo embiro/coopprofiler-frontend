@@ -1,6 +1,8 @@
 import React from 'react';
 import Hero from './component/Hero';
 import Value from './component/Value';
+import ValueProposition from './component/ValueProposition';
+import Benefits from './component/Benefits';
 import Vision from './component/Vision';
 
 import { Metadata } from 'next';
@@ -15,6 +17,8 @@ const Page = () => {
     <>
       <Hero />
       <Value />
+      <ValueProposition />
+      <Benefits />
       <Vision />
     </>
   );

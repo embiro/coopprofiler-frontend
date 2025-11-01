@@ -1,8 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
-import mapScreenshot from '@/assets/images/map_screenshot.png';
+import dynamic from 'next/dynamic';
+
+// Dynamically import Map component to avoid SSR issues with leaflet
+const Map = dynamic(() => import('./Map'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-96 bg-body-bg border border-neutral-200 rounded-2xl flex items-center justify-center">
+      <div className="text-gray-400">Loading map...</div>
+    </div>
+  ),
+});
 
 const Solution = () => {
   return (
@@ -56,22 +67,15 @@ const Solution = () => {
             </div>
           </div>
 
-          {/* Google Map */}
+          {/* Map */}
           <div
-            className="mt-12.5 rounded-2xl overflow-hidden"
+            className="mt-12.5"
             data-aos="fade-up"
             data-aos-delay={200}
             data-aos-duration={500}
             data-aos-easing="ease-in-out"
           >
-            <div className="w-full h-96 bg-body-bg border border-neutral-200 relative overflow-hidden">
-              <Image
-                src={mapScreenshot}
-                alt="Office Location Map - Plot 1, Katalima Crescent, Naguru, Kampala"
-                className="object-cover w-full h-full"
-                fill
-              />
-            </div>
+            <Map />
           </div>
 
           {/* Social Links */}

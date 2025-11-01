@@ -15,7 +15,7 @@ const Vision = () => {
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            The Universal Path to Resilience
+            Insights That Drive Transformation
           </h2>
           <p
             className="text-center mb-12.5 max-w-3xl mx-auto text-lg"
@@ -24,7 +24,7 @@ const Vision = () => {
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            CoopProfiler is helping cooperatives across diverse sectors transform their data into strategic advantage. See how real cooperatives are using our platform to make better decisions.
+            Coop Profiler provides comprehensive insights on cooperative resilience, member engagement, and business performance. Discover how our platform empowers better decision-making across all cooperative types.
           </p>
 
           <div

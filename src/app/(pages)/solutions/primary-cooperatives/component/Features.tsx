@@ -10,28 +10,28 @@ export type Feature = {
 
 export const features: Feature[] = [
   {
-    icon: 'solar:users-group-rounded-outline',
-    title: 'Member Management',
+    icon: 'solar:database-duotone',
+    title: 'Cooperative Resilience Measurement Index',
     description:
-      'Centralized database for all member information with secure, organized, and easily accessible records.',
+      'The world\'s first framework tracking adherence to 10 cooperative values and 7 universal principles to measure true resilience.',
   },
   {
-    icon: 'solar:chart-outline',
-    title: 'Data Analytics & Reports',
+    icon: 'solar:document-text-duotone',
+    title: 'Dynamic Document Centre',
     description:
-      'Generate comprehensive reports and gain insights from your cooperative data to make informed decisions.',
+      'Store and validate registration certificates, audit reports, and meeting minutes to ensure data authenticity.',
   },
   {
-    icon: 'solar:smartphone-outline',
-    title: 'Mobile App',
+    icon: 'solar:code-2-duotone',
+    title: 'API Enabled Integration',
     description:
-      'Access your cooperative data anywhere, anytime with offline capabilities for field operations.',
+      'Connect with existing software for seamless data sharing, promoting collaboration and efficient regulation.',
   },
   {
-    icon: 'solar:shield-check-outline',
-    title: 'Security & Compliance',
+    icon: 'solar:wifi-router-round-duotone',
+    title: 'Offline & Online Capabilities',
     description:
-      'Bank-level security ensures your member data is protected with regular backups and compliance features.',
+      'Collect data anywhere, even without internet. Automatic synchronization when connection is restored.',
   },
 ];
 

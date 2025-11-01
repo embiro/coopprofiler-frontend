@@ -1,10 +1,24 @@
-import React from 'react';
+'use client';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import IconifyIconClient from '@/component/IconifyIconClient';
-import videoBg from '@/assets/images/video/video-bg.jpg';
+import googlePlay from '@/assets/images/landing_page/google.png';
 
 const MobileAppShowcase = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
   return (
     <>
       <section className="lg:py-25 md:py-22.5 py-17.5 bg-white">
@@ -33,10 +47,6 @@ const MobileAppShowcase = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Offline Data Collection</h4>
-                    <p className="text-neutral-600 text-sm">
-                      Collect member information, compliance data, and operational metrics without
-                      internet connectivity.
-                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -48,10 +58,6 @@ const MobileAppShowcase = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Automatic Sync</h4>
-                    <p className="text-neutral-600 text-sm">
-                      Data automatically synchronizes to your cloud database when connectivity is
-                      restored.
-                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -63,20 +69,21 @@ const MobileAppShowcase = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Real-time Updates</h4>
-                    <p className="text-neutral-600 text-sm">
-                      Access up-to-date information across all devices and team members in
-                      real-time.
-                    </p>
                   </div>
                 </div>
               </div>
-              <Link
-                href="/pricing-1"
-                className="inline-flex items-center gap-2 py-3.5 px-7.5 bg-primary text-dark font-semibold rounded-2xl transition-all duration-300 hover:bg-primary/90 hover:scale-105 shadow-md"
-              >
-                Learn More
-                <IconifyIconClient icon="tabler:arrow-right" className="size-5" />
-              </Link>
+
+              {/* Google Play Store Link */}
+              <div className="mt-5">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.coopprofiler.android&hl=en&pli=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all duration-300 hover:scale-105 inline-block"
+                >
+                  <Image src={googlePlay} alt="Get it on Google Play" className="h-12 w-auto" />
+                </a>
+              </div>
             </div>
 
             {/* Right side - Video Showcase */}
@@ -85,23 +92,25 @@ const MobileAppShowcase = () => {
               data-aos="fade-left"
               data-aos-duration="600"
             >
-              <div className="relative aspect-video">
-                <Image
-                  src={videoBg}
-                  alt="Mobile App Showcase"
-                  className="object-cover w-full h-full"
-                  fill
-                />
-                {/* Video Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <button type="button" className="group relative" aria-label="Play video">
-                    <div className="absolute inset-0 bg-primary rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-                    <div className="relative bg-primary/90 hover:bg-primary rounded-full p-6 md:p-8 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                      <IconifyIconClient
-                        icon="tabler:player-play-filled"
-                        className="size-8 md:size-12 text-dark ml-1"
-                      />
-                    </div>
+              <div className="relative w-full max-w-[280px] mx-auto aspect-mobile max-h-[500px]">
+                <video ref={videoRef} loop autoPlay muted className="object-cover w-full h-full">
+                  <source src="/videos/app_recording.mp4" type="video/mp4" />
+                </video>
+                {/* Video Play/Pause Button Overlay */}
+                <div className="absolute end-4 bottom-4">
+                  <button
+                    onClick={togglePlay}
+                    className="size-12 md:size-15 flex items-center justify-center bg-primary rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+                    aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                  >
+                    <IconifyIconClient
+                      icon="tabler:player-play-filled"
+                      className={`size-6 text-dark ${isPlaying ? 'hidden' : ''}`}
+                    />
+                    <IconifyIconClient
+                      icon="tabler:player-pause-filled"
+                      className={`size-6 text-dark ${isPlaying ? '' : 'hidden'}`}
+                    />
                   </button>
                 </div>
               </div>

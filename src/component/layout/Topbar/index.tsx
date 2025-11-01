@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import dynamic from 'next/dynamic';
+import { usePricing, Country } from '@/context/PricingContext';
 const MobileMenu = dynamic(() => import('./component/MobileMenu'));
 const NavMenu = dynamic(() => import('./component/NavMenu'));
 
@@ -42,6 +43,8 @@ const Topbar = () => {
             </div>
             <NavMenu />
             <div className="flex flex-row justify-center items-center md:gap-3 gap-2.5">
+              {/* Country Selector */}
+              <CountrySelector />
               {/* Secondary CTA - Login (Ghost button) */}
               <div className="md:flex hidden">
                 <Link
@@ -83,6 +86,37 @@ const Topbar = () => {
       </header>
       <MobileMenu isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />
     </>
+  );
+};
+
+// Country Selector Component
+const CountrySelector = () => {
+  const { selectedCountry, setSelectedCountry } = usePricing();
+
+  const countries: { code: Country; label: string }[] = [
+    { code: 'GLOBAL', label: 'Global' },
+    { code: 'UG', label: 'UG' },
+    { code: 'RSA', label: 'RSA' },
+  ];
+
+  return (
+    <div className="relative md:flex hidden">
+      <div className="flex items-center gap-1 bg-body-bg rounded-lg px-2 py-1.5">
+        {countries.map((country) => (
+          <button
+            key={country.code}
+            onClick={() => setSelectedCountry(country.code)}
+            className={`px-2 py-1 text-xs font-medium rounded transition-all ${
+              selectedCountry === country.code
+                ? 'bg-primary text-dark'
+                : 'text-dark hover:bg-white'
+            }`}
+          >
+            {country.label}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -30,7 +30,7 @@ File: Style CSS File
   --color-primary: #80dac9; /* ----- Updated Primary Color */
 
   --color-body-color: #061d19;
-  --color-body-bg: #f3f3e5;
+  --color-body-bg: #effbf9; /* ----- Updated Body Background Color */
 
   --color-dark: #006d5a; /* ----- Updated Dark Color */
 
@@ -173,4 +173,26 @@ input[type='range'].slider::-moz-range-thumb {
   width: 20px;
   border-radius: 50%;
   border: none;
+}
+
+/* Leaflet Map Styles */
+.leaflet-container {
+  font-family: var(--font-body);
+  border-radius: 1.25rem;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
+
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
 }

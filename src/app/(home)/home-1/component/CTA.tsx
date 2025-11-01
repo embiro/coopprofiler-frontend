@@ -11,7 +11,7 @@ const CTA = () => {
             {/* Background Image - Placeholder: Replace with your chosen image */}
             <div className="absolute inset-0">
               <Image
-                src="/images/people_using_tech.jpg"
+                src="/images/people_using_tech.png"
                 alt="CTA Background"
                 fill
                 className="object-cover"

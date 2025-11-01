@@ -1,8 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import IconifyIconClient from '@/component/IconifyIconClient';
+import { usePricing, Country, BillingCycle } from '@/context/PricingContext';
+import PricingCalculator, { PlanType } from './PricingCalculator';
 
 type Tier = 'FREE' | 'PRIMARY' | 'STA' | 'PARTNERS';
 
@@ -16,7 +18,7 @@ interface PricingPlan {
   label: string;
   icon: string;
   description: string;
-  pricing: { label: string; amount: number; unit: string }[];
+  planType: PlanType;
   userLimit: string;
   features: PlanFeature[];
   loyaltyBonus?: string;
@@ -29,7 +31,7 @@ const plans: PricingPlan[] = [
     label: 'Free Trial',
     icon: 'solar:gift-outline',
     description: 'Free 30 days trial.',
-    pricing: [],
+    planType: 'PRI',
     userLimit: 'Unlimited members, 5 user',
     features: [
       { name: 'Member Management', available: true },
@@ -48,10 +50,7 @@ const plans: PricingPlan[] = [
     label: 'Primary Plan',
     icon: 'solar:users-group-rounded-outline',
     description: 'Perfect for Primary Cooperatives',
-    pricing: [
-      { label: 'UGX 24500/Yr/Cooperative', amount: 24500, unit: 'year' },
-      { label: 'UGX 1220/Yr/Individual Member', amount: 1220, unit: 'year' },
-    ],
+    planType: 'PRI',
     userLimit: 'Unlimited members, 5 user',
     features: [
       { name: 'Member Management', available: true },
@@ -72,10 +71,7 @@ const plans: PricingPlan[] = [
     label: 'STA Plan',
     icon: 'solar:network-structure-outline',
     description: 'For Apex Bodies and STAs',
-    pricing: [
-      { label: 'UGX 36500/Yr/Cooperative', amount: 36500, unit: 'year' },
-      { label: 'UGX 24500/Yr/Cooperative Member', amount: 24500, unit: 'year' },
-    ],
+    planType: 'STA',
     userLimit: 'Unlimited members, 5 user',
     features: [
       { name: 'Member Management', available: true },
@@ -95,12 +91,7 @@ const plans: PricingPlan[] = [
     label: 'Partners Plan',
     icon: 'solar:handshake-linear',
     description: 'Complete solution for Partners',
-    pricing: [
-      { label: 'UGX 365000/Yr/Partner', amount: 365000, unit: 'year' },
-      { label: 'UGX 36500/Yr/Secondary Cooperative', amount: 36500, unit: 'year' },
-      { label: 'UGX 24500/Yr/Primary Cooperative', amount: 24500, unit: 'year' },
-      { label: 'UGX 1220/Yr/Individual Member', amount: 1220, unit: 'year' },
-    ],
+    planType: 'PARTNER',
     userLimit: 'Unlimited members, 5 user',
     features: [
       { name: 'Member Management', available: true },
@@ -120,9 +111,101 @@ const plans: PricingPlan[] = [
 ];
 
 const Hero = () => {
+  const { selectedCountry, setSelectedCountry, billingCycle, setBillingCycle, convertPrice } = usePricing();
+  const [selectedPlan, setSelectedPlan] = useState<Tier | null>(null);
+  const [planPrices, setPlanPrices] = useState<Record<string, { monthly: number; annual: number; twoYear: number }>>({});
+
+  const getPlanPrice = (planId: Tier) => {
+    const price = planPrices[planId];
+    if (!price) return null;
+    
+    const displayPrice = billingCycle === 'two-year' ? price.twoYear : price.annual;
+    return convertPrice(displayPrice, true);
+  };
+
+  const getCTAText = (plan: PricingPlan) => {
+    if (plan.id === 'FREE') {
+      return 'Start Free Trial';
+    }
+    
+    const price = getPlanPrice(plan.id);
+    if (price) {
+      return `Get Started for ${price.local} per ${billingCycle === 'two-year' ? '2 years' : 'year'}`;
+    }
+    return 'Get Started';
+  };
+
+  const handleGetStarted = (plan: PricingPlan) => {
+    // Build URL with parameters
+    const params = new URLSearchParams();
+    params.set('plan', plan.planType);
+    params.set('billing', billingCycle);
+    
+    // Get pricing calculator values (would need to be lifted up)
+    // For now, redirect to app with basic params
+    window.location.href = `https://app.coopprofiler.com/signup?${params.toString()}`;
+  };
+
   return (
     <section className="lg:py-25 md:py-22.5 py-17.5 bg-body-bg">
       <div className="container">
+        {/* Country & Currency Selector */}
+        <div
+          className="lg:mb-12.5 text-center md:mb-10 mb-7.5"
+          data-aos="fade-up"
+          data-aos-duration={500}
+          data-aos-easing="ease-in-out"
+        >
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <span className="text-sm font-medium">Country & Currency:</span>
+            <div className="flex gap-2">
+              {(['GLOBAL', 'UG', 'RSA'] as Country[]).map((country) => (
+                <button
+                  key={country}
+                  onClick={() => setSelectedCountry(country)}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                    selectedCountry === country
+                      ? 'bg-primary text-dark'
+                      : 'bg-white text-dark hover:bg-neutral-100'
+                  }`}
+                >
+                  {country === 'GLOBAL' ? 'Global' : country}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Billing Cycle Toggle */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-xl p-1 inline-flex gap-1">
+            <button
+              onClick={() => setBillingCycle('annual')}
+              className={`px-6 py-2 rounded-lg font-medium transition-all ${
+                billingCycle === 'annual'
+                  ? 'bg-primary text-dark'
+                  : 'text-dark hover:bg-neutral-100'
+              }`}
+            >
+              Annual
+            </button>
+            <button
+              onClick={() => setBillingCycle('two-year')}
+              className={`px-6 py-2 rounded-lg font-medium transition-all relative ${
+                billingCycle === 'two-year'
+                  ? 'bg-primary text-dark'
+                  : 'text-dark hover:bg-neutral-100'
+              }`}
+            >
+              2-Year
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                Save 15%
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Header */}
         <div
           className="lg:mb-12.5 text-center md:mb-10 mb-7.5"
           data-aos="fade-up"
@@ -162,26 +245,30 @@ const Hero = () => {
                 <p className="text-sm text-dark mb-4">{plan.description}</p>
               </div>
 
-              {/* Pricing */}
-              <div className="px-6 pb-4">
-                {plan.pricing.length > 0 ? (
-                  <div className="space-y-2">
-                    {plan.pricing.map((price, idx) => (
-                      <div key={idx}>
-                        <div className="text-2xl font-bold text-black">
-                          UGX {price.amount.toLocaleString()}
-                        </div>
-                        <div className="text-xs text-dark">{price.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
+              {/* Pricing Calculator for paid plans */}
+              {plan.id !== 'FREE' && (
+                <div className="px-6 pb-4">
+                  <PricingCalculator
+                    planType={plan.planType}
+                    onPriceChange={(prices) => {
+                      setPlanPrices((prev) => ({
+                        ...prev,
+                        [plan.id]: prices,
+                      }));
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Free Trial Display */}
+              {plan.id === 'FREE' && (
+                <div className="px-6 pb-4">
                   <div>
                     <div className="text-2xl font-bold text-black">Free</div>
                     <div className="text-xs text-dark">30 days trial</div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
 
               {/* User Limit */}
               <div className="px-6 pb-4">
@@ -204,7 +291,7 @@ const Hero = () => {
               </div>
 
               {/* Loyalty Bonus */}
-              {plan.loyaltyBonus && (
+              {plan.loyaltyBonus && billingCycle === 'annual' && (
                 <div className="bg-dark text-white px-6 py-4 mt-auto">
                   <p className="text-xs">{plan.loyaltyBonus}</p>
                 </div>
@@ -212,12 +299,21 @@ const Hero = () => {
 
               {/* CTA */}
               <div className="p-6 pt-4">
-                <Link
-                  href="/contact"
-                  className="block w-full py-3 text-center bg-primary border-2 border-dark text-dark font-medium rounded-lg transition-all duration-300 hover:bg-dark hover:text-primary"
-                >
-                  SELECT PLAN
-                </Link>
+                {plan.id === 'FREE' ? (
+                  <Link
+                    href="https://app.coopprofiler.com/signup"
+                    className="block w-full py-3 text-center bg-primary border-2 border-dark text-dark font-medium rounded-lg transition-all duration-300 hover:bg-dark hover:text-primary"
+                  >
+                    {getCTAText(plan)}
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => handleGetStarted(plan)}
+                    className="block w-full py-3 text-center bg-primary border-2 border-dark text-dark font-medium rounded-lg transition-all duration-300 hover:bg-dark hover:text-primary"
+                  >
+                    {getCTAText(plan)}
+                  </button>
+                )}
               </div>
             </div>
           ))}
