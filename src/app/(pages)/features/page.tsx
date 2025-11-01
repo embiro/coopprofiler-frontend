@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Hero from './component/Hero';
 import Features from './component/Features';
@@ -12,21 +11,20 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Features | CoopProfiler',
-  description: 'Explore the complete arsenal of tools designed to drive cooperative resilience and growth. Discover the full spectrum of platform capabilities.',
+  description:
+    'Explore the complete arsenal of tools designed to drive cooperative resilience and growth. Discover the full spectrum of platform capabilities.',
 };
 
 const Page = () => {
   return (
     <>
-      
       <Hero />
       <Features />
-      <Features2 />
+      {/* <Features2 /> */}
       <Feature3 />
       <KeyFeatures />
-      <Templates />
-      <Highlight />
-      
+      {/* <Templates /> */}
+      {/* <Highlight /> */}
     </>
   );
 };

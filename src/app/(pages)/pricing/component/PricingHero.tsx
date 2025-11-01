@@ -62,7 +62,8 @@ const plans: PricingPlan[] = [
       { name: 'Email Notifications', available: true },
       { name: 'Unlimited Support', available: true },
     ],
-    loyaltyBonus: 'Primary loyalty bonus: For every 100 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
+    loyaltyBonus:
+      'Primary loyalty bonus: For every 100 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
     highlight: true,
   },
   {
@@ -83,7 +84,8 @@ const plans: PricingPlan[] = [
       { name: 'Email Notifications', available: true },
       { name: 'Unlimited Support', available: true },
     ],
-    loyaltyBonus: 'STA loyalty bonus: For every 50 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
+    loyaltyBonus:
+      'STA loyalty bonus: For every 50 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
   },
   {
     id: 'PARTNERS',
@@ -128,13 +130,14 @@ const pricingRates = {
 };
 
 const PricingHero = () => {
-  const { selectedCountry, setSelectedCountry, billingCycle, setBillingCycle, convertPrice } = usePricing();
-  
+  const { selectedCountry, setSelectedCountry, billingCycle, setBillingCycle, convertPrice } =
+    usePricing();
+
   // Calculator state
   const [numMembers, setNumMembers] = useState(100);
   const [numPrimaryCooperatives, setNumPrimaryCooperatives] = useState(5);
   const [numSTACooperatives, setNumSTACooperatives] = useState(2);
-  
+
   const [calculatedPrices, setCalculatedPrices] = useState<Record<string, number>>({});
 
   // Calculate prices for each plan
@@ -142,19 +145,21 @@ const PricingHero = () => {
     const prices: Record<string, number> = {};
 
     // PRI calculation
-    const priBase = pricingRates.PRI.perCooperative + (numMembers * pricingRates.PRI.perMember);
+    const priBase = pricingRates.PRI.perCooperative + numMembers * pricingRates.PRI.perMember;
     prices.PRIMARY = billingCycle === 'two-year' ? priBase * 2 * 0.85 : priBase;
 
     // STA calculation
-    const staBase = (numPrimaryCooperatives * pricingRates.STA.perPrimaryCooperative) + 
-                    (numMembers * pricingRates.STA.perMember);
+    const staBase =
+      numPrimaryCooperatives * pricingRates.STA.perPrimaryCooperative +
+      numMembers * pricingRates.STA.perMember;
     prices.STA = billingCycle === 'two-year' ? staBase * 2 * 0.85 : staBase;
 
     // PARTNER calculation
-    const partnerBase = pricingRates.PARTNER.perPartner +
-                       (numSTACooperatives * pricingRates.PARTNER.perSecondaryCooperative) +
-                       (numPrimaryCooperatives * pricingRates.PARTNER.perPrimaryCooperative) +
-                       (numMembers * pricingRates.PARTNER.perMember);
+    const partnerBase =
+      pricingRates.PARTNER.perPartner +
+      numSTACooperatives * pricingRates.PARTNER.perSecondaryCooperative +
+      numPrimaryCooperatives * pricingRates.PARTNER.perPrimaryCooperative +
+      numMembers * pricingRates.PARTNER.perMember;
     prices.PARTNERS = billingCycle === 'two-year' ? partnerBase * 2 * 0.85 : partnerBase;
 
     setCalculatedPrices(prices);
@@ -171,19 +176,43 @@ const PricingHero = () => {
     if (plan.id === 'FREE') {
       return 'Start Free Trial';
     }
-    
-    const price = getPlanPrice(plan.id);
-    if (price) {
-      return `Get Started for ${price.local} per ${billingCycle === 'two-year' ? '2 years' : 'year'}`;
-    }
     return 'Get Started';
+  };
+
+  // Get features to display for each plan (showing only new features for higher plans)
+  const getPlanFeatures = (plan: PricingPlan, planIndex: number) => {
+    // First plan shows all features
+    if (planIndex === 0) {
+      return { showAll: true, features: plan.features, basePlan: null };
+    }
+
+    const previousPlan = plans[planIndex - 1];
+    const previousFeatures = new Set(previousPlan.features.map(f => f.name));
+    const currentFeatures = new Set(plan.features.map(f => f.name));
+
+    // Check if current plan has all previous plan's features
+    const hasAllPrevious = [...previousFeatures].every(f => currentFeatures.has(f));
+
+    if (hasAllPrevious) {
+      // Find additional features
+      const additionalFeatures = plan.features.filter(f => !previousFeatures.has(f.name));
+
+      return {
+        showAll: false,
+        features: additionalFeatures,
+        basePlan: previousPlan.label,
+      };
+    }
+
+    // Doesn't contain all previous features, show all
+    return { showAll: true, features: plan.features, basePlan: null };
   };
 
   const handleGetStarted = (plan: PricingPlan) => {
     const params = new URLSearchParams();
     params.set('plan', plan.planType);
     params.set('billing', billingCycle);
-    
+
     if (plan.planType === 'PRI') {
       params.set('members', numMembers.toString());
     } else if (plan.planType === 'STA') {
@@ -194,7 +223,7 @@ const PricingHero = () => {
       params.set('primaryCooperatives', numPrimaryCooperatives.toString());
       params.set('staCooperatives', numSTACooperatives.toString());
     }
-    
+
     window.location.href = `https://app.coopprofiler.com/signup?${params.toString()}`;
   };
 
@@ -210,12 +239,8 @@ const PricingHero = () => {
           data-aos-duration={500}
           data-aos-easing="ease-in-out"
         >
-          <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-4xl">
-            Choose Your Plan
-          </h2>
-          <p className="mb-2.5">
-            Start with a free trial · No hidden fees · Cancel anytime
-          </p>
+          <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-4xl">Choose Your Plan</h2>
+          <p className="mb-2.5">Start with a free trial · No hidden fees · Cancel anytime</p>
         </div>
 
         {/* Country & Currency Selector */}
@@ -229,7 +254,7 @@ const PricingHero = () => {
           <div className="flex items-center justify-center gap-4 mb-4 flex-wrap">
             <span className="text-sm font-medium">Country & Currency:</span>
             <div className="flex gap-2">
-              {(['GLOBAL', 'UG', 'RSA'] as Country[]).map((country) => (
+              {(['GLOBAL', 'UG', 'RSA'] as Country[]).map(country => (
                 <button
                   key={country}
                   onClick={() => setSelectedCountry(country)}
@@ -289,16 +314,14 @@ const PricingHero = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {/* Number of Members - All plans */}
             <div>
-              <label className="block text-sm font-medium mb-2">
-                Number of Members
-              </label>
+              <label className="block text-sm font-medium mb-2">Number of Members</label>
               <div className="flex items-center gap-4">
                 <input
                   type="range"
                   min={5}
                   max={50000}
                   value={numMembers}
-                  onChange={(e) => setNumMembers(Number(e.target.value))}
+                  onChange={e => setNumMembers(Number(e.target.value))}
                   className="flex-1"
                 />
                 <div className="w-24 text-right font-semibold">{numMembers.toLocaleString()}</div>
@@ -316,7 +339,7 @@ const PricingHero = () => {
                   min={1}
                   max={500}
                   value={numPrimaryCooperatives}
-                  onChange={(e) => setNumPrimaryCooperatives(Number(e.target.value))}
+                  onChange={e => setNumPrimaryCooperatives(Number(e.target.value))}
                   className="flex-1"
                 />
                 <div className="w-24 text-right font-semibold">{numPrimaryCooperatives}</div>
@@ -325,16 +348,14 @@ const PricingHero = () => {
 
             {/* Number of STA Cooperatives - PARTNER only */}
             <div>
-              <label className="block text-sm font-medium mb-2">
-                Number of STA Cooperatives
-              </label>
+              <label className="block text-sm font-medium mb-2">Number of STA Cooperatives</label>
               <div className="flex items-center gap-4">
                 <input
                   type="range"
                   min={1}
                   max={100}
                   value={numSTACooperatives}
-                  onChange={(e) => setNumSTACooperatives(Number(e.target.value))}
+                  onChange={e => setNumSTACooperatives(Number(e.target.value))}
                   className="flex-1"
                 />
                 <div className="w-24 text-right font-semibold">{numSTACooperatives}</div>
@@ -351,9 +372,10 @@ const PricingHero = () => {
           data-aos-duration={500}
           data-aos-easing="ease-in-out"
         >
-          {plans.map((plan) => {
+          {plans.map((plan, planIndex) => {
             const price = getPlanPrice(plan.id);
-            
+            const { showAll, features, basePlan } = getPlanFeatures(plan, planIndex);
+
             return (
               <div
                 key={plan.id}
@@ -383,9 +405,7 @@ const PricingHero = () => {
                     <>
                       <div className="flex items-baseline gap-2">
                         <span className="text-2xl font-bold text-black">{price.local}</span>
-                        {price.usd && (
-                          <span className="text-xs text-dark">({price.usd} USD)</span>
-                        )}
+                        {price.usd && <span className="text-xs text-dark">({price.usd} USD)</span>}
                       </div>
                       <div className="text-xs text-dark mt-1">
                         per {billingCycle === 'two-year' ? '2 years' : 'year'}
@@ -404,22 +424,48 @@ const PricingHero = () => {
                 {/* Features */}
                 <div className="px-6 pb-4 flex-grow">
                   <div className="space-y-2">
-                    {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <IconifyIconClient
-                          icon="tabler:check"
-                          className="size-5 text-primary flex-shrink-0"
-                        />
-                        <span className="text-sm">{feature.name}</span>
-                      </div>
-                    ))}
+                    {showAll ? (
+                      // Show all features for first plan
+                      features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2">
+                          <IconifyIconClient
+                            icon="tabler:check"
+                            className="size-5 text-primary flex-shrink-0"
+                          />
+                          <span className="text-sm">{feature.name}</span>
+                        </div>
+                      ))
+                    ) : (
+                      // Show base plan reference + additional features
+                      <>
+                        <div className="flex items-center gap-2 mb-2">
+                          <IconifyIconClient
+                            icon="tabler:check"
+                            className="size-5 text-primary flex-shrink-0"
+                          />
+                          <span className="text-sm font-medium">Everything in {basePlan}</span>
+                        </div>
+                        {features.map((feature, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <IconifyIconClient
+                              icon="tabler:plus"
+                              className="size-5 text-primary flex-shrink-0"
+                            />
+                            <span className="text-sm">{feature.name}</span>
+                          </div>
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
 
                 {/* Loyalty Bonus */}
-                {plan.loyaltyBonus && billingCycle === 'annual' && (
+                {plan.loyaltyBonus && (
                   <div className="bg-dark text-white px-6 py-4 mt-auto">
-                    <p className="text-xs">{plan.loyaltyBonus}</p>
+                    <p className="text-xs leading-relaxed">
+                      {plan.loyaltyBonus}
+                      {billingCycle === 'two-year' && ' (Applicable for annual billing only)'}
+                    </p>
                   </div>
                 )}
 
@@ -452,4 +498,3 @@ const PricingHero = () => {
 };
 
 export default PricingHero;
-

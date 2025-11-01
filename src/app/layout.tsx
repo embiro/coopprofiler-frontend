@@ -1,16 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import AppProvidersWrapper from '@/component/wrappers/AppProvidersWrapper';
 import { PricingProviderWrapper } from '@/component/providers/PricingProviderWrapper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'aos/dist/aos.css';
 import './style.css';
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'CoopProfiler - Powering Cooperative Member Value, Legacy and Sustainability',
@@ -32,13 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={inter.variable}>
+      <body>
         <PricingProviderWrapper>
           {children}
           <AppProvidersWrapper />

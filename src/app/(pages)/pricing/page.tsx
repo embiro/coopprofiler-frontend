@@ -9,7 +9,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Pricing | CoopProfiler',
-  description: 'Choose the right plan for your cooperative. Transparent pricing for Primary Cooperatives, Apex Bodies, and Partners.',
+  description:
+    'Choose the right plan for your cooperative. Transparent pricing for Primary Cooperatives, Apex Bodies, and Partners.',
 };
 
 const Page = () => {
@@ -25,4 +26,3 @@ const Page = () => {
 };
 
 export default Page;
-

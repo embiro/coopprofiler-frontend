@@ -75,13 +75,6 @@ const KeyFeatures = () => {
                 alt=""
                 className="w-full md:h-137.5 h-82.5 rounded-2xl object-cover"
               />
-              <div>
-                <Image
-                  src={currentTab.element}
-                  alt=""
-                  className="h-40 md:block hidden rounded-2xl absolute md:start-1/2 md:bottom-25 md:-translate-x-1/2"
-                />
-              </div>
             </div>
           )}
 
@@ -122,7 +115,8 @@ const KeyFeatures = () => {
 
           <div>
             <p>
-              Monitor and manage your entire network of cooperatives from a single dashboard, gaining real-time insights into performance, trends, and opportunities.
+              Monitor and manage your entire network of cooperatives from a single dashboard,
+              gaining real-time insights into performance, trends, and opportunities.
             </p>
             <Link
               href="/contact"

@@ -20,7 +20,9 @@ const ProblemSolution = () => {
                   The Challenges You Face
                 </h2>
                 <p className="lg:mb-12.5 md:mb-5">
-                  Are you struggling to get consistent data from member cooperatives? Is it difficult to assess performance across your network and identify which cooperatives need support?
+                  Are you struggling to get consistent data from member cooperatives? Is it
+                  difficult to assess performance across your network and identify which
+                  cooperatives need support?
                 </p>
                 <div>
                   <Link
@@ -42,25 +44,34 @@ const ProblemSolution = () => {
                     </div>
                     <h3 className="text-1.5xl">Inconsistent Data Collection</h3>
                     <p>
-                      Different cooperatives use different systems, making it impossible to get a unified view of your network's performance.
+                      Different cooperatives use different systems, making it impossible to get a
+                      unified view of your network's performance.
                     </p>
                   </div>
                   <div className="flex flex-col gap-5">
                     <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                      <IconifyIconClient icon="tabler:chart-bar-off" className="size-6 text-black" />
+                      <IconifyIconClient
+                        icon="tabler:chart-bar-off"
+                        className="size-6 text-black"
+                      />
                     </div>
                     <h3 className="text-1.5xl">Limited Network Visibility</h3>
                     <p>
-                      Without comprehensive reporting, you can't identify which cooperatives are thriving or need additional support.
+                      Without comprehensive reporting, you can't identify which cooperatives are
+                      thriving or need additional support.
                     </p>
                   </div>
                   <div className="flex flex-col gap-5">
                     <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                      <IconifyIconClient icon="tabler:time-management" className="size-6 text-black" />
+                      <IconifyIconClient
+                        icon="tabler:time-management"
+                        className="size-6 text-black"
+                      />
                     </div>
                     <h3 className="text-1.5xl">Manual Compilation</h3>
                     <p>
-                      Aggregating data from multiple cooperatives is time-consuming and prone to errors, delaying critical decisions.
+                      Aggregating data from multiple cooperatives is time-consuming and prone to
+                      errors, delaying critical decisions.
                     </p>
                   </div>
                   <div className="flex flex-col gap-5">
@@ -69,7 +80,8 @@ const ProblemSolution = () => {
                     </div>
                     <h3 className="text-1.5xl">Compliance Tracking</h3>
                     <p>
-                      Ensuring all member cooperatives meet regulatory requirements without a unified system is challenging.
+                      Ensuring all member cooperatives meet regulatory requirements without a
+                      unified system is challenging.
                     </p>
                   </div>
                 </div>
@@ -80,11 +92,21 @@ const ProblemSolution = () => {
           <div className="mt-17.5">
             <div className="bg-white rounded-2xl p-7.5">
               <div className="text-center mb-7.5" data-aos="fade-up">
+                <div className="flex justify-center mb-5">
+                  <div className="size-16 bg-primary rounded-full inline-flex items-center justify-center">
+                    <IconifyIconClient
+                      icon="solar:shield-check-bold"
+                      className="size-8 text-black"
+                    />
+                  </div>
+                </div>
                 <h2 className="lg:text-5.5xl md:text-4.6xl text-3.4xl mb-2.5">
                   The CoopProfiler Solution
                 </h2>
                 <p className="md:w-3/4 mx-auto">
-                  CoopProfiler provides a unified platform for your entire network. Get real-time insights across all member cooperatives, identify trends and opportunities, and strengthen your network with data-driven support.
+                  CoopProfiler provides a unified platform for your entire network. Get real-time
+                  insights across all member cooperatives, identify trends and opportunities, and
+                  strengthen your network with data-driven support.
                 </p>
               </div>
             </div>
@@ -96,4 +118,3 @@ const ProblemSolution = () => {
 };
 
 export default ProblemSolution;
-

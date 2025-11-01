@@ -20,7 +20,9 @@ const ProblemSolution = () => {
                   The Challenges You Face
                 </h2>
                 <p className="lg:mb-12.5 md:mb-5">
-                  Do you lack holistic data on your cooperative's status and members? Are you making decisions based on guesswork? Do you struggle to measure adherence to cooperative principles and values?
+                  Do you lack holistic data on your cooperative's status and members? Are you making
+                  decisions based on guesswork? Do you struggle to measure adherence to cooperative
+                  principles and values?
                 </p>
                 <div>
                   <Link
@@ -38,20 +40,28 @@ const ProblemSolution = () => {
                 <div className="grid md:grid-cols-2 gap-7.5">
                   <div className="flex flex-col gap-5">
                     <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                      <IconifyIconClient icon="tabler:chart-bar-off" className="size-6 text-black" />
+                      <IconifyIconClient
+                        icon="tabler:chart-bar-off"
+                        className="size-6 text-black"
+                      />
                     </div>
                     <h3 className="text-1.5xl">No Resilience Measurement</h3>
                     <p>
-                      Globally, there's no standardized tool to measure cooperative performance based on cooperative fundamentals, values and principles.
+                      Globally, there's no standardized tool to measure cooperative performance
+                      based on cooperative fundamentals, values and principles.
                     </p>
                   </div>
                   <div className="flex flex-col gap-5">
                     <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                      <IconifyIconClient icon="tabler:tool-off" className="size-6 text-black" />
+                      <IconifyIconClient
+                        icon="tabler:calculator-off"
+                        className="size-6 text-black"
+                      />
                     </div>
                     <h3 className="text-1.5xl">Generic Financial Tools</h3>
                     <p>
-                      Existing tools only measure financial performance, ignoring cooperative values and holistic member well-being.
+                      Existing tools only measure financial performance, ignoring cooperative values
+                      and holistic member well-being.
                     </p>
                   </div>
                   <div className="flex flex-col gap-5">
@@ -60,16 +70,18 @@ const ProblemSolution = () => {
                     </div>
                     <h3 className="text-1.5xl">Data for Nothing</h3>
                     <p>
-                      Data collected at loan appraisal is never analyzed to understand if cooperative products meet members' needs.
+                      Data collected at loan appraisal is never analyzed to understand if
+                      cooperative products meet members' needs.
                     </p>
                   </div>
                   <div className="flex flex-col gap-5">
                     <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                      <IconifyIconClient icon="tabler:users-off" className="size-6 text-black" />
+                      <IconifyIconClient icon="tabler:database-off" className="size-6 text-black" />
                     </div>
                     <h3 className="text-1.5xl">Loss of Data Ownership</h3>
                     <p>
-                      Many platforms redirect power away from cooperatives—the actual owners of their data.
+                      Many platforms redirect power away from cooperatives—the actual owners of
+                      their data.
                     </p>
                   </div>
                 </div>
@@ -80,11 +92,21 @@ const ProblemSolution = () => {
           <div className="mt-17.5">
             <div className="bg-white rounded-2xl p-7.5">
               <div className="text-center mb-7.5" data-aos="fade-up">
+                <div className="flex justify-center mb-5">
+                  <div className="size-16 bg-primary rounded-full inline-flex items-center justify-center">
+                    <IconifyIconClient
+                      icon="solar:shield-check-bold"
+                      className="size-8 text-black"
+                    />
+                  </div>
+                </div>
                 <h2 className="lg:text-5.5xl md:text-4.6xl text-3.4xl mb-2.5">
                   The Coop Profiler Solution
                 </h2>
                 <p className="md:w-3/4 mx-auto">
-                  An agile research and decision support tool with the Cooperative Resilience Measurement Index (CRMI)—the world's first framework tracking adherence to cooperative values, principles, and impact. Your data stays yours.
+                  An agile research and decision support tool with the Cooperative Resilience
+                  Measurement Index (CRMI)—the world's first framework tracking adherence to
+                  cooperative values, principles, and impact. Your data stays yours.
                 </p>
               </div>
             </div>
@@ -96,4 +118,3 @@ const ProblemSolution = () => {
 };
 
 export default ProblemSolution;
-

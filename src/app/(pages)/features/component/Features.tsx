@@ -1,5 +1,3 @@
-
-
 import Image from 'next/image';
 import React from 'react';
 import about from '@/assets/images/about/9.png';
@@ -15,18 +13,17 @@ const Features = () => {
             <div data-aos="fade-right" data-aos-duration={500} data-aos-easing="ease-in-out">
               <div className="relative">
                 <Image src={about} alt="" className="rounded-2xl" />
-                <Image
-                  src={element3}
-                  alt=""
-                  className="md:absolute border border-neutral-200 md:block md:-end-5 md:-bottom-7.5 md:w-68.75 md:rounded-2xl hidden"
-                />
               </div>
             </div>
             <div data-aos="fade-left" data-aos-duration={500} data-aos-easing="ease-in-out">
               <div className="md:mb-12.5 mb-7.5">
-                <h1 className="lg:text-6xl md:text-5.5xl text-4xl mb-2.5">Data Analytics & Insights</h1>
+                <h1 className="lg:text-6xl md:text-5.5xl text-4xl mb-2.5">
+                  Data Analytics & Insights
+                </h1>
                 <p className="mb-2.5">
-                  Transform raw numbers into strategic intelligence. Our intuitive dashboards and reporting tools reveal the critical insights you need to make confident, data-backed decisions for sustainable growth.
+                  Transform raw numbers into strategic intelligence. Our intuitive dashboards and
+                  reporting tools reveal the critical insights you need to make confident,
+                  data-backed decisions for sustainable growth.
                 </p>
               </div>
               <Link

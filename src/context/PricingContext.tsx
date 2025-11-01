@@ -106,7 +106,7 @@ export const PricingProvider: React.FC<PricingProviderProps> = ({ children }) =>
   const convertPrice = (basePrice: number, showUSD: boolean = true) => {
     // Base prices are in UGX, need to convert
     let localPrice = basePrice;
-    
+
     if (selectedCurrency === 'ZAR') {
       // Convert UGX to ZAR (example rate, should be fetched from API)
       localPrice = basePrice * 0.005; // Approximate conversion
@@ -150,4 +150,3 @@ export const PricingProvider: React.FC<PricingProviderProps> = ({ children }) =>
     </PricingContext.Provider>
   );
 };
-

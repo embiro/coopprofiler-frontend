@@ -37,10 +37,7 @@ const Benefits = () => {
               <div className="grid md:grid-cols-2 gap-5 my-2.5">
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient
-                      icon="solar:user-rounded-duotone"
-                      className="size-6 text-black"
-                    />
+                    <IconifyIconClient icon="tabler:user" className="size-6 text-black" />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Personalized Services</h3>
                   <p className="text-white">
@@ -50,10 +47,7 @@ const Benefits = () => {
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient
-                      icon="solar:scale-broken-duotone"
-                      className="size-6 text-black"
-                    />
+                    <IconifyIconClient icon="tabler:scale" className="size-6 text-black" />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">
                     Equitable Distribution
@@ -64,10 +58,7 @@ const Benefits = () => {
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient
-                      icon="solar:presentation-graph-duotone"
-                      className="size-6 text-black"
-                    />
+                    <IconifyIconClient icon="tabler:chart-line" className="size-6 text-black" />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">
                     Evidence-Based Advocacy
@@ -78,10 +69,7 @@ const Benefits = () => {
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient
-                      icon="solar:users-group-two-rounded-duotone"
-                      className="size-6 text-black"
-                    />
+                    <IconifyIconClient icon="tabler:users" className="size-6 text-black" />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Collective Bargaining</h3>
                   <p className="text-white">

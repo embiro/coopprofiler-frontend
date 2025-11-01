@@ -63,7 +63,8 @@ const plans: PricingPlan[] = [
       { name: 'Email Notifications', available: true },
       { name: 'Unlimited Support', available: true },
     ],
-    loyaltyBonus: 'Primary loyalty bonus: For every 100 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
+    loyaltyBonus:
+      'Primary loyalty bonus: For every 100 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
     highlight: true,
   },
   {
@@ -84,7 +85,8 @@ const plans: PricingPlan[] = [
       { name: 'Email Notifications', available: true },
       { name: 'Unlimited Support', available: true },
     ],
-    loyaltyBonus: 'STA loyalty bonus: For every 50 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
+    loyaltyBonus:
+      'STA loyalty bonus: For every 50 members profiled - 5% to be rewarded to the Cooperative, once at the end of the year',
   },
   {
     id: 'PARTNERS',
@@ -111,14 +113,17 @@ const plans: PricingPlan[] = [
 ];
 
 const Hero = () => {
-  const { selectedCountry, setSelectedCountry, billingCycle, setBillingCycle, convertPrice } = usePricing();
+  const { selectedCountry, setSelectedCountry, billingCycle, setBillingCycle, convertPrice } =
+    usePricing();
   const [selectedPlan, setSelectedPlan] = useState<Tier | null>(null);
-  const [planPrices, setPlanPrices] = useState<Record<string, { monthly: number; annual: number; twoYear: number }>>({});
+  const [planPrices, setPlanPrices] = useState<
+    Record<string, { monthly: number; annual: number; twoYear: number }>
+  >({});
 
   const getPlanPrice = (planId: Tier) => {
     const price = planPrices[planId];
     if (!price) return null;
-    
+
     const displayPrice = billingCycle === 'two-year' ? price.twoYear : price.annual;
     return convertPrice(displayPrice, true);
   };
@@ -126,11 +131,6 @@ const Hero = () => {
   const getCTAText = (plan: PricingPlan) => {
     if (plan.id === 'FREE') {
       return 'Start Free Trial';
-    }
-    
-    const price = getPlanPrice(plan.id);
-    if (price) {
-      return `Get Started for ${price.local} per ${billingCycle === 'two-year' ? '2 years' : 'year'}`;
     }
     return 'Get Started';
   };
@@ -140,7 +140,7 @@ const Hero = () => {
     const params = new URLSearchParams();
     params.set('plan', plan.planType);
     params.set('billing', billingCycle);
-    
+
     // Get pricing calculator values (would need to be lifted up)
     // For now, redirect to app with basic params
     window.location.href = `https://app.coopprofiler.com/signup?${params.toString()}`;
@@ -159,7 +159,7 @@ const Hero = () => {
           <div className="flex items-center justify-center gap-4 mb-4">
             <span className="text-sm font-medium">Country & Currency:</span>
             <div className="flex gap-2">
-              {(['GLOBAL', 'UG', 'RSA'] as Country[]).map((country) => (
+              {(['GLOBAL', 'UG', 'RSA'] as Country[]).map(country => (
                 <button
                   key={country}
                   onClick={() => setSelectedCountry(country)}
@@ -212,12 +212,8 @@ const Hero = () => {
           data-aos-duration={500}
           data-aos-easing="ease-in-out"
         >
-          <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-4xl">
-            Choose Your Plan
-          </h2>
-          <p className="mb-2.5">
-            Start with a free trial · No hidden fees · Cancel anytime
-          </p>
+          <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-4xl">Choose Your Plan</h2>
+          <p className="mb-2.5">Start with a free trial · No hidden fees · Cancel anytime</p>
         </div>
 
         <div
@@ -227,7 +223,7 @@ const Hero = () => {
           data-aos-duration={500}
           data-aos-easing="ease-in-out"
         >
-          {plans.map((plan) => (
+          {plans.map(plan => (
             <div
               key={plan.id}
               className={`bg-white rounded-2xl overflow-hidden flex flex-col ${
@@ -250,8 +246,8 @@ const Hero = () => {
                 <div className="px-6 pb-4">
                   <PricingCalculator
                     planType={plan.planType}
-                    onPriceChange={(prices) => {
-                      setPlanPrices((prev) => ({
+                    onPriceChange={prices => {
+                      setPlanPrices(prev => ({
                         ...prev,
                         [plan.id]: prices,
                       }));

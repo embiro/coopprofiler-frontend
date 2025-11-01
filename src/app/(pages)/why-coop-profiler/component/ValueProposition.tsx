@@ -26,11 +26,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:document-medicine-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:file-alert" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Standardization & Compliance</h3>
               <p>
-                Enables standardisation in institutional and household data aligned with ILO cooperative statistical guidelines for compliance and comparability.
+                Enables standardisation in institutional and household data aligned with ILO
+                cooperative statistical guidelines for compliance and comparability.
               </p>
             </div>
 
@@ -42,11 +43,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:users-group-rounded-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:users" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Data Democratization</h3>
               <p>
-                Ethical data management inspiring ownership and trust through collective effort in ensuring authentic, reliable data with integrity.
+                Ethical data management inspiring ownership and trust through collective effort in
+                ensuring authentic, reliable data with integrity.
               </p>
             </div>
 
@@ -58,11 +60,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:shield-user-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:shield-check" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Data Security & Privacy</h3>
               <p>
-                Automated hourly backups, privacy policies, and customized data access protocols. Annual licenses renewed with PDPO and NITA-U regulators.
+                Automated hourly backups, privacy policies, and customized data access protocols.
+                Annual licenses renewed with PDPO and NITA-U regulators.
               </p>
             </div>
           </div>
@@ -76,11 +79,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:file-text-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:files" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Document Centre</h3>
               <p>
-                Robust document management for audit reports, registration certificates, and meeting minutes to support data validity and compliance.
+                Robust document management for audit reports, registration certificates, and meeting
+                minutes to support data validity and compliance.
               </p>
             </div>
 
@@ -92,11 +96,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:code-2-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:code" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">API Enabled</h3>
               <p>
-                Promote collaboration, comparability, and efficient regulation through API functionality linking to existing software.
+                Promote collaboration, comparability, and efficient regulation through API
+                functionality linking to existing software.
               </p>
             </div>
 
@@ -108,11 +113,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:settings-outline" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:settings" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Continuous Innovation</h3>
               <p>
-                Constant adaptation of technology with mobile push notifications, pilot tests, and market surveys to revolutionize the cooperative sector.
+                Constant adaptation of technology with mobile push notifications, pilot tests, and
+                market surveys to revolutionize the cooperative sector.
               </p>
             </div>
           </div>
@@ -126,11 +132,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:hand-stars-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:chart-line" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Revenue Sharing</h3>
               <p>
-                Loyalty bonus program: for every 100 members profiled, cooperatives receive 5% of user fees paid back.
+                Loyalty bonus program: for every 100 members profiled, cooperatives receive 5% of
+                user fees paid back.
               </p>
             </div>
 
@@ -142,11 +149,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:chats-square-code-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:user" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Training & Support</h3>
               <p>
-                Virtual and physical training plus dedicated helpdesk ticketing via email, phone, WhatsApp, and our website.
+                Virtual and physical training plus dedicated helpdesk ticketing via email, phone,
+                WhatsApp, and our website.
               </p>
             </div>
 
@@ -158,11 +166,12 @@ const ValueProposition = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-primary rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:wallet-money-duotone" className="size-7 text-dark" />
+                <IconifyIconClient icon="tabler:currency-dollar" className="size-7 text-dark" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Affordable Pricing</h3>
               <p>
-                Flexible pricing plans for primary, secondary, tertiary cooperatives, and individual members.
+                Flexible pricing plans for primary, secondary, tertiary cooperatives, and individual
+                members.
               </p>
             </div>
           </div>
@@ -173,4 +182,3 @@ const ValueProposition = () => {
 };
 
 export default ValueProposition;
-

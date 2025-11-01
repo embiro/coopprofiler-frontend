@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Cabinet Grotesk"', 'sans-serif'],
+        body: ['"Book Antiqua"', '"Palatino Linotype"', 'Palatino', 'serif'],
+        heading: ['"Book Antiqua"', '"Palatino Linotype"', 'Palatino', 'serif'],
       },
       aspectRatio: {
         mobile: '9 / 16',

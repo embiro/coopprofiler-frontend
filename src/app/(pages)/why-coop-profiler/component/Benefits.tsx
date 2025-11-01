@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import IconifyIconClient from '@/component/IconifyIconClient';
 
@@ -26,11 +27,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:user-rounded-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:user" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Personalized Services</h3>
               <p>
-                Gain insights into individual member needs and preferences to offer tailored services and products that add value.
+                Gain insights into individual member needs and preferences to offer tailored
+                services and products that add value.
               </p>
             </div>
 
@@ -42,11 +44,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:scale-broken-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:scale" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Equitable Resource Distribution</h3>
               <p>
-                Understanding each member's contributions and challenges helps allocate resources more fairly and transparently.
+                Understanding each member's contributions and challenges helps allocate resources
+                more fairly and transparently.
               </p>
             </div>
 
@@ -58,11 +61,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:key-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:key" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Improved Access to Opportunities</h3>
               <p>
-                Uncover training, loans, and market access opportunities that members may otherwise miss.
+                Uncover training, loans, and market access opportunities that members may otherwise
+                miss.
               </p>
             </div>
 
@@ -74,11 +78,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:database-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:database" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Data Culture Development</h3>
               <p>
-                Develop a culture of collecting and analyzing high-quality, accurate data within the cooperative.
+                Develop a culture of collecting and analyzing high-quality, accurate data within the
+                cooperative.
               </p>
             </div>
 
@@ -90,11 +95,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:smartphone-update-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:device-mobile" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Promotes Digitalization</h3>
               <p>
-                Improve management efficiency and enable precise business reporting through digital transformation.
+                Improve management efficiency and enable precise business reporting through digital
+                transformation.
               </p>
             </div>
 
@@ -106,12 +112,10 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:presentation-graph-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:chart-line" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Evidence-Based Advocacy</h3>
-              <p>
-                Foster evidence-based advocacy to policy makers using real-time, accurate data.
-              </p>
+              <p>Foster evidence-based advocacy to policy makers using real-time, accurate data.</p>
             </div>
 
             <div
@@ -122,11 +126,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:hand-money-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:currency-dollar" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Enhanced Support Services</h3>
               <p>
-                Offer better financial support (loans, savings schemes) and services that meet actual member needs.
+                Offer better financial support (loans, savings schemes) and services that meet
+                actual member needs.
               </p>
             </div>
 
@@ -138,11 +143,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:chart-2-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:chart-bar" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Data-Driven Growth</h3>
               <p>
-                Members track individual performance over time with personalized reports that help them grow.
+                Members track individual performance over time with personalized reports that help
+                them grow.
               </p>
             </div>
 
@@ -154,11 +160,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:eye-closed-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:eye" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Transparency & Accountability</h3>
               <p>
-                Members see how their data is used for decision-making, ensuring trust and transparency.
+                Members see how their data is used for decision-making, ensuring trust and
+                transparency.
               </p>
             </div>
 
@@ -170,11 +177,12 @@ const Benefits = () => {
               data-aos-easing="ease-in-out"
             >
               <div className="size-15 bg-dark rounded-full inline-flex items-center justify-center mb-5">
-                <IconifyIconClient icon="solar:users-group-two-rounded-duotone" className="size-7 text-primary" />
+                <IconifyIconClient icon="tabler:users" className="size-7 text-primary" />
               </div>
               <h3 className="text-1.5xl mb-2.5">Collective Bargaining Power</h3>
               <p>
-                Aggregated member data enhances the cooperative's ability to negotiate better deals, services, or grants.
+                Aggregated member data enhances the cooperative's ability to negotiate better deals,
+                services, or grants.
               </p>
             </div>
           </div>
@@ -185,4 +193,3 @@ const Benefits = () => {
 };
 
 export default Benefits;
-

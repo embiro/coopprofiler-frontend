@@ -23,7 +23,7 @@ const MobileAppShowcase = () => {
     <>
       <section className="lg:py-25 md:py-22.5 py-17.5 bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12.5 items-center">
+          <div className="grid lg:grid-cols-[1.5fr_1fr] gap-12.5 items-center">
             {/* Left side - Content */}
             <div data-aos="fade-right" data-aos-duration="600">
               <div className="bg-primary py-0.5 px-3.75 rounded-full font-medium text-sm inline-flex mb-5 text-dark">
@@ -88,7 +88,7 @@ const MobileAppShowcase = () => {
 
             {/* Right side - Video Showcase */}
             <div
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
+              className="relative rounded-2xl overflow-hidden shadow-2xl w-fit mx-auto"
               data-aos="fade-left"
               data-aos-duration="600"
             >
