@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['"Book Antiqua"', '"Palatino Linotype"', 'Palatino', 'serif'],
-        heading: ['"Book Antiqua"', '"Palatino Linotype"', 'Palatino', 'serif'],
+        body: ['Montserrat', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
       },
       aspectRatio: {
         mobile: '9 / 16',

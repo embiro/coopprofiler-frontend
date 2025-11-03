@@ -2,9 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import { usePricing, Country, BillingCycle } from '@/context/PricingContext';
 import PricingCalculator, { PlanType } from './PricingCalculator';
+import ugFlag from '@/assets/images/navigation/ug_flag.png';
+import saFlag from '@/assets/images/navigation/sa_flag.png';
 
 type Tier = 'FREE' | 'PRIMARY' | 'STA' | 'PARTNERS';
 
@@ -163,13 +166,34 @@ const Hero = () => {
                 <button
                   key={country}
                   onClick={() => setSelectedCountry(country)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  className={`px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${
                     selectedCountry === country
                       ? 'bg-primary text-dark'
                       : 'bg-white text-dark hover:bg-neutral-100'
                   }`}
+                  title={
+                    country === 'GLOBAL' ? 'Global' : country === 'UG' ? 'Uganda' : 'South Africa'
+                  }
                 >
-                  {country === 'GLOBAL' ? 'Global' : country}
+                  {country === 'GLOBAL' ? (
+                    'Global'
+                  ) : country === 'UG' ? (
+                    <Image
+                      src={ugFlag}
+                      alt="Uganda"
+                      width={24}
+                      height={18}
+                      className="rounded-sm object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={saFlag}
+                      alt="South Africa"
+                      width={24}
+                      height={18}
+                      className="rounded-sm object-cover"
+                    />
+                  )}
                 </button>
               ))}
             </div>

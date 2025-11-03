@@ -40,7 +40,7 @@ const NavMenu = () => {
             <Link
               key={idx}
               href={item.href}
-              className="flex items-center text-dark text-base py-1.25 font-medium"
+              className="flex items-center text-dark text-base py-1.25 font-medium transition-colors duration-200 hover:text-primary"
             >
               <span className={isActive ? 'underline' : ''}>{item.title}</span>
             </Link>
@@ -57,7 +57,7 @@ const NavMenu = () => {
             <button
               type="button"
               onClick={() => handleClick(idx)}
-              className="cursor-pointer text-dark flex items-center py-2.5 font-medium gap-1"
+              className="cursor-pointer text-dark flex items-center py-2.5 font-medium gap-1 transition-colors duration-200 hover:text-primary"
             >
               <span className={isActive ? 'underline' : ''}>{item.title}</span>
               <IconifyIconClient icon="tabler:chevron-down" className="w-4 h-4 text-dark" />
@@ -72,13 +72,13 @@ const NavMenu = () => {
                         <Link
                           key={i}
                           href={link.href}
-                          className="block text-base py-1.5"
+                          className="block text-base py-1.5 transition-colors duration-200"
                           onClick={() => setClickedIndex(null)}
                         >
                           <span
                             className={`inline-block font-medium text-dark ${
                               pathname.startsWith(link.href) ? 'underline' : ''
-                            } hover:underline`}
+                            } hover:underline hover:text-primary`}
                           >
                             {link.label}
                           </span>

@@ -1,10 +1,17 @@
 import type { Metadata } from 'next';
+import { Montserrat } from 'next/font/google';
 import AppProvidersWrapper from '@/component/wrappers/AppProvidersWrapper';
 import { PricingProviderWrapper } from '@/component/providers/PricingProviderWrapper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'aos/dist/aos.css';
 import './style.css';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
 
 export const metadata: Metadata = {
   title: 'CoopProfiler - Powering Cooperative Member Value, Legacy and Sustainability',
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={montserrat.variable}>
       <body>
         <PricingProviderWrapper>
           {children}

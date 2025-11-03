@@ -16,10 +16,10 @@ File: Style CSS File
 /* Themes Config */
 @theme {
   /* Body Font */
-  --font-body: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
+  --font-body: var(--font-montserrat), 'Montserrat', sans-serif;
 
   /* Heading Font */
-  --font-heading: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
+  --font-heading: var(--font-montserrat), 'Montserrat', sans-serif;
 
   --color-primary: #80dac9; /* ----- Updated Primary Color */
 

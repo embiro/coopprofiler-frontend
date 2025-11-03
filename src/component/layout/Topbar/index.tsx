@@ -5,6 +5,9 @@ import React, { useEffect, useState } from 'react';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import dynamic from 'next/dynamic';
 import { usePricing, Country } from '@/context/PricingContext';
+import ugFlag from '@/assets/images/navigation/ug_flag.png';
+import saFlag from '@/assets/images/navigation/sa_flag.png';
+import coopLogo from '@/assets/images/navigation/coop_profiler_logo.png';
 const MobileMenu = dynamic(() => import('./component/MobileMenu'));
 const NavMenu = dynamic(() => import('./component/NavMenu'));
 
@@ -33,18 +36,16 @@ const Topbar = () => {
             <div className="text-lg font-bold">
               <Link href="/">
                 <Image
-                  src="/images/logo_green.jpg"
+                  src={coopLogo}
                   alt="COOP PROFILER Logo"
-                  width={150}
-                  height={40}
-                  className="h-8.5 lg:h-9 w-auto"
+                  width={200}
+                  height={50}
+                  className="h-14 lg:h-16 w-auto"
                 />
               </Link>
             </div>
             <NavMenu />
             <div className="flex flex-row justify-center items-center md:gap-3 gap-2.5">
-              {/* Country Selector */}
-              <CountrySelector />
               {/* Secondary CTA - Login (Ghost button) */}
               <div className="md:flex hidden">
                 <Link
@@ -61,11 +62,14 @@ const Topbar = () => {
               <div className="md:flex hidden">
                 <Link
                   href="/pricing-1"
-                  className="bg-dark text-white hover:bg-primary/90 hover:scale-105 rounded-2xl px-7.5 py-3.5 font-semibold transition-all duration-300 shadow-md"
+                  className="bg-dark text-white hover:bg-primary/90 hover:scale-105 rounded-xl px-5 py-2.5 font-semibold transition-all duration-300 shadow-md text-sm"
                 >
                   Get Started
                 </Link>
               </div>
+
+              {/* Country Selector */}
+              <CountrySelector />
 
               {/* Mobile menu button */}
               <div className="flex lg:hidden">
@@ -93,26 +97,35 @@ const Topbar = () => {
 const CountrySelector = () => {
   const { selectedCountry, setSelectedCountry } = usePricing();
 
-  const countries: { code: Country; label: string }[] = [
+  const countries: { code: Country; label: string; flag?: any }[] = [
     { code: 'GLOBAL', label: 'Global' },
-    { code: 'UG', label: 'UG' },
-    { code: 'RSA', label: 'RSA' },
+    { code: 'UG', label: 'Uganda', flag: ugFlag },
+    { code: 'RSA', label: 'South Africa', flag: saFlag },
   ];
 
   return (
     <div className="relative md:flex hidden">
       <div className="flex items-center gap-1 bg-body-bg rounded-lg px-2 py-1.5">
-        {countries.map((country) => (
+        {countries.map(country => (
           <button
             key={country.code}
             onClick={() => setSelectedCountry(country.code)}
-            className={`px-2 py-1 text-xs font-medium rounded transition-all ${
-              selectedCountry === country.code
-                ? 'bg-primary text-dark'
-                : 'text-dark hover:bg-white'
+            className={`px-2 py-1 text-xs font-medium rounded transition-all flex items-center gap-1.5 ${
+              selectedCountry === country.code ? 'bg-primary text-dark' : 'text-dark hover:bg-white'
             }`}
+            title={country.label}
           >
-            {country.label}
+            {country.flag ? (
+              <Image
+                src={country.flag}
+                alt={country.label}
+                width={20}
+                height={15}
+                className="rounded-sm object-cover"
+              />
+            ) : (
+              <span>{country.label}</span>
+            )}
           </button>
         ))}
       </div>

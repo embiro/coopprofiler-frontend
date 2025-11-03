@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import about from '@/assets/images/about/2.png';
+import handUsingTech from '@/assets/images/landing_page/hand_using_tech.png';
 import IconifyIconClient from '@/component/IconifyIconClient';
 
 type StepType = {
@@ -79,11 +79,11 @@ const Step = () => {
             ))}
           </div>
 
-          <div>
+          <div className="w-full">
             <Image
-              src={about}
-              className="rounded-2xl"
-              alt="How It Works Infographic"
+              src={handUsingTech}
+              className="rounded-2xl w-full max-h-[350px] object-cover"
+              alt="Hand using tablet with CoopProfiler"
               data-aos="fade-up"
               data-aos-delay="400"
               data-aos-duration="500"
