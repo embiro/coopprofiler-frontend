@@ -26,9 +26,9 @@ const audienceData: AudienceBlock[] = [
     image: primaryCooperatives,
   },
   {
-    title: 'Apex Bodies (STAs)',
+    title: 'STAs',
     description:
-      'Centralized oversight and comprehensive reporting across multiple cooperative networks.',
+      'Centralized oversight and comprehensive reporting across multiple cooperative networks. STAs refer to Secondary, Tertiary and Apex Cooperatives.',
     href: '/solutions/apex-bodies',
     icon: 'solar:chart-square-bold',
     gradient: 'from-blue-500/20 to-blue-500/5',

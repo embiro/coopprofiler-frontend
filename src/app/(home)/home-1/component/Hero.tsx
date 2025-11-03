@@ -39,10 +39,12 @@ const Hero = () => {
               {/* CTAs */}
               <div className="flex gap-3 flex-wrap">
                 <Link
-                  href="/pricing-1"
+                  href="https://app.coopprofiler.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="py-3 md:px-7 px-6 inline-flex bg-primary font-semibold rounded-2xl text-dark transition-all duration-300 hover:bg-primary/90 hover:scale-105 shadow-lg text-sm lg:text-base"
                 >
-                  Get Started Free
+                  Get Started
                 </Link>
                 <Link
                   href="#how-it-works"

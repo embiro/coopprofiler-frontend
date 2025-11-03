@@ -160,7 +160,7 @@ const Hero = () => {
           data-aos-easing="ease-in-out"
         >
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="text-sm font-medium">Country & Currency:</span>
+            <span className="text-sm font-medium">Currency:</span>
             <div className="flex gap-2">
               {(['GLOBAL', 'UG', 'RSA'] as Country[]).map(country => (
                 <button

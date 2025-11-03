@@ -3,6 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import { currentYear } from '@/component/CurrentYear';
+// @ts-ignore - .jfif files are not in TypeScript's default image types
+import PDPO from '@/assets/images/partners/PDPO.png';
+import nita from '@/assets/images/partners/nita.jpg';
 
 const Footer = () => {
   return (
@@ -131,27 +134,15 @@ const Footer = () => {
               <div className="mt-7.5">
                 <p className="text-white text-sm mb-4">Follow Us:</p>
                 <div className="flex gap-4">
-                  <Link href="" className="flex" aria-label="Facebook">
-                    <IconifyIconClient
-                      icon="tabler:brand-meta"
-                      className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
-                    />
-                  </Link>
-                  <Link href="" className="flex" aria-label="LinkedIn">
-                    <IconifyIconClient
-                      icon="tabler:brand-linkedin"
-                      className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
-                    />
-                  </Link>
-                  <Link href="" className="flex" aria-label="Twitter/X">
+                  <Link
+                    href="https://x.com/CoopProfiler"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex"
+                    aria-label="Twitter/X"
+                  >
                     <IconifyIconClient
                       icon="tabler:brand-x"
-                      className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
-                    />
-                  </Link>
-                  <Link href="" className="flex" aria-label="Instagram">
-                    <IconifyIconClient
-                      icon="tabler:brand-instagram"
                       className="size-5 text-white transform transition duration-300 hover:scale-110 hover:text-primary"
                     />
                   </Link>
@@ -161,6 +152,29 @@ const Footer = () => {
           </div>
 
           <hr className="border-top mt-7.5 border-neutral-700 md:mt-15" />
+
+          {/* Regulators Section */}
+          <div className="pt-7.5 md:pt-10 pb-7.5 md:pb-10">
+            <p className="text-white text-sm text-center mb-5 opacity-80">Regulators</p>
+            <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12 opacity-60">
+              <div className="flex items-center justify-center">
+                <Image
+                  src={PDPO}
+                  alt="PDPO"
+                  className="h-12 lg:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <Image
+                  src={nita}
+                  alt="NITA"
+                  className="h-12 lg:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          <hr className="border-top border-neutral-700" />
 
           <div className="flex flex-col md:flex-row justify-between items-center pt-7.5 md:pt-10 gap-4">
             <div className="text-sm text-white text-center md:text-left">

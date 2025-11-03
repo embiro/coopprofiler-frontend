@@ -93,8 +93,8 @@ const MobileAppShowcase = () => {
               data-aos-duration="600"
             >
               <div className="relative w-full max-w-[280px] mx-auto aspect-mobile max-h-[500px]">
-                <video ref={videoRef} loop autoPlay muted className="object-cover w-full h-full">
-                  <source src="/videos/app_recording.mp4" type="video/mp4" />
+                <video ref={videoRef} loop autoPlay muted className="object-contain w-full h-full">
+                  <source src="https://coopprofiler-cms.onrender.com/uploads/app_recording_cda22088f3.mp4" type="video/mp4" />
                 </video>
                 {/* Video Play/Pause Button Overlay */}
                 <div className="absolute end-4 bottom-4">

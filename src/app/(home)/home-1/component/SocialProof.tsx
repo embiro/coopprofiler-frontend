@@ -3,19 +3,13 @@ import Image from 'next/image';
 
 // @ts-ignore - .jfif files are not in TypeScript's default image types
 import uncst from '@/assets/images/partners/UNCST.jpg';
-import PDPO from '@/assets/images/partners/PDPO.png';
-import nita from '@/assets/images/partners/nita.jpg';
 import ACISA from '@/assets/images/partners/ACISA.jpg';
 import burasa from '@/assets/images/partners/burasa.png';
-import SNV from '@/assets/images/partners/SNV.png';
 
 const partnerLogos = [
   { src: uncst, alt: 'UNCST' },
-  { src: PDPO, alt: 'PDPO' },
-  { src: nita, alt: 'NITA' },
   { src: ACISA, alt: 'ACISA' },
   { src: burasa, alt: 'Burasa' },
-  { src: SNV, alt: 'SNV' },
 ];
 
 const SocialProof = () => {
@@ -37,7 +31,7 @@ const SocialProof = () => {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-16 lg:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    className="h-16 lg:h-20 w-auto object-contain transition-all duration-300"
                   />
                 </div>
               ))}

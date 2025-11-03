@@ -77,35 +77,6 @@ const Solution = () => {
           >
             <Map />
           </div>
-
-          {/* Social Links */}
-          <div
-            className="mt-10 flex justify-center items-center gap-5"
-            data-aos="fade-up"
-            data-aos-delay={200}
-            data-aos-duration={500}
-            data-aos-easing="ease-in-out"
-          >
-            <Link
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-12 bg-dark rounded-full inline-flex items-center justify-center hover:bg-primary transition-all duration-300"
-              aria-label="Facebook"
-            >
-              <IconifyIconClient icon="tabler:brand-meta" className="size-6 text-white" />
-            </Link>
-            <Link
-              href="https://www.twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-12 bg-dark rounded-full inline-flex items-center justify-center hover:bg-primary transition-all duration-300"
-              aria-label="Twitter/X"
-            >
-              <IconifyIconClient icon="tabler:brand-x" className="size-6 text-white" />
-            </Link>
-            <p className="text-dark ml-5">The Uhuru Institute</p>
-          </div>
         </div>
       </section>
     </>

@@ -23,6 +23,10 @@ export const navMenuData: NavItem[] = [
     href: '/',
   },
   {
+    title: 'Why Coop Profiler',
+    href: '/why-coop-profiler',
+  },
+  {
     title: 'Solutions',
     type: 'link',
     children: [
@@ -38,10 +42,6 @@ export const navMenuData: NavItem[] = [
   {
     title: 'Pricing',
     href: '/pricing',
-  },
-  {
-    title: 'Why Coop Profiler',
-    href: '/why-coop-profiler',
   },
   {
     title: 'Contact',

@@ -6,7 +6,6 @@ import IconifyIconClient from '@/component/IconifyIconClient';
 type Feature = {
   name: string;
   tiers: {
-    FREE: boolean;
     PRIMARY: boolean;
     STA: boolean;
     PARTNERS: boolean;
@@ -16,51 +15,51 @@ type Feature = {
 const features: Feature[] = [
   {
     name: 'Member Management',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'Profile Management',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'Analytics/Reports',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'CRMI Computation',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'Data Export',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'User Account Management',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'Mobile App',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'Email Notifications',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'Unlimited Support',
-    tiers: { FREE: true, PRIMARY: true, STA: true, PARTNERS: true },
+    tiers: { PRIMARY: true, STA: true, PARTNERS: true },
   },
   {
     name: 'User Access Request',
-    tiers: { FREE: false, PRIMARY: false, STA: false, PARTNERS: true },
+    tiers: { PRIMARY: false, STA: false, PARTNERS: true },
   },
   {
     name: 'Custom Questions forms',
-    tiers: { FREE: false, PRIMARY: false, STA: false, PARTNERS: true },
+    tiers: { PRIMARY: false, STA: false, PARTNERS: true },
   },
   {
     name: 'API',
-    tiers: { FREE: false, PRIMARY: false, STA: false, PARTNERS: true },
+    tiers: { PRIMARY: false, STA: false, PARTNERS: true },
   },
 ];
 
@@ -111,9 +110,6 @@ const Comparison = () => {
                     Feature
                   </th>
                   <th className="text-center p-5 text-black font-medium border-b border-neutral-200 min-w-32">
-                    Free Trial
-                  </th>
-                  <th className="text-center p-5 text-black font-medium border-b border-neutral-200 min-w-32">
                     Primary Plan
                   </th>
                   <th className="text-center p-5 text-black font-medium border-b border-neutral-200 min-w-32">
@@ -132,9 +128,6 @@ const Comparison = () => {
                   >
                     <td className="p-5 text-dark border-b border-neutral-200">
                       {feature.name}
-                    </td>
-                    <td className="p-5 border-b border-neutral-200">
-                      {renderCell(feature.tiers.FREE)}
                     </td>
                     <td className="p-5 border-b border-neutral-200">
                       {renderCell(feature.tiers.PRIMARY)}

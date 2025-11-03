@@ -98,23 +98,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
           {/* Mobile CTAs */}
           <div className="flex flex-col md:hidden mt-4 gap-3">
-            {/* Secondary CTA - Login */}
+            {/* Primary CTA - Sign Up */}
             <Link
               href="https://app.coopprofiler.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center border-2 border-primary text-primary hover:bg-primary hover:text-dark rounded-lg px-7.5 py-3.5 font-medium transition-all duration-300"
-              onClick={onClose}
-            >
-              Login
-            </Link>
-            {/* Primary CTA - Get Started */}
-            <Link
-              href="/pricing-1"
               className="w-full bg-primary text-center text-dark hover:bg-primary/90 rounded-lg px-7.5 py-3.5 font-semibold transition-all duration-300 shadow-md"
               onClick={onClose}
             >
-              Get Started
+              Sign Up
             </Link>
           </div>
         </div>

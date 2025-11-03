@@ -1,18 +1,22 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import React from 'react';
 import Image from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import { usePricing, Country, BillingCycle } from '@/context/PricingContext';
 import ugFlag from '@/assets/images/navigation/ug_flag.png';
 import saFlag from '@/assets/images/navigation/sa_flag.png';
 
-type Tier = 'FREE' | 'PRIMARY' | 'STA' | 'PARTNERS';
+type Tier = 'PRIMARY' | 'STA' | 'PARTNERS';
 
 interface PlanFeature {
   name: string;
   available: boolean;
+}
+
+interface PricingBreakdown {
+  amount: number;
+  label: string;
 }
 
 interface PricingPlan {
@@ -23,30 +27,12 @@ interface PricingPlan {
   planType: 'PRI' | 'STA' | 'PARTNER';
   userLimit: string;
   features: PlanFeature[];
+  pricingBreakdown: PricingBreakdown[];
   loyaltyBonus?: string;
   highlight?: boolean;
 }
 
 const plans: PricingPlan[] = [
-  {
-    id: 'FREE',
-    label: 'Free Trial',
-    icon: 'solar:gift-outline',
-    description: 'Free 30 days trial.',
-    planType: 'PRI',
-    userLimit: 'Unlimited members, 5 user',
-    features: [
-      { name: 'Member Management', available: true },
-      { name: 'Profile Management', available: true },
-      { name: 'Analytics/Reports', available: true },
-      { name: 'CRMI Computation', available: true },
-      { name: 'Data Export', available: true },
-      { name: 'User Account Management', available: true },
-      { name: 'Mobile App', available: true },
-      { name: 'Email Notifications', available: true },
-      { name: 'Unlimited Support', available: true },
-    ],
-  },
   {
     id: 'PRIMARY',
     label: 'Primary Plan',
@@ -54,6 +40,10 @@ const plans: PricingPlan[] = [
     description: 'Perfect for Primary Cooperatives',
     planType: 'PRI',
     userLimit: 'Unlimited members, 5 user',
+    pricingBreakdown: [
+      { amount: 24500, label: 'Cooperative' },
+      { amount: 1220, label: 'Individual Member' },
+    ],
     features: [
       { name: 'Member Management', available: true },
       { name: 'Profile Management', available: true },
@@ -76,6 +66,10 @@ const plans: PricingPlan[] = [
     description: 'For Apex Bodies and STAs',
     planType: 'STA',
     userLimit: 'Unlimited members, 5 user',
+    pricingBreakdown: [
+      { amount: 36500, label: 'Cooperative' },
+      { amount: 24500, label: 'Cooperative Member' },
+    ],
     features: [
       { name: 'Member Management', available: true },
       { name: 'Profile Management', available: true },
@@ -97,6 +91,12 @@ const plans: PricingPlan[] = [
     description: 'Complete solution for Partners',
     planType: 'PARTNER',
     userLimit: 'Unlimited members, 5 user',
+    pricingBreakdown: [
+      { amount: 365000, label: 'Partner' },
+      { amount: 36500, label: 'Secondary Cooperative' },
+      { amount: 24500, label: 'Primary Cooperative' },
+      { amount: 1220, label: 'Individual Member' },
+    ],
     features: [
       { name: 'Member Management', available: true },
       { name: 'Profile Management', available: true },
@@ -136,102 +136,18 @@ const PricingHero = () => {
   const { selectedCountry, setSelectedCountry, billingCycle, setBillingCycle, convertPrice } =
     usePricing();
 
-  // Calculator state
-  const [numMembers, setNumMembers] = useState(100);
-  const [numPrimaryCooperatives, setNumPrimaryCooperatives] = useState(5);
-  const [numSTACooperatives, setNumSTACooperatives] = useState(2);
-
-  const [calculatedPrices, setCalculatedPrices] = useState<Record<string, number>>({});
-
-  // Log selected country on mount and when it changes
-  useEffect(() => {
-    console.log(`[Pricing Page] 📍 Current selected country: ${selectedCountry}`);
-    console.log(`[Pricing Page] 💰 Currency: ${convertPrice(1000).local}`);
-  }, [selectedCountry, convertPrice]);
-
-  // Calculate prices for each plan
-  useEffect(() => {
-    const prices: Record<string, number> = {};
-
-    // PRI calculation
-    const priBase = pricingRates.PRI.perCooperative + numMembers * pricingRates.PRI.perMember;
-    prices.PRIMARY = billingCycle === 'two-year' ? priBase * 2 * 0.85 : priBase;
-
-    // STA calculation
-    const staBase =
-      numPrimaryCooperatives * pricingRates.STA.perPrimaryCooperative +
-      numMembers * pricingRates.STA.perMember;
-    prices.STA = billingCycle === 'two-year' ? staBase * 2 * 0.85 : staBase;
-
-    // PARTNER calculation
-    const partnerBase =
-      pricingRates.PARTNER.perPartner +
-      numSTACooperatives * pricingRates.PARTNER.perSecondaryCooperative +
-      numPrimaryCooperatives * pricingRates.PARTNER.perPrimaryCooperative +
-      numMembers * pricingRates.PARTNER.perMember;
-    prices.PARTNERS = billingCycle === 'two-year' ? partnerBase * 2 * 0.85 : partnerBase;
-
-    setCalculatedPrices(prices);
-  }, [numMembers, numPrimaryCooperatives, numSTACooperatives, billingCycle]);
-
-  const getPlanPrice = (planId: Tier) => {
-    if (planId === 'FREE') return null;
-    const price = calculatedPrices[planId];
-    if (!price) return null;
-    return convertPrice(price, true);
-  };
-
-  const getCTAText = (plan: PricingPlan) => {
-    if (plan.id === 'FREE') {
-      return 'Start Free Trial';
-    }
-    return 'Get Started';
-  };
-
-  // Get features to display for each plan (showing only new features for higher plans)
-  const getPlanFeatures = (plan: PricingPlan, planIndex: number) => {
-    // First plan shows all features
-    if (planIndex === 0) {
-      return { showAll: true, features: plan.features, basePlan: null };
-    }
-
-    const previousPlan = plans[planIndex - 1];
-    const previousFeatures = new Set(previousPlan.features.map(f => f.name));
-    const currentFeatures = new Set(plan.features.map(f => f.name));
-
-    // Check if current plan has all previous plan's features
-    const hasAllPrevious = [...previousFeatures].every(f => currentFeatures.has(f));
-
-    if (hasAllPrevious) {
-      // Find additional features
-      const additionalFeatures = plan.features.filter(f => !previousFeatures.has(f.name));
-
-      return {
-        showAll: false,
-        features: additionalFeatures,
-        basePlan: previousPlan.label,
-      };
-    }
-
-    // Doesn't contain all previous features, show all
-    return { showAll: true, features: plan.features, basePlan: null };
+  const formatPricingBreakdown = (breakdown: PricingBreakdown[]) => {
+    return breakdown.map(item => {
+      const converted = convertPrice(item.amount, true);
+      const period = billingCycle === 'two-year' ? '2 Yr' : 'Yr';
+      return `${converted.local}/${period}/${item.label}`;
+    });
   };
 
   const handleGetStarted = (plan: PricingPlan) => {
     const params = new URLSearchParams();
     params.set('plan', plan.planType);
     params.set('billing', billingCycle);
-
-    if (plan.planType === 'PRI') {
-      params.set('members', numMembers.toString());
-    } else if (plan.planType === 'STA') {
-      params.set('members', numMembers.toString());
-      params.set('primaryCooperatives', numPrimaryCooperatives.toString());
-    } else if (plan.planType === 'PARTNER') {
-      params.set('members', numMembers.toString());
-      params.set('primaryCooperatives', numPrimaryCooperatives.toString());
-      params.set('staCooperatives', numSTACooperatives.toString());
-    }
 
     window.location.href = `https://app.coopprofiler.com/signup?${params.toString()}`;
   };
@@ -249,7 +165,7 @@ const PricingHero = () => {
           data-aos-easing="ease-in-out"
         >
           <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-4xl">Choose Your Plan</h2>
-          <p className="mb-2.5">Start with a free trial · No hidden fees · Cancel anytime</p>
+          <p className="mb-2.5">No hidden fees · Cancel anytime</p>
         </div>
 
         {/* Country & Currency Selector */}
@@ -261,7 +177,7 @@ const PricingHero = () => {
           data-aos-easing="ease-in-out"
         >
           <div className="flex items-center justify-center gap-4 mb-4 flex-wrap">
-            <span className="text-sm font-medium">Country & Currency:</span>
+            <span className="text-sm font-medium">Currency:</span>
             <div className="flex gap-2">
               {(['GLOBAL', 'UG', 'RSA'] as Country[]).map(country => (
                 <button
@@ -332,80 +248,15 @@ const PricingHero = () => {
           </div>
         </div>
 
-        {/* Pricing Calculator */}
-        <div
-          className="mb-12 max-w-4xl mx-auto bg-white rounded-2xl p-8"
-          data-aos="fade-up"
-          data-aos-delay={100}
-          data-aos-duration={500}
-          data-aos-easing="ease-in-out"
-        >
-          <h3 className="text-2xl font-bold mb-6 text-center">Calculate Your Price</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Number of Members - All plans */}
-            <div>
-              <label className="block text-sm font-medium mb-2">Number of Members</label>
-              <div className="flex items-center gap-4">
-                <input
-                  type="range"
-                  min={5}
-                  max={50000}
-                  value={numMembers}
-                  onChange={e => setNumMembers(Number(e.target.value))}
-                  className="flex-1"
-                />
-                <div className="w-24 text-right font-semibold">{numMembers.toLocaleString()}</div>
-              </div>
-            </div>
-
-            {/* Number of Primary Cooperatives - STA and PARTNER */}
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Number of Primary Cooperatives
-              </label>
-              <div className="flex items-center gap-4">
-                <input
-                  type="range"
-                  min={1}
-                  max={500}
-                  value={numPrimaryCooperatives}
-                  onChange={e => setNumPrimaryCooperatives(Number(e.target.value))}
-                  className="flex-1"
-                />
-                <div className="w-24 text-right font-semibold">{numPrimaryCooperatives}</div>
-              </div>
-            </div>
-
-            {/* Number of STA Cooperatives - PARTNER only */}
-            <div>
-              <label className="block text-sm font-medium mb-2">Number of STA Cooperatives</label>
-              <div className="flex items-center gap-4">
-                <input
-                  type="range"
-                  min={1}
-                  max={100}
-                  value={numSTACooperatives}
-                  onChange={e => setNumSTACooperatives(Number(e.target.value))}
-                  className="flex-1"
-                />
-                <div className="w-24 text-right font-semibold">{numSTACooperatives}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Plan Cards */}
         <div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
           data-aos="fade-up"
           data-aos-delay={150}
           data-aos-duration={500}
           data-aos-easing="ease-in-out"
         >
-          {plans.map((plan, planIndex) => {
-            const price = getPlanPrice(plan.id);
-            const { showAll, features, basePlan } = getPlanFeatures(plan, planIndex);
-
+          {plans.map((plan) => {
             return (
               <div
                 key={plan.id}
@@ -426,24 +277,17 @@ const PricingHero = () => {
 
                 {/* Pricing Display */}
                 <div className="px-6 pb-4">
-                  {plan.id === 'FREE' ? (
-                    <>
-                      <div className="text-2xl font-bold text-black">Free</div>
-                      <div className="text-xs text-dark">30 days trial</div>
-                    </>
-                  ) : price ? (
-                    <>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-black">{price.local}</span>
-                        {price.usd && <span className="text-xs text-dark">({price.usd} USD)</span>}
-                      </div>
-                      <div className="text-xs text-dark mt-1">
-                        per {billingCycle === 'two-year' ? '2 years' : 'year'}
-                      </div>
-                    </>
-                  ) : (
-                    <div className="text-sm text-dark">Calculate your price above</div>
-                  )}
+                  <div className="space-y-3 bg-primary/10 rounded-xl p-4 border border-primary/20">
+                    {formatPricingBreakdown(plan.pricingBreakdown).map((priceText, idx) => (
+                      <p
+                        key={idx}
+                        className="text-base lg:text-lg font-bold leading-tight"
+                        style={{ color: '#000' }}
+                      >
+                        {priceText}
+                      </p>
+                    ))}
+                  </div>
                 </div>
 
                 {/* User Limit */}
@@ -454,38 +298,15 @@ const PricingHero = () => {
                 {/* Features */}
                 <div className="px-6 pb-4 flex-grow">
                   <div className="space-y-2">
-                    {showAll ? (
-                      // Show all features for first plan
-                      features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <IconifyIconClient
-                            icon="tabler:check"
-                            className="size-5 text-primary flex-shrink-0"
-                          />
-                          <span className="text-sm">{feature.name}</span>
-                        </div>
-                      ))
-                    ) : (
-                      // Show base plan reference + additional features
-                      <>
-                        <div className="flex items-center gap-2 mb-2">
-                          <IconifyIconClient
-                            icon="tabler:check"
-                            className="size-5 text-primary flex-shrink-0"
-                          />
-                          <span className="text-sm font-medium">Everything in {basePlan}</span>
-                        </div>
-                        {features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <IconifyIconClient
-                              icon="tabler:plus"
-                              className="size-5 text-primary flex-shrink-0"
-                            />
-                            <span className="text-sm">{feature.name}</span>
-                          </div>
-                        ))}
-                      </>
-                    )}
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <IconifyIconClient
+                          icon="tabler:check"
+                          className="size-5 text-primary flex-shrink-0"
+                        />
+                        <span className="text-sm">{feature.name}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -501,22 +322,12 @@ const PricingHero = () => {
 
                 {/* CTA */}
                 <div className="p-6 pt-4">
-                  {plan.id === 'FREE' ? (
-                    <Link
-                      href="https://app.coopprofiler.com/signup"
-                      className="block w-full py-3 text-center bg-primary border-2 border-dark text-dark font-medium rounded-lg transition-all duration-300 hover:bg-dark hover:text-primary"
-                    >
-                      {getCTAText(plan)}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={() => handleGetStarted(plan)}
-                      disabled={!price}
-                      className="block w-full py-3 text-center bg-primary border-2 border-dark text-dark font-medium rounded-lg transition-all duration-300 hover:bg-dark hover:text-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {getCTAText(plan)}
-                    </button>
-                  )}
+                  <button
+                    onClick={() => handleGetStarted(plan)}
+                    className="block w-full py-3 text-center bg-primary border-2 border-dark text-dark font-medium rounded-lg transition-all duration-300 hover:bg-dark hover:text-primary"
+                  >
+                    Get Started
+                  </button>
                 </div>
               </div>
             );

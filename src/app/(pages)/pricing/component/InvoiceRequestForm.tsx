@@ -10,6 +10,8 @@ interface InvoiceRequestFormData {
   plan: string;
   billingCycle: string;
   numberOfMembers: number;
+  numberOfPrimaryCooperatives: number;
+  numberOfSTACooperatives: number;
   message?: string;
 }
 
@@ -20,7 +22,9 @@ const InvoiceRequestForm = () => {
     organization: '',
     plan: '',
     billingCycle: 'annual',
-    numberOfMembers: 0,
+    numberOfMembers: 100,
+    numberOfPrimaryCooperatives: 5,
+    numberOfSTACooperatives: 2,
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,7 +53,9 @@ const InvoiceRequestForm = () => {
           organization: '',
           plan: '',
           billingCycle: 'annual',
-          numberOfMembers: 0,
+          numberOfMembers: 100,
+          numberOfPrimaryCooperatives: 5,
+          numberOfSTACooperatives: 2,
           message: '',
         });
       } else {
@@ -67,9 +73,10 @@ const InvoiceRequestForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    const numericFields = ['numberOfMembers', 'numberOfPrimaryCooperatives', 'numberOfSTACooperatives'];
     setFormData((prev) => ({
       ...prev,
-      [name]: name === 'numberOfMembers' ? parseInt(value, 10) || 0 : value,
+      [name]: numericFields.includes(name) ? parseInt(value, 10) || 0 : value,
     }));
   };
 
@@ -190,6 +197,38 @@ const InvoiceRequestForm = () => {
             required
             min="1"
             value={formData.numberOfMembers}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="numberOfPrimaryCooperatives" className="block text-sm font-medium mb-2">
+            Number of Primary Cooperatives <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="number"
+            id="numberOfPrimaryCooperatives"
+            name="numberOfPrimaryCooperatives"
+            required
+            min="0"
+            value={formData.numberOfPrimaryCooperatives}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="numberOfSTACooperatives" className="block text-sm font-medium mb-2">
+            Number of STA Cooperatives <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="number"
+            id="numberOfSTACooperatives"
+            name="numberOfSTACooperatives"
+            required
+            min="0"
+            value={formData.numberOfSTACooperatives}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
           />

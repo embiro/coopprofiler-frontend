@@ -21,7 +21,6 @@ const Page = () => {
   return (
     <>
       <Hero />
-      <SocialProof />
       <AudienceRouting />
       <Step />
       <Features />
@@ -29,6 +28,7 @@ const Page = () => {
       <MobileAppShowcase />
       <Testimonial />
       <CTA />
+      <SocialProof />
     </>
   );
 };

@@ -46,25 +46,15 @@ const Topbar = () => {
             </div>
             <NavMenu />
             <div className="flex flex-row justify-center items-center md:gap-3 gap-2.5">
-              {/* Secondary CTA - Login (Ghost button) */}
+              {/* Primary CTA - Sign Up */}
               <div className="md:flex hidden">
                 <Link
                   href="https://app.coopprofiler.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-dark hover:text-primary border-2 border-transparent hover:border-primary rounded-2xl px-6 py-3 font-medium transition-all duration-300"
-                >
-                  Login
-                </Link>
-              </div>
-
-              {/* Primary CTA - Get Started */}
-              <div className="md:flex hidden">
-                <Link
-                  href="/pricing-1"
                   className="bg-dark text-white hover:bg-primary/90 hover:scale-105 rounded-xl px-5 py-2.5 font-semibold transition-all duration-300 shadow-md text-sm"
                 >
-                  Get Started
+                  Sign Up
                 </Link>
               </div>
 

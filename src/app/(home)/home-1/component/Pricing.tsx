@@ -1,11 +1,19 @@
+'use client';
+
 import React from 'react';
 import IconifyIconClient from '@/component/IconifyIconClient';
 import Link from 'next/link';
+import { usePricing } from '@/context/PricingContext';
+
+interface PricingBreakdown {
+  amount: number;
+  label: string;
+}
 
 type PricingPlan = {
   title: string;
   description?: string;
-  pricing: string[];
+  pricingBreakdown: PricingBreakdown[];
   memberLimits: {
     members: string;
     users: string;
@@ -16,28 +24,11 @@ type PricingPlan = {
 
 const pricingPlans: PricingPlan[] = [
   {
-    title: 'FREE TRIAL',
-    description: 'Free 30 days trial.',
-    pricing: [],
-    memberLimits: {
-      members: 'Unlimited members',
-      users: '5 user',
-    },
-    features: [
-      'Member Management',
-      'Profile Management',
-      'Analytics/Reports',
-      'CRMI Computation',
-      'Data Export',
-      'User Account Management',
-      'Mobile App',
-      'Email Notifications',
-      'Unlimited Support',
-    ],
-  },
-  {
     title: 'PRIMARY PLAN',
-    pricing: ['UGX 24500/Yr/ Cooperative', 'UGX 1220/Yr/ Individual Member'],
+    pricingBreakdown: [
+      { amount: 24500, label: 'Cooperative' },
+      { amount: 1220, label: 'Individual Member' },
+    ],
     memberLimits: {
       members: 'Unlimited members',
       users: '5 user',
@@ -58,7 +49,10 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     title: 'STA PLAN',
-    pricing: ['UGX 36500/Yr/Cooperative', 'UGX 24500/Yr/Cooperative Member'],
+    pricingBreakdown: [
+      { amount: 36500, label: 'Cooperative' },
+      { amount: 24500, label: 'Cooperative Member' },
+    ],
     memberLimits: {
       members: 'Unlimited members',
       users: '5 user',
@@ -79,11 +73,11 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     title: 'PARTNERS PLAN',
-    pricing: [
-      'UGX 365000/Yr/Partner',
-      'UGX 36500/Yr/Secondary Cooperative',
-      'UGX 24500/Yr/Primary Cooperative',
-      'UGX 1220/Yr/Individual Member',
+    pricingBreakdown: [
+      { amount: 365000, label: 'Partner' },
+      { amount: 36500, label: 'Secondary Cooperative' },
+      { amount: 24500, label: 'Primary Cooperative' },
+      { amount: 1220, label: 'Individual Member' },
     ],
     memberLimits: {
       members: 'Unlimited members',
@@ -107,44 +101,14 @@ const pricingPlans: PricingPlan[] = [
 ];
 
 const Pricing = () => {
-  // Helper function to get features comparison
-  const getFeatureComparison = (plan: PricingPlan, planIndex: number) => {
-    if (planIndex === 0) {
-      // First plan shows all features
-      return { basePlan: null, additionalFeatures: plan.features, showComparison: false };
-    }
+  const { convertPrice, billingCycle } = usePricing();
 
-    const previousPlan = pricingPlans[planIndex - 1];
-    const previousFeatures = new Set(previousPlan.features);
-    const currentFeatures = new Set(plan.features);
-
-    // Check if all previous features are in current plan
-    const hasAllPrevious = [...previousFeatures].every(f => currentFeatures.has(f));
-
-    if (hasAllPrevious) {
-      // Find additional features
-      const additionalFeatures = plan.features.filter(f => !previousFeatures.has(f));
-
-      if (additionalFeatures.length === 0) {
-        // Same features as previous plan
-        return {
-          basePlan: previousPlan.title,
-          additionalFeatures: [],
-          showComparison: true,
-          isSame: true,
-        };
-      }
-
-      return {
-        basePlan: previousPlan.title,
-        additionalFeatures,
-        showComparison: true,
-        isSame: false,
-      };
-    }
-
-    // Doesn't contain all previous features, show all
-    return { basePlan: null, additionalFeatures: plan.features, showComparison: false };
+  const formatPricingBreakdown = (breakdown: PricingBreakdown[]) => {
+    return breakdown.map(item => {
+      const converted = convertPrice(item.amount, true);
+      const period = billingCycle === 'two-year' ? '2 Yr' : 'Yr';
+      return `${converted.local}/${period}/${item.label}`;
+    });
   };
 
   return (
@@ -168,7 +132,7 @@ const Pricing = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 lg:gap-7.5">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:gap-7.5">
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
@@ -184,15 +148,15 @@ const Pricing = () => {
                   {plan.description && (
                     <p className="text-base text-neutral-600 mb-4">{plan.description}</p>
                   )}
-                  {plan.pricing.length > 0 && (
+                  {plan.pricingBreakdown.length > 0 && (
                     <div className="space-y-3 mb-4 bg-primary/10 rounded-xl p-4 border border-primary/20">
-                      {plan.pricing.map((price, idx) => (
+                      {formatPricingBreakdown(plan.pricingBreakdown).map((priceText, idx) => (
                         <p
                           key={idx}
                           className="text-base lg:text-lg font-bold leading-tight"
                           style={{ color: '#000' }}
                         >
-                          {price}
+                          {priceText}
                         </p>
                       ))}
                     </div>
@@ -206,76 +170,26 @@ const Pricing = () => {
                 {/* Features List */}
                 <div className="flex-grow p-6 lg:p-7.5">
                   <div className="space-y-3.5">
-                    {(() => {
-                      const comparison = getFeatureComparison(plan, index);
-
-                      if (comparison.showComparison && comparison.basePlan) {
-                        if (comparison.isSame) {
-                          // Same as previous plan, but may have loyalty bonus
-                          return (
-                            <>
-                              <div className="flex gap-2.5 items-start">
-                                <IconifyIconClient
-                                  icon="tabler:circle-check"
-                                  className="size-5 lg:size-6 text-primary flex-shrink-0 mt-0.5"
-                                />
-                                <span className="text-sm lg:text-base text-neutral-700 italic">
-                                  Same features as {comparison.basePlan}
-                                </span>
-                              </div>
-                              {plan.loyaltyBonus && (
-                                <div className="flex gap-2.5 items-start">
-                                  <IconifyIconClient
-                                    icon="tabler:circle-check"
-                                    className="size-5 lg:size-6 text-primary flex-shrink-0 mt-0.5"
-                                  />
-                                  <span className="text-sm lg:text-base text-neutral-700">
-                                    {plan.loyaltyBonus}
-                                  </span>
-                                </div>
-                              )}
-                            </>
-                          );
-                        } else {
-                          // Everything from previous + additional features
-                          return (
-                            <>
-                              <div className="flex gap-2.5 items-start">
-                                <IconifyIconClient
-                                  icon="tabler:circle-check"
-                                  className="size-5 lg:size-6 text-primary flex-shrink-0 mt-0.5"
-                                />
-                                <span className="text-sm lg:text-base text-neutral-700 font-medium">
-                                  Everything under {comparison.basePlan} +
-                                </span>
-                              </div>
-                              {comparison.additionalFeatures.map((feature, idx) => (
-                                <div key={idx} className="flex gap-2.5 items-start">
-                                  <IconifyIconClient
-                                    icon="tabler:circle-check"
-                                    className="size-5 lg:size-6 text-primary flex-shrink-0 mt-0.5"
-                                  />
-                                  <span className="text-sm lg:text-base text-neutral-700">
-                                    {feature}
-                                  </span>
-                                </div>
-                              ))}
-                            </>
-                          );
-                        }
-                      } else {
-                        // Show all features normally
-                        return plan.features.map((feature, idx) => (
-                          <div key={idx} className="flex gap-2.5 items-start">
-                            <IconifyIconClient
-                              icon="tabler:circle-check"
-                              className="size-5 lg:size-6 text-primary flex-shrink-0 mt-0.5"
-                            />
-                            <span className="text-sm lg:text-base text-neutral-700">{feature}</span>
-                          </div>
-                        ));
-                      }
-                    })()}
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex gap-2.5 items-start">
+                        <IconifyIconClient
+                          icon="tabler:circle-check"
+                          className="size-5 lg:size-6 text-primary flex-shrink-0 mt-0.5"
+                        />
+                        <span className="text-sm lg:text-base text-neutral-700">{feature}</span>
+                      </div>
+                    ))}
+                    {plan.loyaltyBonus && (
+                      <div className="flex gap-2.5 items-start">
+                        <IconifyIconClient
+                          icon="tabler:circle-check"
+                          className="size-5 lg:size-6 text-primary flex-shrink-0 mt-0.5"
+                        />
+                        <span className="text-sm lg:text-base text-neutral-700">
+                          {plan.loyaltyBonus}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
