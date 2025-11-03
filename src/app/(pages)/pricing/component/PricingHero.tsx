@@ -143,6 +143,12 @@ const PricingHero = () => {
 
   const [calculatedPrices, setCalculatedPrices] = useState<Record<string, number>>({});
 
+  // Log selected country on mount and when it changes
+  useEffect(() => {
+    console.log(`[Pricing Page] 📍 Current selected country: ${selectedCountry}`);
+    console.log(`[Pricing Page] 💰 Currency: ${convertPrice(1000).local}`);
+  }, [selectedCountry, convertPrice]);
+
   // Calculate prices for each plan
   useEffect(() => {
     const prices: Record<string, number> = {};

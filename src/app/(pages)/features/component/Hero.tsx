@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Hero = () => {
@@ -13,7 +12,7 @@ const Hero = () => {
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            Your Complete Platform Arsenal
+            Unrivalled Features
           </h1>
           <p
             className="text-center md:w-3/4 mx-auto text-base"
@@ -22,7 +21,7 @@ const Hero = () => {
             data-aos-duration={600}
             data-aos-easing="ease-in-out"
           >
-            This is the complete arsenal at your disposal. Explore the full spectrum of tools designed to drive cooperative resilience and growth.
+            Explore our diverse tools tailored to drive your growth and resilience
           </p>
         </div>
       </section>

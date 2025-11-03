@@ -10,25 +10,25 @@ export type Feature = {
 
 export const features: Feature[] = [
   {
-    icon: 'solar:network-structure-outline',
+    icon: 'tabler:world',
     title: 'Network Dashboard',
     description:
       'Get a comprehensive view of all member cooperatives with real-time performance metrics and insights.',
   },
   {
-    icon: 'solar:graph-up-outline',
+    icon: 'solar:chart-2-outline',
     title: 'Cross-Cooperative Analytics',
     description:
       'Compare performance across your network and identify trends, opportunities, and areas needing support.',
   },
   {
-    icon: 'solar:file-report-outline',
+    icon: 'solar:folder-with-files-outline',
     title: 'Unified Reporting',
     description:
       'Generate aggregated reports across all cooperatives for stakeholders and regulatory compliance.',
   },
   {
-    icon: 'solar:shield-check-outline',
+    icon: 'solar:shield-check-linear',
     title: 'Compliance Monitoring',
     description:
       'Track and ensure all member cooperatives meet regulatory requirements with automated alerts.',
@@ -61,7 +61,10 @@ const Features = () => {
                 data-aos-easing="ease-in-out"
               >
                 <div className="bg-body-bg lg:p-7.5 p-5 rounded-2xl flex flex-col lg:gap-25 md:gap-2.5 gap-7.5 h-full">
-                  <IconifyIconClient icon={feature.icon} className="lg:size-12 size-10 text-primary" />
+                  <IconifyIconClient
+                    icon={feature.icon}
+                    className="lg:size-12 size-10 text-primary"
+                  />
                   <h3 className="text-1.5xl">{feature.title}</h3>
                   <p>{feature.description}</p>
                 </div>
@@ -75,4 +78,3 @@ const Features = () => {
 };
 
 export default Features;
-

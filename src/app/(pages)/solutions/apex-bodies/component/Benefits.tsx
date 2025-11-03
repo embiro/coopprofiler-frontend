@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import three from '@/assets/images/element/3.svg';
-import six from '@/assets/images/element/6.svg';
-import one from '@/assets/images/element/1.svg';
+import strengthenNetwork from '@/assets/images/stas/strengthen_network.png';
 import IconifyIconClient from '@/component/IconifyIconClient';
 
 const Benefits = () => {
@@ -17,14 +15,12 @@ const Benefits = () => {
               data-aos-duration={600}
               data-aos-easing="ease-in-out"
             >
-              <div className="grid grid-cols-2 gap-5 items-center">
-                <div className="flex flex-col gap-5">
-                  <Image src={three} alt="" className="border border-neutral-200 rounded-2xl" />
-                  <Image src={six} alt="" className="border border-neutral-200 rounded-2xl" />
-                </div>
-                <div>
-                  <Image src={one} alt="" className="size-full" />
-                </div>
+              <div className="w-full h-full">
+                <Image
+                  src={strengthenNetwork}
+                  alt="Network-Wide Visibility diagram"
+                  className="w-full h-full object-contain rounded-2xl"
+                />
               </div>
             </div>
             <div
@@ -37,16 +33,21 @@ const Benefits = () => {
                 Strengthen Your Entire Network
               </h3>
               <p className="md:mb-7.5 mb-2.5 text-white">
-                Get unified insights across all member cooperatives. Identify which cooperatives need support, track performance trends, and make data-driven decisions to strengthen your entire network.
+                Get unified insights across all member cooperatives. Identify which cooperatives
+                need support, track performance trends, and make data-driven decisions to strengthen
+                your entire network.
               </p>
               <div className="grid md:grid-cols-2 gap-5 my-2.5">
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
                     <IconifyIconClient icon="tabler:world" className="size-6 text-black" />
                   </div>
-                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Network-Wide Visibility</h3>
+                  <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">
+                    Network-Wide Visibility
+                  </h3>
                   <p className="text-white">
-                    See the complete picture of your network's performance in real-time from a single dashboard.
+                    See the complete picture of your network's performance in real-time from a
+                    single dashboard.
                   </p>
                 </div>
                 <div className="flex gap-2.5 flex-col">
@@ -69,11 +70,12 @@ const Benefits = () => {
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:handshake-linear" className="size-6 text-black" />
+                    <IconifyIconClient icon="tabler:chart-line" className="size-6 text-black" />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Strategic Leadership</h3>
                   <p className="text-white">
-                    Lead your network with confidence using data-driven insights and strategic intelligence.
+                    Lead your network with confidence using data-driven insights and strategic
+                    intelligence.
                   </p>
                 </div>
               </div>
@@ -86,4 +88,3 @@ const Benefits = () => {
 };
 
 export default Benefits;
-

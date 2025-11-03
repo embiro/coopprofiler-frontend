@@ -161,7 +161,7 @@ const Pricing = () => {
               Pricing Plans
             </div>
             <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              Choose the plan that fits your needs
+              Choose the plan that best fits you
             </h2>
             <p className="text-base mb-2.5 max-w-2xl mx-auto">
               Flexible pricing options designed for cooperatives of all sizes

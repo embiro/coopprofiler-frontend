@@ -26,7 +26,7 @@ const stepData: StepType[] = [
   {
     number: '03',
     title: 'Build Resilience',
-    des: 'Strengthen your cooperative through data-driven decision-making, compliance management, and sustainable growth strategies.',
+    des: 'Track and measure the performance of your cooperative based on the Cooperative values, principles and generally acceptable business practices',
     icon: 'solar:shield-check-bold',
   },
 ];
@@ -46,7 +46,7 @@ const Step = () => {
               How It Works{' '}
             </div>
             <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              Simple, Powerful, Effective
+              Simple, Cultured, Intelligent
             </h2>
             <p className="text-base mb-2.5 max-w-2xl mx-auto">
               Three simple steps to transform your cooperative operations

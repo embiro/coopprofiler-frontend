@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import three from '@/assets/images/element/3.svg';
-import six from '@/assets/images/element/6.svg';
-import one from '@/assets/images/element/1.svg';
+import buildPartnerships from '@/assets/images/solutions/build_partnerships.png';
 import IconifyIconClient from '@/component/IconifyIconClient';
 
 const Benefits = () => {
@@ -17,14 +15,12 @@ const Benefits = () => {
               data-aos-duration={600}
               data-aos-easing="ease-in-out"
             >
-              <div className="grid grid-cols-2 gap-5 items-center">
-                <div className="flex flex-col gap-5">
-                  <Image src={three} alt="" className="border border-neutral-200 rounded-2xl" />
-                  <Image src={six} alt="" className="border border-neutral-200 rounded-2xl" />
-                </div>
-                <div>
-                  <Image src={one} alt="" className="size-full" />
-                </div>
+              <div className="w-full h-full">
+                <Image
+                  src={buildPartnerships}
+                  alt="Trusted Relationships diagram"
+                  className="w-full h-full object-contain rounded-2xl"
+                />
               </div>
             </div>
             <div
@@ -37,7 +33,9 @@ const Benefits = () => {
                 Build Stronger, More Effective Partnerships
               </h3>
               <p className="md:mb-7.5 mb-2.5 text-white">
-                Access standardized, verified data from your partner cooperatives. Measure impact in real-time, make data-driven funding decisions, and strengthen relationships built on trust and transparency.
+                Access standardized, verified data from your partner cooperatives. Measure impact in
+                real-time, make data-driven funding decisions, and strengthen relationships built on
+                trust and transparency.
               </p>
               <div className="grid md:grid-cols-2 gap-5 my-2.5">
                 <div className="flex gap-2.5 flex-col">
@@ -46,21 +44,26 @@ const Benefits = () => {
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Verified Impact Data</h3>
                   <p className="text-white">
-                    Access transparent, auditable data that verifies the real impact of your partnerships.
+                    Access transparent, auditable data that verifies the real impact of your
+                    partnerships.
                   </p>
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:chart-up-linear" className="size-6 text-black" />
+                    <IconifyIconClient icon="tabler:chart-line" className="size-6 text-black" />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Real-Time Insights</h3>
                   <p className="text-white">
-                    Monitor partnership performance continuously to optimize resources and maximize impact.
+                    Monitor partnership performance continuously to optimize resources and maximize
+                    impact.
                   </p>
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:dollar-minimalistic-linear" className="size-6 text-black" />
+                    <IconifyIconClient
+                      icon="solar:dollar-minimalistic-linear"
+                      className="size-6 text-black"
+                    />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">ROI Clarity</h3>
                   <p className="text-white">
@@ -69,11 +72,12 @@ const Benefits = () => {
                 </div>
                 <div className="flex gap-2.5 flex-col">
                   <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                    <IconifyIconClient icon="solar:handshake-linear" className="size-6 text-black" />
+                    <IconifyIconClient icon="tabler:users" className="size-6 text-black" />
                   </div>
                   <h3 className="mb-2.5 lg:text-1.5xl text-xl text-white">Trusted Relationships</h3>
                   <p className="text-white">
-                    Build stronger partnerships through transparency, accountability, and shared success.
+                    Build stronger partnerships through transparency, accountability, and shared
+                    success.
                   </p>
                 </div>
               </div>
@@ -86,4 +90,3 @@ const Benefits = () => {
 };
 
 export default Benefits;
-

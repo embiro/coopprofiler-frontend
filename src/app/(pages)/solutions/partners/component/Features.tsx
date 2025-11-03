@@ -28,7 +28,7 @@ export const features: Feature[] = [
       'Get consistent, professional reports across all partner cooperatives for easy comparison and analysis.',
   },
   {
-    icon: 'solar:handshake-linear',
+    icon: 'tabler:world',
     title: 'Partnership Dashboard',
     description:
       'Monitor all your partner cooperatives from a single dashboard with custom views and automated insights.',
@@ -61,7 +61,10 @@ const Features = () => {
                 data-aos-easing="ease-in-out"
               >
                 <div className="bg-body-bg lg:p-7.5 p-5 rounded-2xl flex flex-col lg:gap-25 md:gap-2.5 gap-7.5 h-full">
-                  <IconifyIconClient icon={feature.icon} className="lg:size-12 size-10 text-primary" />
+                  <IconifyIconClient
+                    icon={feature.icon}
+                    className="lg:size-12 size-10 text-primary"
+                  />
                   <h3 className="text-1.5xl">{feature.title}</h3>
                   <p>{feature.description}</p>
                 </div>
@@ -75,4 +78,3 @@ const Features = () => {
 };
 
 export default Features;
-

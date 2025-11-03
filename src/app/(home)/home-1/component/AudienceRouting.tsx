@@ -51,10 +51,11 @@ const AudienceRouting = () => {
         <div className="container">
           <div className="text-center mb-12.5">
             <h2 className="mb-2.5 lg:text-5.5xl md:text-4.6xl text-3.4xl">
-              Solutions for Every Need
+              Solutions for Everyone
             </h2>
             <p className="text-base mb-2.5 max-w-2xl mx-auto">
-              Discover how our platform serves your specific role in the cooperative ecosystem
+              Whether you are an individual, group, cooperative or partner organisation working and
+              supporing cooperatives, we got you all covered.
             </p>
           </div>
 

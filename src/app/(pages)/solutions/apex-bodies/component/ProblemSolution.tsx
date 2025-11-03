@@ -40,7 +40,7 @@ const ProblemSolution = () => {
                 <div className="grid md:grid-cols-2 gap-7.5">
                   <div className="flex flex-col gap-5">
                     <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                      <IconifyIconClient icon="tabler:users-off" className="size-6 text-black" />
+                      <IconifyIconClient icon="tabler:database-off" className="size-6 text-black" />
                     </div>
                     <h3 className="text-1.5xl">Inconsistent Data Collection</h3>
                     <p>
@@ -63,10 +63,7 @@ const ProblemSolution = () => {
                   </div>
                   <div className="flex flex-col gap-5">
                     <div className="size-12.5 bg-primary rounded-full inline-flex items-center justify-center">
-                      <IconifyIconClient
-                        icon="tabler:time-management"
-                        className="size-6 text-black"
-                      />
+                      <IconifyIconClient icon="tabler:file-time" className="size-6 text-black" />
                     </div>
                     <h3 className="text-1.5xl">Manual Compilation</h3>
                     <p>

@@ -13,7 +13,7 @@ const Hero = () => {
           }}
         >
           {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark/40 via-dark/20 to-transparent" />
         </div>
 
         {/* Content */}
@@ -32,8 +32,8 @@ const Hero = () => {
 
               {/* Description */}
               <p className="lg:mt-4 lg:mb-8 mt-2.5 mb-6 text-white/90 text-base lg:text-lg max-w-xl">
-                The all-in-one platform for cooperatives to collect, analyze, and report on member
-                and business data for informed decision-making and sustainable growth.
+                The all-in-one platform for cooperatives to collect, analyze, and report on status
+                of their members and businesses for informed decision-making and sustainable growth.
               </p>
 
               {/* CTAs */}

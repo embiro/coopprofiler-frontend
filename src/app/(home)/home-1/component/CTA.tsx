@@ -31,8 +31,8 @@ const CTA = () => {
                 Ready to Build a More Resilient Cooperative?
               </h2>
               <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
-                Join cooperatives across the region using CoopProfiler to drive sustainable growth
-                and informed decision-making.
+                Start your journey today with CoopProfiler to know and plan btter for your members
+                and cooperative
               </p>
               <Link
                 href="/pricing-1"
