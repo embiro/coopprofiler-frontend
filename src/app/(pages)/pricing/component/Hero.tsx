@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import IconifyIconClient from '@/component/IconifyIconClient';
-import { usePricing, Country, BillingCycle } from '@/context/PricingContext';
+import { usePricing, Country, BillingCycle, countryCurrencies } from '@/context/PricingContext';
 import PricingCalculator, { PlanType } from './PricingCalculator';
 import ugFlag from '@/assets/images/navigation/ug_flag.png';
 import saFlag from '@/assets/images/navigation/sa_flag.png';
@@ -162,40 +162,52 @@ const Hero = () => {
           <div className="flex items-center justify-center gap-4 mb-4">
             <span className="text-sm font-medium">Currency:</span>
             <div className="flex gap-2">
-              {(['GLOBAL', 'UG', 'RSA'] as Country[]).map(country => (
-                <button
-                  key={country}
-                  onClick={() => setSelectedCountry(country)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${
-                    selectedCountry === country
-                      ? 'bg-primary text-dark'
-                      : 'bg-white text-dark hover:bg-neutral-100'
-                  }`}
-                  title={
-                    country === 'GLOBAL' ? 'Global' : country === 'UG' ? 'Uganda' : 'South Africa'
-                  }
-                >
-                  {country === 'GLOBAL' ? (
-                    'Global'
-                  ) : country === 'UG' ? (
-                    <Image
-                      src={ugFlag}
-                      alt="Uganda"
-                      width={24}
-                      height={18}
-                      className="rounded-sm object-cover"
-                    />
-                  ) : (
-                    <Image
-                      src={saFlag}
-                      alt="South Africa"
-                      width={24}
-                      height={18}
-                      className="rounded-sm object-cover"
-                    />
-                  )}
-                </button>
-              ))}
+              {(['GLOBAL', 'UG', 'RSA'] as Country[]).map(country => {
+                const currency = countryCurrencies[country].currency;
+                return (
+                  <button
+                    key={country}
+                    onClick={() => setSelectedCountry(country)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${
+                      selectedCountry === country
+                        ? 'bg-primary text-dark'
+                        : 'bg-white text-dark hover:bg-neutral-100'
+                    }`}
+                    title={
+                      country === 'GLOBAL' ? 'Global' : country === 'UG' ? 'Uganda' : 'South Africa'
+                    }
+                  >
+                    {country === 'GLOBAL' ? (
+                      <>
+                        <span>Global</span>
+                        <span className="text-xs opacity-75">({currency})</span>
+                      </>
+                    ) : country === 'UG' ? (
+                      <>
+                        <Image
+                          src={ugFlag}
+                          alt="Uganda"
+                          width={24}
+                          height={18}
+                          className="rounded-sm object-cover"
+                        />
+                        <span>{currency}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Image
+                          src={saFlag}
+                          alt="South Africa"
+                          width={24}
+                          height={18}
+                          className="rounded-sm object-cover"
+                        />
+                        <span>{currency}</span>
+                      </>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
