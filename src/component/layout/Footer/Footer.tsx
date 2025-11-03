@@ -46,7 +46,7 @@ const Footer = () => {
                     href="/solutions/apex-bodies"
                     className="hover:text-primary text-white transition-all duration-300 text-sm"
                   >
-                    For Apex Bodies (STAs)
+                    STAs
                   </Link>
                 </li>
                 <li>

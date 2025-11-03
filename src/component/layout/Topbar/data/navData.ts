@@ -31,7 +31,7 @@ export const navMenuData: NavItem[] = [
     type: 'link',
     children: [
       { label: 'For Primary Cooperatives', href: '/solutions/primary-cooperatives' },
-      { label: 'For Apex Bodies (STAs)', href: '/solutions/apex-bodies' },
+      { label: 'For STAs', href: '/solutions/apex-bodies' },
       { label: 'For Partners', href: '/solutions/partners' },
     ],
   },

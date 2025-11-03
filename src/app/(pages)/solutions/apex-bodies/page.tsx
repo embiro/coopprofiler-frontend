@@ -8,8 +8,9 @@ import Faq from './component/Faq';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Solutions for Apex Bodies (STAs) | CoopProfiler',
-  description: 'Lead with confidence. Manage multiple cooperatives, track performance, and strengthen your network with CoopProfiler.',
+  title: 'Solutions for STAs | CoopProfiler',
+  description:
+    'Lead with confidence. Manage multiple cooperatives, track performance, and strengthen your network with CoopProfiler.',
 };
 
 const Page = () => {
@@ -25,4 +26,3 @@ const Page = () => {
 };
 
 export default Page;
-

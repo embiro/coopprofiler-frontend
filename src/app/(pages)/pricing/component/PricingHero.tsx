@@ -63,7 +63,7 @@ const plans: PricingPlan[] = [
     id: 'STA',
     label: 'STA Plan',
     icon: 'solar:network-structure-outline',
-    description: 'For Apex Bodies and STAs',
+    description: 'For STAs',
     planType: 'STA',
     userLimit: 'Unlimited members, 5 user',
     pricingBreakdown: [
@@ -256,7 +256,7 @@ const PricingHero = () => {
           data-aos-duration={500}
           data-aos-easing="ease-in-out"
         >
-          {plans.map((plan) => {
+          {plans.map(plan => {
             return (
               <div
                 key={plan.id}
