@@ -13,7 +13,7 @@
     "@iconify/react": "^4.1.1",
     "aos": "^2.3.4",
     "leaflet": "^1.9.4",
-    "next": "15.3.3",
+    "next": "15.3.8",
     "next-video": "^2.5.0",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
